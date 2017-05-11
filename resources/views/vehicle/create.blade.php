@@ -21,7 +21,6 @@
                         {{ Form::label('introduce', 'Vehicle Introduce:') }}
                         {{ Form::textarea('introduce', null, array('class' => 'form-control', 'required' => ''))}}
                     </div>
-                    
                     {{ Form::submit('Save', array('class' => 'btn btn-success btn-block', 'style' => 'margin-top: 20px;'))}}
                 {{ Form::close()}}
             </div>

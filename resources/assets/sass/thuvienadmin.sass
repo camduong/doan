@@ -1,19 +1,58 @@
+body
+	font-size: 1.5em
+
 .input-group .form-control
-  &:first-child
-    border-right: 1px solid #9a9a9a
-  &:last-child
-    border-left: 1px solid #9a9a9a
+	&:first-child
+		border-right: 1px solid #9a9a9a
+	&:last-child
+		border-left: 1px solid #9a9a9a
 
 .input-to
-  border-color: #9a9a9a
+	border-color: #9a9a9a
 
 .wizard-card .tab-content
-  min-height: auto
+	min-height: auto
 
 .wizard-container
-  padding-top: 70px
+	padding-top: 70px
+	padding-bottom: 55px
+
+.right_col.right-hei
+	min-height: 675px !important
 
 .btn-create-tour
-  display: block
-  margin: 6px 0 0
+	display: block
+	margin: 6px 0 0
 
+.datepicker-dropdown
+  font-weight: 600;
+
+.datepicker
+  div
+    table
+      tr
+        td.disabled, span.disabled
+          color: #DDDDDD !important
+          cursor: not-allowed !important
+        td.new.day
+        	color: rgba(120, 120, 120, 0.73) !important
+
+.nav-md .container.body .right_col
+	padding: 10px 20px
+
+footer.footer_fixed
+	position: fixed
+	bottom: 0px
+	min-height: 0px !important
+	width: 100%
+	padding: 8px 20px 5px !important
+	background-color: #172d44
+	color: #2ca8ff
+
+@media (min-width: 992px)
+	footer
+		margin-left: 0px
+
+.site_title
+	padding: 10px 5px
+	text-align: center

@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-<div class="right_col" role="main">
+<div class="right_col right-hei" role="main">
 	<!--   Big container   -->
 	<div class="wizard-container">
 
@@ -49,7 +49,7 @@
 								{{ Form::label('depart_date', 'Hành trình:', ['class' => 'form-spacing-top'])  }}
 								<div class="datepicker input-daterange input-group">
 									{{ Form:: text('depart_date', null, ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày đi']) }}
-									<span class="input-to input-group-addon">đến</span>
+										<span class="input-to input-group-addon">đến</span>
 									{{ Form:: text('back_date', null, ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày về']) }}
 								</div>
 								<br>
@@ -119,9 +119,9 @@
 	{!! Html::script('assets/js/jquery.bootstrap.wizard.js') !!}
 	{!! Html::script('assets/js/gsdk-bootstrap-wizard.js') !!}
 	<!-- bootstrap-daterangepicker -->
+	{!! Html::script('ckeditor/ckeditor.js') !!}
 	{!! Html::script('js/moment.js') !!}
 	{!! Html::script('js/datepicker.min.js') !!}
-	{!! Html::script('ckeditor/ckeditor.js') !!}
 	<script>
 		$('.datepicker.input-daterange').datepicker({
 			format: "dd/mm/yyyy",
