@@ -41,20 +41,19 @@
 								{{ Form:: text('slug', null, ['class' => 'form-control', 'required' => '']) }}
 								<br>
 								{{ Form::label('price', 'Giá:', ['class' => 'form-spacing-top']) }}
-								{{ Form:: text('price', null, ['class' => 'form-control', 'required' => '']) }}
+								{{ Form:: text('price', null, ['class' => 'form-control', 'required' => '', 'min' => '0']) }}
 								<br>
-								{{ Form::label('number', 'Number:', ['class' => 'form-spacing-top']) }}
-								{{ Form:: number('number', 0, ['class' => 'form-control', 'required' => '']) }}
+								{{ Form::label('number', 'Số vé:', ['class' => 'form-spacing-top']) }}
+								{{ Form:: number('number', 0, ['class' => 'form-control', 'required' => '', 'min' => '0']) }}
 								<br>
 								{{ Form::label('depart_date', 'Hành trình:', ['class' => 'form-spacing-top'])  }}
-								{{-- {{ Form:: text('depart_date', null, ['class' => 'form-control', 'required' => '', 'data-inputmask' => "'mask' : '99/99/9999'", 'placeholder' => 'dd/MM/yyyy']) }} --}}
 								<div class="datepicker input-daterange input-group">
-									<input  class="col-md-4 form-control" type="text" name="depart_date" placeholder="Ngày đi" />
+									{{ Form:: text('depart_date', null, ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày đi']) }}
 									<span class="input-to input-group-addon">đến</span>
-									<input  class="col-md-4 form-control" type="text" name="back_day" placeholder="Ngày đến"/>
+									{{ Form:: text('back_date', null, ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày về']) }}
 								</div>
 								<br>
-								{{ Form::label ('featured_image', 'Tải ảnh lên:') }}
+								{{ Form::label ('featured_image', 'Tải ảnh lên (có thể chọn nhiều ảnh):') }}
 								{{ Form::file('featured_image[]', ['multiple' => ''])}}
 							</div>
 						</div>
@@ -77,7 +76,7 @@
 						<div class="row">
 							<div class="col-sm-10 col-sm-offset-1">
 								{{ Form::label('day', 'Số ngày của chuyến đi:', ['class' => 'form-spacing-top']) }}
-								{{ Form::number('day', 0, ['class' => 'form-control', 'required' => '']) }}
+								{{ Form::number('day', 0, ['class' => 'form-control', 'required' => '', 'min' => '0']) }}
 								<br>
 								{{ Form::label('header', 'Tiêu đề chuyến đi:', ['class' => 'form-spacing-top']) }}
 								{{ Form::textarea('header', null, ['class' => 'form-control ckeditor', 'required', 'name' => 'editor', 'id' => 'header', 'rows' => 10, 'cols' => 80, 'style' => 'margin:0 1% !important']) }}
