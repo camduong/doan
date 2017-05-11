@@ -1,0 +1,42 @@
+extends ../layouts/app
+
+block content
+  main.cd-main-content
+    .container
+      .row
+        .col-md-4.col-md-offset-4
+          .panel-wrap
+            .panel-heading
+              h1.text-center Hello!
+              p.text-center
+                | Wellcome to Vacation World
+                br
+                |  Please login your account!
+            .panel-body
+              form.form-horizontal(role='form', method='POST', action=route('user.login.submit'))
+                div!=csrf_field()
+                navs = json_decode('[["email","E-mail"],["password","Mật khẩu"]]')
+                each nav, i in navs
+                  .form-group(class=$errors->has('#{nav[0]}') ? ' has-error' : '')
+                    .col-md-10.col-md-offset-1
+                      input(id=('#{nav[0]}')).form-control(type=('#{nav[0]}'), name=('#{nav[0]}'), placeholder=('#{nav[1]}'), value=old('#{nav[0]}'), required='', autofocus='')
+                      if ($errors->has('#{nav[0]}'))
+                        span.help-block
+                          strong=$errors->first('#{nav[0]}')
+                .form-group
+                  .col-md-8.col-md-offset-2
+                    .checkbox.text-center
+                      label
+                        input(type='checkbox', name='remember', checked=old('remember') ? 'checked' : null)
+                        |  Remember Me
+                .form-group
+                  .col-md-8.col-md-offset-2.acc-group
+                    button.btn.btn-success.btn-block(type='submit')  Login
+                    a.btn.btn-link.btn-block(href=route('password.request')) Forgot Your Password?
+                    p.text-center(style='margin:0;') - or -
+                    a.btn.btn-link.btn-block(href=route('register'))
+                      | Don't have an account?
+                      br
+                      | Register now!
+
+  include ../layouts/app-script

@@ -1,0 +1,79 @@
+html, body {
+	background-color: #fff !important;
+	color: #636b6f;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 100;
+	height: 100vh;
+	margin: 0;
+}
+
+.navbar-default {
+    background-color: rgba(0, 204, 255, 1)!important;
+    border: 0 !important;
+
+    border-color:rgba(0, 0, 0, 0) !important;
+}
+
+.navbar-default a{
+
+	color: rgba(255, 255, 255, 1);
+}
+.wel-padding-top{
+	padding-top: 50px;
+}
+
+.carousel-control.left, .carousel-control.right{
+	background-image: none !important;
+}
+
+.title-wel{
+	margin: 5px auto 10px;
+	width: 400px
+}
+
+.view-more{
+	/*height: 22px;*/
+}
+
+.view-more a{
+	float: right;
+}
+.flex-center {
+	align-items: center;
+	/*display: normal;*/
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+.position-ref {
+	position: relative;
+}
+
+.top-right {
+	position: absolute;
+	right: 10px;
+	top: 18px;
+}
+
+.content {
+	/*text-align: center;*/
+}
+
+.title {
+	font-size: 84px;
+}
+
+.links > a {
+	color: #636b6f;
+	padding: 0 25px;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: .1rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.m-b-md {
+	margin-bottom: 30px;
+}

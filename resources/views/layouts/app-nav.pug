@@ -1,0 +1,38 @@
+header
+  .cd-logo
+    a(href='/')
+      img(src='../img/logo.png', alt='Logo')
+  nav.cd-main-nav-wrapper
+    ul.cd-main-nav
+      li
+        a(href='/') Trang chủ
+      li
+        a(href='/tour') Chuyến đi
+      li
+        a(href='/detail') Chi tiết chuyến đi
+      li
+        a.cd-subnav-trigger(href='#0')
+          span Menu
+        ul
+          li.go-back
+            a(href='#0') Menu
+
+          if (Auth::guest())
+            li.nav-item
+              a.nav-link(href = route("user.login")) Đăng nhập
+            li.nav-item
+              a.nav-link(href = route("register")) Đăng ký
+          else
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')=Auth::user()->name
+
+                span.caret
+              ul.dropdown-menu.dropdown-logout(role='menu')
+                li
+                  a(href= route('user.logout.submit'), onclick="event.preventDefault();document.getElementById('logout-form').submit();") Logout
+                  form#logout-form(action=route('user.logout.submit'), method='POST', style='display: none;')
+                    div!=csrf_field()
+          li
+            a.placeholder(href='#0') Placeholder
+  a.cd-nav-trigger(href='#0')
+    span

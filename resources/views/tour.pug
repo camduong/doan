@@ -1,0 +1,125 @@
+extends layouts/app-wels
+block content
+  main.cd-main-content.main-user.main-tour
+    .intro
+
+    .container
+      .row
+        .col-md-4
+          .input-group
+            input.form-control(type='text', placeholder='Search for...')
+            span.input-group-btn
+              button.btn.btn-secondary(type='button') Go!
+        .col-md-4
+          .input-group
+            input.form-control(type='text', placeholder='Search for...')
+            span.input-group-btn
+              button.btn.btn-secondary(type='button') Go!
+        .col-md-4
+          .datepicker.input-daterange.input-group
+            input.form-control(type='text', name='start')
+            span.input-group-addon to
+            input.form-control(type='text', name='end')
+
+      .row.justify-content-md-center#tour-overflow
+        .grid
+          .grid-sizer
+          grids = json_decode('[["relax","3.990.000","5",""],["nhatrang1","2.000.000","5",""],["nhatrang0","5.230.000","4",""],["vungtau0","3.999.000","4",""],["camranh","4.000.000","4",""],["diving","5.000.000","6",""],["halong","4.999.000","6",""],["mountains","5.159.000","5",""],["sea0","4.660.000","6",""],["dalat3","2.750.000","5",""],["dalat1","4.000.000","6",""],["dalat2","2.000.000","4",""],["nhatrang1","5.590.000","6",""],["nhatrang0","5.000.000","2",""],["vungtau0","6.000.000","2",""],["camranh","3.690.000","5",""],["diving","2.000.000","2",""],["halong","4.000.000","6",""],["mountains","4.000.000","2",""],["sea0","2.000.000","2",""],["dalat3","5.000.000","6",""],["dalat1","4.000.000","2",""],["dalat2","2.000.000","6",""]]')
+          each grid, i in grids
+            .grid-item
+              img(src='../img/#{grid[0]}.jpg', alt='Card image cap')
+              .grid-intro.col-md-12
+                a(href='#')
+                  h3 #{grid[0]}
+                .col-md-5.col-xs-12
+                  i.fa.fa-clock-o(aria-hidden='true')
+                  h5 #{grid[2]} ngày
+                  br
+                  i.fa.fa-calendar(aria-hidden='true')
+                  h5 31/12/9999
+                .col-md-7.col-xs-12
+                  br
+                  h3
+                    | #{grid[1]}
+                    sup VND
+
+
+
+
+      button.btn.btn-secondary.btn-lg.btn-overflow(type='button') Xem thêm
+    nav.page(aria-label='Page navigation example')
+      ul.pagination.justify-content-center
+        li.page-item
+          a.page-link(href='#', aria-label='Previous')
+            span(aria-hidden='true') &laquo;
+            span.sr-only Previous
+        li.page-item
+          a.page-link(href='#') 1
+        li.page-item
+          a.page-link(href='#') 2
+        li.page-item
+          a.page-link(href='#') 3
+        li.page-item
+          a.page-link(href='#', aria-label='Next')
+            span(aria-hidden='true') &raquo;
+            span.sr-only Next
+    //- <div class="text-right">
+    //-     {!! $tours->links() !!} 
+    //- </div>
+    .second
+
+  include layouts/app-footer
+  script(type='text/javascript', src='../js/parallax.js')
+  script(type='text/javascript', src='../js/moment.js')
+  script(type='text/javascript', src='../js/datepicker.min.js')
+  script(type='text/javascript', src='../js/isotope.pkgd.min.js')
+  script(type='text/javascript', src='../js/imagesloaded.pkgd.min.js')
+  script(type='text/javascript', src='../js/curtail.min.js')
+  script(type='text/javascript').
+    $('.intro').parallax("50%", 0.1);
+    $('.second').parallax("50%", 0.1);
+    var grid = document.querySelector('.grid');
+    var iso = new Isotope( grid, {
+      itemSelector: '.grid-item',
+      percentPosition: true,
+      masonry: {
+        columnWidth: '.grid-sizer'
+      }
+    });
+
+    imagesLoaded( grid ).on( 'progress', function() {
+      // layout Isotope after each image loads
+      iso.layout();
+    });
+
+    $('.datepicker.input-daterange').datepicker({
+      format: "dd/mm/yyyy",
+      startDate: "-infinity",
+      endDate:"+7m,+4d",
+      maxViewMode: 1,
+      todayBtn: "linked",
+      todayHighlight: true
+    });
+    $(window).on("load",function(){
+    var text = $('#tour-overflow'),
+        btn = $('.btn-overflow'),
+        page = $('.page'),
+        h=text[0].scrollHeight;
+      if(h > 645) {
+        btn.addClass('less');
+        btn.css('display', 'block');
+      }
+      btn.click(function(e){
+        if (btn.hasClass('less')) {
+          btn.removeClass('less');
+          btn.css('display','none');
+          text.animate({'height': h});
+          page.css('display','block');
+        }else {
+          btn.addClass('less');
+          btn.removeClass('more');
+          btn.text('Show more');
+          text.animate({'height': '645px'});
+        }
+      });
+    })

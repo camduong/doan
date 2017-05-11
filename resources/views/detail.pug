@@ -1,0 +1,164 @@
+extends layouts/app-wels
+block content
+  main.cd-main-content.main-user
+    .container
+      #tour-con.col-xs-12.col-sm-7
+        ul.bxslider
+          navs = json_decode('[["sea0"],["sea1"],["mountains2"],["relax"]]')
+          each nav, i in navs
+            li
+              img(src='../img/#{nav[0]}.jpg')
+        .row
+          h3.tour-name
+            | Miền Tây - Sa Đéc - Cần Thơ - Cà Mau - Bạc Liêu - Sóc Trăng (1 đêm khách sạn 5 sao tại Cà Mau)
+          .col-xs-8.col-lg-7.tour-det
+            ul.detail-lab.col-lg-4
+              li Mã tour:
+              li Thời gian:
+              li Khởi hành:
+              li Nơi khởi hành:
+              li Số chỗ còn nhận:
+            ul.detail-inf.col-lg-8
+              li NDSGN846-032-150417XE-U-1
+              li 4 ngày
+              li 15/04/2017
+              li Hồ Chí Minh
+              li 2
+          .col-xs-4.col-lg-5.p-b
+            h3.gia 5.399.000 VND
+            p
+              a.btn.btn-default(href='#', role='button') Đặt ngay
+          .clearfix
+          .detail-tour
+            ul.nav.nav-tabs(role='tablist', style='margin-bottom: 20px;')
+              li.active(role='presentation')
+                a(href='#chuongtrinh', aria-controls='chuongtrinh', role='tab', data-toggle='tab') Chương trình
+              li(role='presentation')
+                a(href='#binhluan', aria-controls='binhluan', role='tab', data-toggle='tab') Bình luận
+            .tab-content
+              #chuongtrinh.tab-pane.fade.in.active(role='tabpanel')
+                ul
+                  li
+                    h4#ngay1 Ngày 1: TP.HCM - SA ĐÉC - CẦN THƠ (Ăn ba bữa)
+                    | Lorem ipsum dolor sit amet, id utinam epicuri salutandi cum. Eum verear numquam salutatus te. Et ponderum accusata intellegam ius, in dicam utamur consetetur mei, his assum prompta hendrerit te. Te dicit eleifend torquatos qui, vis nisl soluta ad, no virtute laoreet honestatis sit. Eu menandri mandamus vix, ei tempor dolores sed. Qui ad vitae perfecto.
+
+                    | Nec in consul sanctus philosophia. Te accusam definitionem vis. Ex sed novum decore. Essent epicurei vim no. Sit eros tractatos eloquentiam id, sed ex vidisse imperdiet constituto, duo primis disputando eloquentiam cu.
+
+                    | Eam te minim libris labore. Vis quod semper scripta id, vel audire electram cu. Et dolor invidunt salutandi nec, mei praesent complectitur no. Ius te regione aperiam moderatius, vis putent tractatos ei, no doming cotidieque mei.
+
+                    | Essent regione reprehendunt cum id, homero ancillae mentitum ei mei, case facer populo qui an. Per no dicam oratio euripidis. Agam referrentur per ex. Quas iisque iracundia ad pri, nihil nemore aperiri cu qui. Ei eam option delectus scribentur, vim id alia assum summo, scripta rationibus vim eu. Ex sea nostro prompta aliquando.
+
+                    | Mel electram mediocrem cu, cum an sonet delenit, vix ut agam omnis equidem. Vel cu iisque alterum. No mei mundi meliore erroribus, alia erant iracundia pro cu. Vis malorum nominati id. In vix magna integre urbanitas, nam paulo omnium id. Omnis copiosae eam ea, aperiri placerat id vim.
+                  li
+                    h4#ngay2 Ngày 2: CẦN THƠ - CÀ MAU (Ăn ba bữa)
+                    | Lorem ipsum dolor sit amet, id utinam epicuri salutandi cum. Eum verear numquam salutatus te. Et ponderum accusata intellegam ius, in dicam utamur consetetur mei, his assum prompta hendrerit te. Te dicit eleifend torquatos qui, vis nisl soluta ad, no virtute laoreet honestatis sit. Eu menandri mandamus vix, ei tempor dolores sed. Qui ad vitae perfecto.
+
+                    | Nec in consul sanctus philosophia. Te accusam definitionem vis. Ex sed novum decore. Essent epicurei vim no. Sit eros tractatos eloquentiam id, sed ex vidisse imperdiet constituto, duo primis disputando eloquentiam cu.
+
+                    | Eam te minim libris labore. Vis quod semper scripta id, vel audire electram cu. Et dolor invidunt salutandi nec, mei praesent complectitur no. Ius te regione aperiam moderatius, vis putent tractatos ei, no doming cotidieque mei.
+
+                    | Essent regione reprehendunt cum id, homero ancillae mentitum ei mei, case facer populo qui an. Per no dicam oratio euripidis. Agam referrentur per ex. Quas iisque iracundia ad pri, nihil nemore aperiri cu qui. Ei eam option delectus scribentur, vim id alia assum summo, scripta rationibus vim eu. Ex sea nostro prompta aliquando.
+
+                    | Mel electram mediocrem cu, cum an sonet delenit, vix ut agam omnis equidem. Vel cu iisque alterum. No mei mundi meliore erroribus, alia erant iracundia pro cu. Vis malorum nominati id. In vix magna integre urbanitas, nam paulo omnium id. Omnis copiosae eam ea, aperiri placerat id vim.
+                  li
+                    h4#ngay3 Ngày 3: CÀ MAU - ĐẤT MŨI - BẠC LIÊU (Ăn ba bữa)
+                    | Lorem ipsum dolor sit amet, id utinam epicuri salutandi cum. Eum verear numquam salutatus te. Et ponderum accusata intellegam ius, in dicam utamur consetetur mei, his assum prompta hendrerit te. Te dicit eleifend torquatos qui, vis nisl soluta ad, no virtute laoreet honestatis sit. Eu menandri mandamus vix, ei tempor dolores sed. Qui ad vitae perfecto.
+
+                    | Nec in consul sanctus philosophia. Te accusam definitionem vis. Ex sed novum decore. Essent epicurei vim no. Sit eros tractatos eloquentiam id, sed ex vidisse imperdiet constituto, duo primis disputando eloquentiam cu.
+
+                    | Eam te minim libris labore. Vis quod semper scripta id, vel audire electram cu. Et dolor invidunt salutandi nec, mei praesent complectitur no. Ius te regione aperiam moderatius, vis putent tractatos ei, no doming cotidieque mei.
+
+                    | Essent regione reprehendunt cum id, homero ancillae mentitum ei mei, case facer populo qui an. Per no dicam oratio euripidis. Agam referrentur per ex. Quas iisque iracundia ad pri, nihil nemore aperiri cu qui. Ei eam option delectus scribentur, vim id alia assum summo, scripta rationibus vim eu. Ex sea nostro prompta aliquando.
+
+                    | Mel electram mediocrem cu, cum an sonet delenit, vix ut agam omnis equidem. Vel cu iisque alterum. No mei mundi meliore erroribus, alia erant iracundia pro cu. Vis malorum nominati id. In vix magna integre urbanitas, nam paulo omnium id. Omnis copiosae eam ea, aperiri placerat id vim.
+
+                  li
+                    h4#ngay4 Ngày 4: BẠC LIÊU - SÓC TRĂNG - TP.HCM (Ăn sáng, trưa)
+                    | Lorem ipsum dolor sit amet, id utinam epicuri salutandi cum. Eum verear numquam salutatus te. Et ponderum accusata intellegam ius, in dicam utamur consetetur mei, his assum prompta hendrerit te. Te dicit eleifend torquatos qui, vis nisl soluta ad, no virtute laoreet honestatis sit. Eu menandri mandamus vix, ei tempor dolores sed. Qui ad vitae perfecto.
+
+                    | Nec in consul sanctus philosophia. Te accusam definitionem vis. Ex sed novum decore. Essent epicurei vim no. Sit eros tractatos eloquentiam id, sed ex vidisse imperdiet constituto, duo primis disputando eloquentiam cu.
+
+                    | Eam te minim libris labore. Vis quod semper scripta id, vel audire electram cu. Et dolor invidunt salutandi nec, mei praesent complectitur no. Ius te regione aperiam moderatius, vis putent tractatos ei, no doming cotidieque mei.
+
+                    | Essent regione reprehendunt cum id, homero ancillae mentitum ei mei, case facer populo qui an. Per no dicam oratio euripidis. Agam referrentur per ex. Quas iisque iracundia ad pri, nihil nemore aperiri cu qui. Ei eam option delectus scribentur, vim id alia assum summo, scripta rationibus vim eu. Ex sea nostro prompta aliquando.
+
+                    | Mel electram mediocrem cu, cum an sonet delenit, vix ut agam omnis equidem. Vel cu iisque alterum. No mei mundi meliore erroribus, alia erant iracundia pro cu. Vis malorum nominati id. In vix magna integre urbanitas, nam paulo omnium id. Omnis copiosae eam ea, aperiri placerat id vim.
+              #binhluan.tab-pane.fade(role='tabpanel')
+                textarea#editor1(name='description', rows='10', cols='80')
+        hr
+      #sidebar.col-xs-6.col-sm-5
+        #myaffix
+          ul.sum-tour
+            h3.headers Tóm tắt chuyến đi
+            tt = json_decode('[["Ngày 1: TP.HCM - SA ĐÉC - CẦN THƠ (Ăn ba bữa)","#ngay1"],["Ngày 2: CẦN THƠ - CÀ MAU (Ăn ba bữa)","#ngay2"],["Ngày 3: CÀ MAU - ĐẤT MŨI - BẠC LIÊU (Ăn ba bữa)","#ngay3"],["Ngày 4: BẠC LIÊU - SÓC TRĂNG - TP.HCM (Ăn sáng, trưa)","#ngay4"]]')
+            each tts,i in tt
+              li
+                a(href="#{tts[1]}") #{tts[0]}
+              hr
+          ul.sub-less-pri
+            h3.headers Có thể bạn muốn đi?
+            li
+              a(href='#')
+                h4 Nha Trang - Nghỉ dưỡng Vinpearl Resort 5* (Máy Bay. Đã bao gồm vé tham quan ...
+              span.col-lg-7
+                h3 6,990,000 VNĐ
+                p Giá đã giảm 1,500,000 VNĐ
+              span.col-lg-5
+                p Khởi hành
+                p 05/05/2017
+              .clearfix
+            hr
+            li
+              a(href='#')
+                h4 Hà Nội - Vinpearl Hạ Long Resort 5* - Bái Đính - Tràng An - Động Thiên Cung ...
+              span.col-lg-7
+                h3 7,990,000 VNĐ
+                p Giá đã giảm 1,000,000 VNĐ
+              span.col-lg-5
+                p Khởi hành
+                p 06/05/2017
+              .clearfix
+            hr
+
+  include layouts/app-footer
+  script(src='../js/ckeditor/ckeditor.js', type='text/javascript', charset='utf-8')
+  script(src='../js/sticky-kit.min.js', type='text/javascript')
+  //- script(src='../js/jquery.scrollTo.min.js', type='text/javascript')
+  script(type='text/javascript', src='../js/bxslider.min.js')
+
+  script(type='text/javascript').
+    $(function(){
+      $('#myaffix').affix({
+        offset: {
+          top: $('#tour-con').offset().top,
+          bottom: (function () {
+            return (this.bottom = $('.page-footer').outerHeight(true))
+          })
+        }
+      })
+    });
+    $('.bxslider').bxSlider({
+      speed: 800,
+      auto: true,
+      hideControlOnEnd: true,
+      controls: true
+    });
+
+    //- smooth scroll
+    var offset=100;
+    $(".sum-tour").on("click","a[href*=\\#]:not([href=\\#])", function(event){
+      var hash = this.hash;
+      var $target = $(hash);
+       if($target.length){
+        $("html,body").stop().animate({
+          scrollTop: $target.offset().top - offset
+        }, 800, function(){
+          if(history.pushState) {
+            history.pushState(null, null, hash);
+          }
+        });
+        event.preventDefault();
+      }
+    });
+
+    CKEDITOR.replace( 'editor1' );

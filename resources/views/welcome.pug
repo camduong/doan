@@ -1,0 +1,108 @@
+extends layouts/app-wels
+block content
+
+  main.cd-main-content.main-user
+    //- {{-- carousel star --}}
+    .container
+      ul.bxslider
+        navs = json_decode('[["sea0"],["sea1"],["mountains2"],["relax"]]')
+        each nav, i in navs
+          li
+            img(src='../img/#{nav[0]}.jpg')
+    //- {{-- carousel end --}}
+    .container.book-form
+      .form-group.text-center
+        nbvs = json_decode('[["Loại hình","false",["Trong nước","Ngoài nước"]],["Nơi đến","true",["Bình Định","Cà Mau","Cần Thơ","Gia Lai","Hà Nội","Hải Phòng","Khánh Hòa","Kiên Giang","Kiên Giang","Lâm Đồng","Nghệ An","Phú Yên","Quảng Bình","Quảng Nam","Thanh Hóa","Thành phố Hồ Chí Minh","Thừa Thiên - Huế","Điện Biên","Đà Nẵng","Đắk Lắk"]]]')
+        each nbv, i in nbvs
+          select.selectpicker.input-group.col-xs-4(data-live-search='#{nbv[1]}', title='#{nbv[0]}')
+            each ncv,a in nbv[2]
+              option(data-tokens=('#{ncv}')) #{ncv}
+
+        .col-xs-2.input-group.text-center(style='display:inline-block; padding:15px;')
+          button.btn.btn-default.btn-member(type='submit' style='width:100%')
+            i.glyphicon.glyphicon-search
+
+        //- li.col-md-3
+        //-   .input-group
+        //-     input#member.form-control(type='text', placeholder='Thành viên')
+    .introduce
+      .wrap-intro.container
+        h1.text-center.i-header Giới thiệu
+        p.text-center.i-info
+          | The environment is particularly family, children and young people easily get along. Playing is their form of communication. Adults find common interests and make new friends. That is the ambience at Hotel Paradiso and for many, every time, it feels "like home".
+      .container
+        .row.no-margin
+        navs = json_decode('[["mountains_thum","Mountain","The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club."],["diving_thum","Beach & Diving","Located near the seaside in Villa Rosa – Martinsicuro in the Abruzzo region, this small coastal resort is ideal for family holidays, all submerged amid an oasis of greenery within 200 metres from the beach."],["mountains_thum","Family Hotel","The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club."]]')
+        each nav, i in navs
+          .col.col-md-4.no-padding.thumbnail
+            div(id="block#{i}").clearfix
+              .i-tn-img-box
+                img.img-responsive(src='../img/#{nav[0]}.jpg')
+                .cap-header
+                  h1 #{nav[1]}
+                .block-caption
+                  .info
+                    h2 #{nav[1]}
+                    p
+                      | #{nav[2]}
+                    a.btn(href='') Read more
+    .offer
+      .wrap-offer
+        .wrap-offer-content.container
+          h1.text-center.o-header Khuyến Mãi
+          p.text-center.o-info
+            | The environment is particularly family, children and young people easily get along. Playing is their form of communication. Adults find common interests and make new friends. That is the ambience at Hotel Paradiso and for many, every time, it feels "like home".
+        .container
+          .row.no-margin
+            navs = json_decode('[["mountains_thum","Family Hotel","The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club."],["mountains_thum","Family Hotel","The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club."],["mountains_thum","Family Hotel","The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club."],["mountains_thum","Family Hotel","The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club."]]')
+            each nav, i in navs
+              .col.col-md-3.col-sm-6.no-padding.thumbnail
+                div(id="block#{i}").clearfix
+                  .o-tn-img-box
+                    img.img-responsive(src='../img/#{nav[0]}.jpg')
+                    .cap-header
+                      h1 #{nav[1]}
+                    .block-caption
+                      .info
+                        h2 #{nav[1]}
+                        p
+                          | #{nav[2]}
+                        a.btn(href='') Read more
+
+    .contact
+      .wrap-con.container
+        h1.text-center.c-header Giới thiệu
+        p.text-center.i-info
+          | The environment is particularly family, children and young people easily get along. Playing is their form of communication. Adults find common interests and make new friends. That is the ambience at Hotel Paradiso and for many, every time, it feels "like home".
+
+  include layouts/app-footer
+  script(type='text/javascript', src='../js/parallax.js')
+  script(type='text/javascript', src='../js/bxslider.min.js')
+  script(type='text/javascript', src='../js/moment.js')
+  script(type='text/javascript', src='../js/datepicker.min.js')
+  script(type='text/javascript').
+    $('#datepicker.date').datepicker({
+      format: "dd/mm/yyyy",
+      weekStart: 0,
+      startView: 0,
+      maxViewMode: 1,
+      autoclose: true,
+      todayHighlight: true,
+      startDate:"-infinity",
+      endDate: "+6m",
+      todayBtn: "linked",
+    });
+    $('.offer').parallax("100%", -0.1);
+    $('.bxslider').bxSlider({
+      mode: 'fade',
+      speed: 800,
+      auto: true,
+      hideControlOnEnd: true,
+      controls: true
+    });
+    $('.selectpicker').selectpicker({
+      style: 'btn-default',
+      size: 3
+    });
+
+
