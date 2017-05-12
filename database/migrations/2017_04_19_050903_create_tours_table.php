@@ -17,16 +17,15 @@ class CreateToursTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->integer('hotel_id')->unsigned();          
+            $table->integer('hotel_id')->unsigned();
             $table->integer('location_id')->unsigned();
-            $table->integer('vehicle_id')->unsigned();    
+            $table->integer('vehicle_id')->unsigned();
             $table->integer('number')->unsigned();
             $table->date('depart_date');
             $table->date('back_date');
             $table->tinyinteger('day')->unsigned();
             $table->unsignedInteger('price');
-            $table->text('detail_schedule');
-            $table->text('header_schedule');
+            $table->text('schedule');
             $table->timestamps();
         });
     }

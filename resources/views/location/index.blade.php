@@ -6,13 +6,13 @@
 <div class="right_col" role="main">
 	<div class="row">
 		<div class="col-md-9">
-			<h1>All Location</h1>
+			<h1>Địa điểm</h1>
 		</div>
 
 		<div class="col-md-3">
 			<!-- Button trigger modal -->
 			<button type="button" class="btn btn-lg btn-primary btn-h1-spacing" data-toggle="modal" data-target="#myModal">
-			  Create New Location
+			  Tạo mới địa điểm
 			</button>
 		</div>
 			<!-- Modal -->
@@ -20,19 +20,19 @@
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 				<div class="modal-dialog" role="document">
           <div class="modal-content">
-	    			<h3 class="modal-header">Create New Location</h3>
+	    			<h3 class="modal-header">Tạo mới địa điểm</h3>
 	    			<div class="modal-body">
 	            {{ Form::open(['route' => 'location.store', 'data-parsley-validate'])}}
 	              {{ csrf_field() }}
 	                <div class="form-group">
-	                  {{ Form::label('name','Name:') }}
+	                  {{ Form::label('name','Tên:') }}
 	                  {{ Form::text('name', null, array('class' => 'form-control', 'required' => ''))}}
 	                </div>
 	                <div class="form-group">
-	                  {{ Form::label('introduce', 'Location Introduce:') }}
+	                  {{ Form::label('introduce', 'Giới thiệu địa điểm:') }}
 	                  {{ Form::textarea('introduce', null, array('class' => 'form-control', 'required' => ''))}}
 	                </div>
-	                {{ Form::submit('Save', array('class' => 'btn btn-success btn-block', 'style' => 'margin-top: 20px;'))}}
+	                {{ Form::submit('Lưu', array('class' => 'btn btn-success btn-block', 'style' => 'margin-top: 20px;'))}}
 	            {{ Form::close()}}
 	          </div>
           </div>
@@ -49,9 +49,9 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Name</th>
-						<th>Introduce</th>
-						<th></th>
+						<th>Tên</th>
+						<th>Giới thiệu</th>
+						<th>Thao tác</th>
 					</tr>
 				</thead>
 				<tbody>

@@ -27,8 +27,7 @@
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="detailtour" aria-labelledby="profile-tab">
                                 <p class="lead">Schedule:</p>
-                                <p class="lead">Header Schedule:{!! $tour->header_schedule !!}</p>
-                                <p class="lead">Detail Schedule:{!! $tour->detail_schedule !!}</p>
+                                <p class="lead">{!! $tour->schedule !!}</p>
                             </div>
                         </div>
                     </div>

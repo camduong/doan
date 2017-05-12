@@ -56,10 +56,6 @@ class TourController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -90,10 +86,8 @@ class TourController extends Controller
         $tour->back_date = date('Y/d/m',strtotime($request->back_date));
         $tour->day = $request->day;
         $tour->price = $request->price;
-        $tour->detail_schedule = $request->detail;
-        $tour->header_schedule = $request->header;
+        $tour->schedule = $request->detail;
         $tour->save();
-        
         if($request->featured_images)
         {
             foreach ($uprequest->featured_image as $image2) {
@@ -108,7 +102,7 @@ class TourController extends Controller
                 $image->save();
             }
         }
-        
+
         //print_r($myimage);
         //die;
         Session::flash('success', 'The tour was sucessfully save!');
@@ -183,7 +177,6 @@ class TourController extends Controller
                 'name' => 'required|max:255',
                 'price' => 'required|integer',
                 'day' => 'required|integer',
-                'header' => 'required',
                 'detail' => 'required',
             ));
         } else {
@@ -192,7 +185,6 @@ class TourController extends Controller
                 'slug'  => 'required|alpha_dash|min:5|max:255|unique:tours,slug',
                 'price' => 'required|integer',
                 'day' => 'required|integer',
-                'header' => 'required',
                 'detail' => 'required',
             ));
         }
@@ -209,8 +201,7 @@ class TourController extends Controller
         $tour->back_date = $request->input('back_date');
         $tour->day = $request->input('day');
         $tour->price = $request->input('price');
-        $tour->detail_schedule = $request->input('detail');
-        $tour->header_schedule = $request->input('header');
+        $tour->schedule = $request->input('detail');
         $tour->save();
         //set flash data with success message
         Session::flash('success', 'This tour was successfully saved.');

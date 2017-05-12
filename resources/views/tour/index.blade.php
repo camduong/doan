@@ -13,7 +13,7 @@
 <div class="right_col" role="main">
 	<div class="row">
 		<div class="col-md-9">
-			<h1>All Tour</h1>
+			<h1>Chuyến đi</h1>
 		</div>
 
 		<div class="col-md-3">
@@ -66,9 +66,9 @@
 											<br>
 											{{ Form::label('depart_date', 'Hành trình:', ['class' => 'form-spacing-top'])  }}
 											<div class="datepicker input-daterange input-group">
-												{{ Form:: text('depart_date', \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y') , ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày đi']) }}
+												{{ Form:: text('depart_date', \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y') , ['class' => 'col-md-4 form-control', 'placeholder' => 'Ngày đi']) }}
 													<span class="input-to input-group-addon">đến</span>
-												{{ Form:: text('back_date', \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y'), ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày về']) }}
+												{{ Form:: text('back_date', \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y'), ['class' => 'col-md-4 form-control', 'placeholder' => 'Ngày về']) }}
 											</div>
 											<br>
 											{{ Form::label ('featured_image', 'Tải ảnh lên (có thể chọn nhiều ảnh):') }}
@@ -80,13 +80,13 @@
 									<div class="row">
 										<div class="col-sm-10 col-sm-offset-1">
 											{{ Form::label('hotel_id', 'Khách sạn:', ['class' => 'form-spacing-top']) }}
-											{{ Form::select('hotel_id', $hotels, null, ['class' => 'form-control', 'placeholder' => 'Select hotel'])}}
+											{{ Form::select('hotel_id', $hotels, null, ['class' => 'form-control', 'placeholder' => 'Chọn khách sạn'])}}
 											<br>
 											{{ Form::label('location_id', 'Địa điểm:', ['class' => 'form-spacing-top']) }}
-											{{ Form::select('location_id', $locations, null, ['class' => 'form-control', 'placeholder' => 'Select city'])}}
+											{{ Form::select('location_id', $locations, null, ['class' => 'form-control', 'placeholder' => 'Chọn thành phố'])}}
 											<br>
 											{{ Form::label('vehicle_id', 'Phương tiện:', ['class' => 'form-spacing-top']) }}
-											{{ Form::select('vehicle_id', $vehicles, null, ['class' => 'form-control', 'placeholder' => 'Select vehicle'])}}
+											{{ Form::select('vehicle_id', $vehicles, null, ['class' => 'form-control', 'placeholder' => 'Chọn phương tiện'])}}
 										</div>
 									</div>
 								</div>
@@ -126,11 +126,11 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Name</th>
-						<th>Price</th>
-						<th>Day</th>
-						<th>Created At</th>
-						<th>Action</th>
+						<th>Tên</th>
+						<th>Giá</th>
+						<th>Số ngày</th>
+						<th>Ngày tạo</th>
+						<th>Thao tác</th>
 					</tr>
 				</thead>
 
@@ -144,10 +144,10 @@
 							<td>{{ date('j m,Y', strtotime($tour->created_at)) }}</td>
 							<td>
 								<a href="{{ route('tour.show', $tour->id) }}" class="btn btn-app">
-								<i class="fa fa-eye"></i>View
+								<i class="fa fa-eye"></i>
 								</a>
 								<a href="{{ route('tour.edit', $tour->id) }}" class="btn btn-app">
-								<i class="fa fa-edit"></i> Edit
+								<i class="fa fa-edit"></i>
 								</a>
 							</td>
 						</tr>

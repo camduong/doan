@@ -6,12 +6,12 @@
 <div class="right_col" role="main">
 	<div class="row">
 		<div class="col-md-9">
-			<h1>All Vehicle</h1>
+			<h1>Phương tiện</h1>
 		</div>
 
 		<div class="col-md-3">
 			<button type="button" class="btn btn-lg btn-primary btn-h1-spacing" data-toggle="modal" data-target="#myModal">
-			  Create New Vehicle
+			  Tạo phương tiện
 			</button>
 		</div>
 		<!-- Modal -->
@@ -19,19 +19,19 @@
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
-					<h3 class="modal-header">Create New Vehicle</h3>
+					<h3 class="modal-header">Tạo phương tiện</h3>
 					<div class="modal-body">
 						{{ Form::open(['route' => 'vehicle.store', 'data-parsley-validate'])}}
 							{{ csrf_field() }}
 							<div class="form-group">
-								{{ Form::label('name','Name:') }}
+								{{ Form::label('name','Tên:') }}
 								{{ Form::text('name', null, array('class' => 'form-control', 'required' => ''))}}
 							</div>
 							<div class="form-group">
-								{{ Form::label('introduce', 'Vehicle Introduce:') }}
+								{{ Form::label('introduce', 'Thông tin:') }}
 								{{ Form::textarea('introduce', null, array('class' => 'form-control', 'required' => ''))}}
 							</div>
-							{{ Form::submit('Save', array('class' => 'btn btn-success btn-block', 'style' => 'margin-top: 20px;'))}}
+							{{ Form::submit('Lưu', array('class' => 'btn btn-success btn-block', 'style' => 'margin-top: 20px;'))}}
 						{{ Form::close()}}
 					</div>
 				</div>
@@ -48,9 +48,9 @@
 			<table class="table">
 				<thead>
 					<th>#</th>
-					<th>Name</th>
-					<th>Introduce</th>
-					<th></th>
+					<th>Tên</th>
+					<th>Thông tin</th>
+					<th>Thao tác</th>
 				</thead>
 
 				<tbody>
