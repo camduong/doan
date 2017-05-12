@@ -128,9 +128,9 @@ class TourController extends Controller
     public function show($id)
     {
         $tour = Tour::find($id);
-        $tt = explode("<p>",$tour->header_schedule);
-        print_r(json_encode($tt));
-        die;
+        // $tt = explode("<p>",$tour->header_schedule);
+        // print_r(json_encode($tt));
+        // die;
         return view('tour.show')->withTour($tour);
     }
 
