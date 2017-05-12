@@ -18,7 +18,6 @@
 					<a><i class="fa fa-road"></i> Tour <span class="fa fa-chevron-down"></span></a>
 					<ul class="nav child_menu">
 						<li><a href="{{ route('tour.index') }}"><i class="fa fa-book" style="width:20%!important"></i>Show All Tour</a></li>
-						<li><a href="{{ route('tour.create') }}"><i class="fa fa-edit" style="width:20%!important"></i>Add New Tour</a></li>
 					</ul>
 				</li>
 				<li>

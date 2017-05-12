@@ -26,16 +26,6 @@ class TourController extends Controller
     public function index()
     {
         $tours = Tour::all();
-        return view('tour.index')->withTours($tours);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {   
         $hotels = Hotel::all();
         $hot = [];
         foreach($hotels as $hotel)
@@ -49,17 +39,25 @@ class TourController extends Controller
         {
             $loca[$location->id] = $location->name;
         }
-        
         $vehicles = Vehicle::all();
         $veh = [];
         foreach($vehicles as $vehicle)
         {
             $veh[$vehicle->id] = $vehicle->name;
         }
+        return view('tour.index')->withTours($tours)
+                                ->withHotels($hot)
+                                ->withLocations($loca)
+                                ->withVehicles($veh);
+    }
 
-        return view('tour.create')->withHotels($hot)
-                                  ->withLocations($loca)
-                                  ->withVehicles($veh);
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
     }
 
     /**

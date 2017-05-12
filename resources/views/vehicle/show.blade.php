@@ -18,7 +18,6 @@
                         </div>
                         <div class="col-sm-6">
                             {!! Form::open(['route' => ['vehicle.destroy', $vehicle->id], 'method' => 'DELETE']) !!}
-                            
                             {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-block']) !!}
 
                             {!! Form::close() !!}

@@ -20,7 +20,6 @@
             @include('partials._ad-sidebar')
             <!-- /sidebar menu -->
 
-            {{-- @include('partials._ad-menufooter') --}}
           </div>
         </div>
 
