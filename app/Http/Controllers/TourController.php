@@ -100,7 +100,7 @@ class TourController extends Controller
         {
             foreach ($uprequest->featured_image as $image2) {
                 $filename = $tour->id . '_' . rand(1,100) . '_' . time() . '.' . $image2->getClientOriginalExtension();
-                $location = public_path('images/'. $filename);
+                $location = public_path('img/'. $filename);
                 Image::make($image2)->resize(800, 400)->save($location);
 
                 $image = new Images;

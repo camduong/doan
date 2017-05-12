@@ -124,7 +124,7 @@
 	{!! Html::script('js/datepicker.min.js') !!}
 	<script>
 		$('.datepicker.input-daterange').datepicker({
-			format: "dd/mm/yyyy",
+			format: "dd-mm-yyyy",
 			startDate: "-infinity",
 			endDate:"+7m,+4d",
 			maxViewMode: 1,
