@@ -1,141 +1,38 @@
 header
-	.cd-logo
-		a(href='/')
-			img(src='../img/logo.png', alt='Logo')
-	nav.cd-main-nav-wrapper
-		ul.cd-main-nav
-			li
-				a(href='/') Trang chủ
-			li
-				a(href='/tour') Chuyến đi
-			li
-				a(href='/detail') Chi tiết chuyến đi
-			li
-				a.cd-subnav-trigger(href='#0')
-					span Menu
-				ul
-					li.go-back
-						a(href='#0') Menu
+  .cd-logo
+    a(href='/')
+      img(src='../img/logo.png', alt='Logo')
+  nav.cd-main-nav-wrapper
+    ul.cd-main-nav
+      li
+        a(href='/') Trang chủ
+      li
+        a(href='/tour') Chuyến đi
+      li
+        a(href='/detail') Chi tiết chuyến đi
+      li
+        a.cd-subnav-trigger(href='#0')
+          span Menu
+        ul
+          li.go-back
+            a(href='#0') Menu
 
-					if (Auth::guest())
-						li.nav-item
-							a.nav-link(href='', data-toggle='modal', data-target='#login') Đăng nhập
-						li.nav-item
-							a.nav-link(href='', data-toggle='modal', data-target='#register') Đăng ký
-					else
-						li.dropdown
-							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')=Auth::user()->name
+          if (Auth::guest())
+            li.nav-item
+              a.nav-link(href = route("user.login")) Đăng nhập
+            li.nav-item
+              a.nav-link(href = route("register")) Đăng ký
+          else
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')=Auth::user()->name
 
-								span.caret
-							ul.dropdown-menu.dropdown-logout(role='menu')
-								li
-									a(href= route('user.logout.submit'), onclick="event.preventDefault();document.getElementById('logout-form').submit();") Logout
-									form#logout-form(action=route('user.logout.submit'), method='POST', style='display: none;')
-										div!=csrf_field()
-					li
-						a.placeholder(href='#0') Placeholder
-	a.cd-nav-trigger(href='#0')
-		span
-
-div
-	#login.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
-		.modal-dialog(role='document')
-			.modal-content
-				.panel-heading
-					h1.text-center Hello!
-					p.text-center
-						| Wellcome to Vacation World
-						br
-						| Please login your account!
-				.panel-body
-					form.form-horizontal(role='form', method='POST', action=route('user.login.submit'))
-						div!=csrf_field()
-						navs = json_decode('[["email","E-mail"],["password","Mật khẩu"]]')
-						each nav, i in navs
-							.form-group(class=$errors->has('#{nav[0]}') ? ' has-error' : '')
-								.col-md-10.col-md-offset-1
-									input(id=('#{nav[0]}')).form-control(type=('#{nav[0]}'), name=('#{nav[0]}'), placeholder=('#{nav[1]}'), value=old('#{nav[0]}'), required='', autofocus='')
-									if ($errors->has('#{nav[0]}'))
-										span.help-block
-											strong=$errors->first('#{nav[0]}')
-						.form-group
-							.col-md-8.col-md-offset-2
-								.checkbox.text-center
-									label
-										input(type='checkbox', name='remember', checked=old('remember') ? 'checked':null)
-										| Remember Me
-						.form-group
-							.col-md-8.col-md-offset-2.acc-group
-								button.btn.btn-success.btn-block(type='submit') Login
-								a.btn.btn-link.btn-block(href=route('password.request')) Forgot Your Password?
-								p.text-center(style='margin:0;') - or -
-								a.btn.btn-link.btn-block(href=route('register'))
-									| Don't have an account?
-									br
-									| Register now!
-
-
-div
-	#register.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
-		.modal-dialog(role='document')
-			.modal-content
-				.panel-heading
-					h1.text-center Register
-				.panel-body
-					form.reg(role='form', method='POST', action=route('register'))
-						div!=csrf_field()
-						.row
-							navs = json_decode('[["text","f_name","Họ"],["text","l_name","Tên"],["text","p_code","CMND"],["email","email","E-mail"],["password","password","Mật khẩu"],["password","password-confirm","Nhập lại mật khẩu"]]',true)
-							each nav, i in navs
-								.col-md-6.col-sm-6.col-xs.reg_form_margin
-									.form-group(class=$errors->has('#{nav[1]}') ? ' has-error ' : '' )
-										input(class=('#{nav[1]}')).form-control(type=('#{nav[0]}'), placeholder=('#{nav[2]}'), name=('#{nav[1]}'), value= old('#{nav[1]}'), required='required', autofocus='autofocus')
-										if ($errors->has('#{nav[1]}'))
-											span.help-block
-												strong=$errors->first('#{nav[1]}')
-
-							.col-md-6.col-sm-6.col-xs.reg_form_margin
-								.form-group(class=$errors->has('address') ? ' has-error ' : '' )
-									input(class=('address')).form-control(type='text', placeholder=('Địa chỉ'), name=('address'), value= old('address'), required='required', autofocus='autofocus')
-									if ($errors->has('address'))
-										span.help-block
-											strong=$errors->first('address')
-
-							.col-md-6.col-sm-6.col-xs.reg_form_margin
-								.form-group(class=$errors->has('group-sex') ? ' has-error' : '')
-									.group-sex(name='group-sex', required='required')
-
-										gens = json_decode('[["Nam"],["Nữ"],["Khác"]]')
-										each gen, i in gens
-											label.radio-inline
-												input(type='radio', name='optradio')
-												| #{gen[0]}
-
-									if ($errors->has('group-sex'))
-										span.help-block
-											strong=$errors->first('group-sex')
-
-							.col-md-6.col-sm-6.col-xs.reg_form_margin
-								.form-group(class=$errors->has('date') ? ' has-error' : '')
-									.form-group(required='required')
-										#datepicker.input-group.date.no-padding(name='date')
-											input.form-control(type='text', placeholder='Ngày sinh', value=old('date'))
-											span.input-group-addon
-												i.glyphicon.glyphicon-calendar
-									if ($errors->has('date'))
-										span.help-block
-											strong=$errors->first('date')
-
-							.col-md-6.col-sm-6.col-xs.reg_form_margin
-								.form-group(class=$errors->has('phone') ? ' has-error' : '')
-									.input-group.no-padding(name='phone', required='')
-										span.input-group-addon(style='cursor: default;')
-											span +84
-										input#phone.form-control(type='text', placeholder='Số điện thoại', name='', value=old('phone'))
-									if ($errors->has('phone'))
-										span.help-block
-											strong=$errors->first('phone')
-						.sub-reg
-							.col-md-12
-								a.back-logout.col-md-4.col-sm-3.col-xs.btn.btn-warning(href=route('home'), type='submit') Quay lại
-								button#reg_btn.col-md-4.col-sm-3.col-xs.btn.btn-success(type='submit')  Đăng ký
+                span.caret
+              ul.dropdown-menu.dropdown-logout(role='menu')
+                li
+                  a(href= route('user.logout.submit'), onclick="event.preventDefault();document.getElementById('logout-form').submit();") Logout
+                  form#logout-form(action=route('user.logout.submit'), method='POST', style='display: none;')
+                    div!=csrf_field()
+          li
+            a.placeholder(href='#0') Placeholder
+  a.cd-nav-trigger(href='#0')
+    span

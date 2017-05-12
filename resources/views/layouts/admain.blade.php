@@ -14,24 +14,27 @@
             </div>
 
             <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            @include('partials._ad-menuprofile')
+            <!-- /menu profile quick info -->
+
             <br />
 
             <!-- sidebar menu -->
             @include('partials._ad-sidebar')
             <!-- /sidebar menu -->
 
-            {{-- @include('partials._ad-menufooter') --}}
+            @include('partials._ad-menufooter')
           </div>
         </div>
 
         @include('partials._ad-topnav')
 
         @yield('content')
-        <footer class="footer_fixed">
-          <div class="pull-right">
-          Kha Tran Khoi Nguyen created by Gentelella Template
-          </div>
-        </footer>
+
+       @include('partials._ad-footer')
+       
       </div>
     </div>
     @include('partials._ad-javascript')

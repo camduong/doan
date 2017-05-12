@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-<div class="right_col right-hei" role="main">
+<div class="right_col" role="main">
 	<!--   Big container   -->
 	<div class="wizard-container">
 
@@ -30,6 +30,75 @@
 					</ul>
 
 				</div>
+
+                <div class="tab-content">
+                    <div class="tab-pane" id="step1">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                {{ Form::label('name', 'Name:') }}
+                                {{ Form::text('name', null, ['class' => 'form-control ', 'required' => '']) }}
+                                <br>
+                                {{ Form::label('slug', 'Slug:', ['class' => 'form-spacing-top']) }}
+                                {{ Form:: text('slug', null, ['class' => 'form-control', 'required' => '']) }}
+                                <br>
+                                {{ Form::label('price', 'Price:', ['class' => 'form-spacing-top']) }}
+                                {{ Form:: text('price', null, ['class' => 'form-control', 'required' => '']) }}
+                                <br>
+                                {{ Form::label('number', 'Number:', ['class' => 'form-spacing-top']) }}
+                                {{ Form:: number('number', 0, ['class' => 'form-control', 'required' => '']) }}
+                                <br>
+                                {{ Form::label('depart_date', 'Depart Day:', ['class' => 'form-spacing-top'])  }}
+                                {{-- {{ Form:: text('depart_date', null, ['class' => 'form-control', 'required' => '', 'data-inputmask' => "'mask' : '99/99/9999'", 'placeholder' => 'dd/MM/yyyy']) }} --}}
+                                <div class="datepicker input-daterange input-group">
+                                    <input  class="col-md-4 form-control" type="text" name="depart_date" />
+                                    <span class="input-to input-group-addon">to</span>
+                                    <input  class="col-md-4 form-control" type="text" name="back_date" />
+                                </div>
+                                <br>
+                                {{ Form::label ('featured_image', 'Upload Featured Image') }}
+                                {{ Form::file('featured_image[]', ['multiple' => ''])}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="step2">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                {{ Form::label('hotel_id', 'Hotel:', ['class' => 'form-spacing-top']) }}
+                                {{ Form::select('hotel_id', $hotels, null, ['class' => 'form-control', 'placeholder' => 'Select hotel'])}}
+                                <br>
+                                {{ Form::label('location_id', 'Location:', ['class' => 'form-spacing-top']) }}
+                                {{ Form::select('location_id', $locations, null, ['class' => 'form-control', 'placeholder' => 'Select city'])}}
+                                <br>
+                                {{ Form::label('vehicle_id', 'Vehicle:', ['class' => 'form-spacing-top']) }}
+                                {{ Form::select('vehicle_id', $vehicles, null, ['class' => 'form-control', 'placeholder' => 'Select vehicle'])}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="step3">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                {{ Form::label('day', 'Day:', ['class' => 'form-spacing-top']) }}
+                                {{ Form:: number('day', 0, ['class' => 'form-control', 'required' => '']) }}
+                                <br>
+                                {{ Form::label('header', 'Header Schedule:', ['class' => 'form-spacing-top']) }}
+                                {{ Form::textarea('header', null, ['class' => 'form-control', 'required' => '', 'id' => 'header', 'rows' => 10, 'cols' => 80, 'style' => 'margin:0 1% !important']) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="step4">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                {{ Form::label('detail', 'Detail Schedule:', ['class' => 'form-spacing-top']) }}
+                                {{ Form::textarea('detail', null, ['class' => 'form-control', 'required' => '', 'id' => 'detail', 'rows' => 10, 'cols' => 80, 'style' => 'margin:0 1% !important']) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wizard-footer height-wizard">
+                    <div class="pull-right">
+                        <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
+                        {{ Form::submit('Finish', array('class' => 'btn btn-finish btn-fill btn-warning btn-wd btn-sm', 'style' => 'margin-top: 20px;'))}}
+                    </div>
 				<div class="tab-content">
 					<div class="tab-pane" id="step1">
 						<div class="row">
@@ -41,19 +110,20 @@
 								{{ Form:: text('slug', null, ['class' => 'form-control', 'required' => '']) }}
 								<br>
 								{{ Form::label('price', 'Giá:', ['class' => 'form-spacing-top']) }}
-								{{ Form:: text('price', null, ['class' => 'form-control', 'required' => '', 'min' => '0']) }}
+								{{ Form:: text('price', null, ['class' => 'form-control', 'required' => '']) }}
 								<br>
-								{{ Form::label('number', 'Số vé:', ['class' => 'form-spacing-top']) }}
-								{{ Form:: number('number', 0, ['class' => 'form-control', 'required' => '', 'min' => '0']) }}
+								{{ Form::label('number', 'Number:', ['class' => 'form-spacing-top']) }}
+								{{ Form:: number('number', 0, ['class' => 'form-control', 'required' => '']) }}
 								<br>
 								{{ Form::label('depart_date', 'Hành trình:', ['class' => 'form-spacing-top'])  }}
+								{{-- {{ Form:: text('depart_date', null, ['class' => 'form-control', 'required' => '', 'data-inputmask' => "'mask' : '99/99/9999'", 'placeholder' => 'dd/MM/yyyy']) }} --}}
 								<div class="datepicker input-daterange input-group">
-									{{ Form:: text('depart_date', null, ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày đi']) }}
-										<span class="input-to input-group-addon">đến</span>
-									{{ Form:: text('back_date', null, ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày về']) }}
+									<input  class="col-md-4 form-control" type="text" name="depart_date" placeholder="Ngày đi" />
+									<span class="input-to input-group-addon">đến</span>
+									<input  class="col-md-4 form-control" type="text" name="back_day" placeholder="Ngày đến"/>
 								</div>
 								<br>
-								{{ Form::label ('featured_image', 'Tải ảnh lên (có thể chọn nhiều ảnh):') }}
+								{{ Form::label ('featured_image', 'Tải ảnh lên:') }}
 								{{ Form::file('featured_image[]', ['multiple' => ''])}}
 							</div>
 						</div>
@@ -76,7 +146,7 @@
 						<div class="row">
 							<div class="col-sm-10 col-sm-offset-1">
 								{{ Form::label('day', 'Số ngày của chuyến đi:', ['class' => 'form-spacing-top']) }}
-								{{ Form::number('day', 0, ['class' => 'form-control', 'required' => '', 'min' => '0']) }}
+								{{ Form::number('day', 0, ['class' => 'form-control', 'required' => '']) }}
 								<br>
 								{{ Form::label('header', 'Tiêu đề chuyến đi:', ['class' => 'form-spacing-top']) }}
 								{{ Form::textarea('header', null, ['class' => 'form-control ckeditor', 'required', 'name' => 'editor', 'id' => 'header', 'rows' => 10, 'cols' => 80, 'style' => 'margin:0 1% !important']) }}
@@ -119,9 +189,9 @@
 	{!! Html::script('assets/js/jquery.bootstrap.wizard.js') !!}
 	{!! Html::script('assets/js/gsdk-bootstrap-wizard.js') !!}
 	<!-- bootstrap-daterangepicker -->
-	{!! Html::script('ckeditor/ckeditor.js') !!}
 	{!! Html::script('js/moment.js') !!}
 	{!! Html::script('js/datepicker.min.js') !!}
+	{!! Html::script('ckeditor/ckeditor.js') !!}
 	<script>
 		$('.datepicker.input-daterange').datepicker({
 			format: "dd/mm/yyyy",
