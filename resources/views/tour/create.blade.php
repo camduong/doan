@@ -48,9 +48,9 @@
 								<br>
 								{{ Form::label('depart_date', 'Hành trình:', ['class' => 'form-spacing-top'])  }}
 								<div class="datepicker input-daterange input-group">
-									{{ Form:: text('depart_date', null, ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày đi']) }}
+									{{ Form:: text('depart_date', \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y') , ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày đi']) }}
 										<span class="input-to input-group-addon">đến</span>
-									{{ Form:: text('back_date', null, ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày về']) }}
+									{{ Form:: text('back_date', \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y'), ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày về']) }}
 								</div>
 								<br>
 								{{ Form::label ('featured_image', 'Tải ảnh lên (có thể chọn nhiều ảnh):') }}
