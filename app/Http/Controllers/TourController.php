@@ -88,19 +88,16 @@ class TourController extends Controller
         $tour->price = $request->price;
         $tour->schedule = $request->detail;
         $tour->save();
-        if($request->featured_images)
-        {
-            foreach ($uprequest->featured_image as $image2) {
-                $filename = $tour->id . '_' . rand(1,100) . '_' . time() . '.' . $image2->getClientOriginalExtension();
-                $location = public_path('img/'. $filename);
-                Image::make($image2)->resize(800, 400)->save($location);
+        foreach ($uprequest->featured_image as $image2) {
+            $filename = $tour->id . '_' . rand(1,100) . '_' . time() . '.' . $image2->getClientOriginalExtension();
+            $location = public_path('img/'. $filename);
+            Image::make($image2)->resize(800, 400)->save($location);
 
-                $image = new Images;
-                $image->tour_id = $tour->id;
-                $image->img_name = $filename;
-            // $myimage[] = $filename;
-                $image->save();
-            }
+            $image = new Images;
+            $image->tour_id = $tour->id;
+            $image->img_name = $filename;
+        // $myimage[] = $filename;
+            $image->save();
         }
 
         //print_r($myimage);
