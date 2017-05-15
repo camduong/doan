@@ -31,9 +31,11 @@ class HomeController extends Controller
     public function tour()
     {
         $tours = Tour::all();
-        // foreach ($tours as $tour) {
-        //     $img = Images::find($tour->id)->first();
-        // }
+        foreach ($tours as $tour) {
+            $img = Images::where('tour_id',$tour->id)->first();
+        }
+        // var_dump($img);
+        // die;
         return view('tour')->withTours($tours);
     }
 

@@ -21,13 +21,8 @@ class Tour extends Model
         return $this->belongsTo('App\Vehicle', 'vehicle_id');
     }
 
-    public function picture()
+    public function image()
     {
-        return $this->hasMany('App\Picture');
-    }
-
-    public function comment()
-    {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Images');
     }
 }

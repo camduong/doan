@@ -31,17 +31,21 @@ block content
               .grid-intro.col-md-12
                 a(href='#')
                   h3=data->name
-                .col-md-5.col-xs-12
+                .schedule.col-md-5.col-xs-12
                   i.fa.fa-clock-o(aria-hidden='true')
                   h5=data->day
+                    |  ngày
                   br
                   i.fa.fa-calendar(aria-hidden='true')
                   h5=data->depart_date
-                .col-md-7.col-xs-12
+                .price.col-md-7.col-xs-12
                   h3=data->price
                     sup VND
-                  .action
-                    i.fa.fa-cart-plus(aria-hidden='true')
+                  .action.col-sm-12
+                    button.btn.btn-primary
+                      i.fa.fa-eye(aria-hidden='true')
+                    button.btn.btn-primary
+                      i.fa.fa-cart-plus(aria-hidden='true')
 
 
 
