@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tour;
+use App\Images;
 
 class HomeController extends Controller
 {
@@ -29,7 +30,10 @@ class HomeController extends Controller
 
     public function tour()
     {
-        $tours = Tour::orderBy('updated_at', 'desc')->paginate(2);
+        $tours = Tour::all();
+        // foreach ($tours as $tour) {
+        //     $img = Images::find($tour->id)->first();
+        // }
         return view('tour')->withTours($tours);
     }
 

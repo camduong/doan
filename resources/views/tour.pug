@@ -24,24 +24,24 @@ block content
       .row.justify-content-md-center#tour-overflow
         .grid
           .grid-sizer
-          grids = json_decode('[["relax","3.990.000","5",""],["nhatrang1","2.000.000","5",""],["nhatrang0","5.230.000","4",""],["vungtau0","3.999.000","4",""],["camranh","4.000.000","4",""],["diving","5.000.000","6",""],["halong","4.999.000","6",""],["mountains","5.159.000","5",""],["sea0","4.660.000","6",""],["dalat3","2.750.000","5",""],["dalat1","4.000.000","6",""],["dalat2","2.000.000","4",""],["nhatrang1","5.590.000","6",""],["nhatrang0","5.000.000","2",""],["vungtau0","6.000.000","2",""],["camranh","3.690.000","5",""],["diving","2.000.000","2",""],["halong","4.000.000","6",""],["mountains","4.000.000","2",""],["sea0","2.000.000","2",""],["dalat3","5.000.000","6",""],["dalat1","4.000.000","2",""],["dalat2","2.000.000","6",""]]')
-          each grid, i in grids
+          datas = $tours
+          each data, i in datas
             .grid-item
-              img(src='../img/#{grid[0]}.jpg', alt='Card image cap')
+              img(src='../img/', alt='Card image cap')
               .grid-intro.col-md-12
                 a(href='#')
-                  h3 #{grid[0]}
+                  h3=data->name
                 .col-md-5.col-xs-12
                   i.fa.fa-clock-o(aria-hidden='true')
-                  h5 #{grid[2]} ngày
+                  h5=data->day
                   br
                   i.fa.fa-calendar(aria-hidden='true')
-                  h5 31/12/9999
+                  h5=data->depart_date
                 .col-md-7.col-xs-12
-                  br
-                  h3
-                    | #{grid[1]}
+                  h3=data->price
                     sup VND
+                  .action
+                    i.fa.fa-cart-plus(aria-hidden='true')
 
 
 

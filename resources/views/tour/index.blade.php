@@ -97,7 +97,7 @@
 											{{ Form::number('day', 0, ['class' => 'form-control', 'required' => '', 'min' => '0']) }}
 											<br>
 											{{ Form::label('detail', 'Chi tiết chuyến đi:', ['class' => 'form-spacing-top']) }}
-											{{ Form::textarea('detail', null, ['class' => 'form-control ckeditor', 'required', 'name' => 'editor', 'id' => 'detail', 'rows' => 10, 'cols' => 60, 'style' => 'margin:0 1% !important']) }}
+											{{ Form::textarea('detail', null, ['class' => 'form-control ckeditor', 'required', 'id' => 'detail', 'rows' => 10, 'cols' => 60, 'style' => 'margin:0 1% !important']) }}
 										</div>
 									</div>
 								</div>

@@ -82,8 +82,8 @@ class TourController extends Controller
         $tour->hotel_id = $request->hotel_id;
         $tour->location_id = $request->location_id;
         $tour->vehicle_id = $request->vehicle_id;
-        $tour->depart_date = date('Y/d/m',strtotime($request->depart_date));
-        $tour->back_date = date('Y/d/m',strtotime($request->back_date));
+        $tour->depart_date = date('Y/m/d',strtotime($request->depart_date));
+        $tour->back_date = date('Y/m/d',strtotime($request->back_date));
         $tour->day = $request->day;
         $tour->price = $request->price;
         $tour->schedule = $request->detail;
