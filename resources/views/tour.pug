@@ -104,7 +104,7 @@ block content
           btn = $('.btn-overflow'),
           page = $('.page'),
           h=text[0].scrollHeight;
-        if(h > 545) {
+        if(h > 845) {
           btn.addClass('less');
           btn.css('display', 'block');
         }
@@ -113,7 +113,9 @@ block content
             btn.removeClass('less');
             btn.css('display','none');
             text.animate({'height': h});
-            page.css('display','block');
+            if(h > 1045){
+              page.css('display','block');
+            }
           } else {
             btn.addClass('less');
             btn.removeClass('more');

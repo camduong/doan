@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-8">
                 <h1>{{ $location->name }}</h1>
-                <p class="lead">Introduce: {{ $location->introduce }}</p>
+                <p class="lead">Giới thiệu: {{ $location->introduce }}</p>
             </div>
 
             <div class="col-md-4">

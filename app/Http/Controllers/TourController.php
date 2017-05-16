@@ -85,10 +85,6 @@ class TourController extends Controller
         $tour->depart_date = date('Y/m/d',strtotime($request->depart_date));
         $tour->back_date = date('Y/m/d',strtotime($request->back_date));
         $tour->day = (strtotime($tour->back_date) - strtotime($tour->depart_date)) / (60 * 60 * 24) + 1;
-        var_dump( $tour->depart_date);
-        var_dump($tour->back_date);
-        var_dump($tour->day);
-        die;
         $tour->price = $request->price;
         $tour->schedule = $request->detail;
         $tour->save();
