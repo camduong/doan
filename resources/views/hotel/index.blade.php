@@ -86,3 +86,6 @@
     </div>
 </div>
 @endsection
+@section('scripts')
+    {!! Html::script('vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js') !!}
+@endsection

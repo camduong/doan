@@ -45,7 +45,7 @@
 
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table" class="display" cellspacing="0" width="100%">
+			<table id="data_table" class="table display" cellspacing="0" width="100%">
 				<thead>
 					<tr>
 						<th>#</th>
@@ -73,4 +73,5 @@
 		</div>
 	</div>
 </div>
+
 @endsection

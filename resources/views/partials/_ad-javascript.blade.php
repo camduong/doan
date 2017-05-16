@@ -10,7 +10,12 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.table').DataTable({
-			"lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]]
+			"lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
+		  "columnDefs": [
+		  	{ "width": "10", "targets": 0},
+		    { "width": "100", "targets": "_all"}
+
+		  ]
 		});
 	});
 </script>

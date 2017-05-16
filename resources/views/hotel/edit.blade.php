@@ -27,7 +27,7 @@
                     {{ Form::label('location_id', 'Location:', ['class' => 'form-spacing-top']) }}
                     {{ Form::select('location_id', $locations, null, ['class' => 'form-control', 'placeholder' => 'Select city'])}}
                 </div>
-            </div>       
+            </div>
 
             <div class="col-md-4">
                 <div class="well">
