@@ -27,7 +27,7 @@ block content
           datas = $tours
           each data, i in datas
             .grid-item
-              img(src='../img/', alt='Card image cap')
+              img(src='../img/'+data->image, alt='Card image cap')
               .grid-intro.col-md-12
                 a(href='#')
                   h3=data->name
