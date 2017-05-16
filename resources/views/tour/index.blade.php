@@ -93,9 +93,6 @@
 								<div class="tab-pane" id="step3">
 									<div class="row">
 										<div class="col-sm-12">
-											{{ Form::label('day', 'Số ngày của chuyến đi:', ['class' => 'form-spacing-top']) }}
-											{{ Form::number('day', 0, ['class' => 'form-control', 'required' => '', 'min' => '0']) }}
-											<br>
 											{{ Form::label('detail', 'Chi tiết chuyến đi:', ['class' => 'form-spacing-top']) }}
 											{{ Form::textarea('detail', null, ['class' => 'form-control ckeditor', 'required', 'id' => 'detail', 'rows' => 10, 'cols' => 60, 'style' => 'margin:0 1% !important']) }}
 										</div>

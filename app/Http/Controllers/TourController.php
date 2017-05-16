@@ -84,7 +84,11 @@ class TourController extends Controller
         $tour->vehicle_id = $request->vehicle_id;
         $tour->depart_date = date('Y/m/d',strtotime($request->depart_date));
         $tour->back_date = date('Y/m/d',strtotime($request->back_date));
-        $tour->day = $request->day;
+        $tour->day = (strtotime($tour->back_date) - strtotime($tour->depart_date)) / (60 * 60 * 24) + 1;
+        var_dump( $tour->depart_date);
+        var_dump($tour->back_date);
+        var_dump($tour->day);
+        die;
         $tour->price = $request->price;
         $tour->schedule = $request->detail;
         $tour->save();
@@ -199,7 +203,7 @@ class TourController extends Controller
         $tour->vehicle_id = $request->input('vehicle_id');
         $tour->depart_date = $request->input('depart_date');
         $tour->back_date = $request->input('back_date');
-        $tour->day = $request->input('day');
+        $tour->day = (strtotime($tour->back_date) - strtotime($tour->depart_date)) / (60 * 60 * 24) + 1;
         $tour->price = $request->input('price');
         $tour->schedule = $request->input('detail');
         $tour->save();
@@ -218,6 +222,9 @@ class TourController extends Controller
     public function destroy($id)
     {
         $tour = Tour::find($id);
+        if($img = Images::find($id)) {
+            $img->delete();
+        }
         $tour->delete();
 
         Session::flash('success', 'The tour was successfully deleted.');
