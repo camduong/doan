@@ -13,10 +13,6 @@ class HomeController extends Controller
 	 *
 	 * @return void
 	 */
-	public function __construct()
-	{
-		// $this->middleware('auth');
-	}
 
 	/**
 	 * Show the application dashboard.
@@ -45,7 +41,6 @@ public function getSingle($slug)
 		foreach ($images as $k => $image) {
 			$tour['image'][$k] = $image -> img_name;
 		}
-		// var_dump($tour['image']); die;
     return view('detail')->withTour($tour);
   }
 }

@@ -24,16 +24,6 @@ class LocationController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('location.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -53,18 +43,6 @@ class LocationController extends Controller
 
         Session::flash('success', 'The new location was sucessfully save!');
         return redirect()->route('location.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $location = Location::find($id);
-        return view('location.show')->withlocation($location);
     }
 
     /**

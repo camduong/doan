@@ -32,7 +32,6 @@ class TourController extends Controller
         {
             $hot[$hotel->id] = $hotel->name;
         }
-
         $locations = Location::all();
         $loca = [];
         foreach($locations as $location)
@@ -64,15 +63,6 @@ class TourController extends Controller
      */
     public function store(Request $request, UploadRequest $uprequest)
     {
-        // $this->validate($request, array(
-        //     'name' => 'required|max:255',
-        //     'slug'  => 'required|alpha_dash|min:5|max:255|unique:tours,slug',
-        //     'travel_id' => 'required|integer',
-        //     'price' => 'required|integer',
-        //     'day' => 'required|integer',
-        //     'header' => 'required',
-        //     'detail' => 'required',
-        // ));
         //store in the database
         $tour = new Tour;
 
@@ -89,7 +79,7 @@ class TourController extends Controller
         $tour->schedule = $request->detail;
         $tour->save();
         foreach ($uprequest->featured_image as $image2) {
-            $filename = $tour->id . '_' . rand(1,100) . '_' . time() . '.' . $image2->getClientOriginalExtension();
+            $filename = $tour->id . '_' . mt_rand() . '_' . time() . '.' . $image2->getClientOriginalExtension();
             $location = public_path('img/'. $filename);
             Image::make($image2)->resize(800, 400)->save($location);
 
@@ -117,9 +107,6 @@ class TourController extends Controller
     public function show($id)
     {
         $tour = Tour::find($id);
-        // $tt = explode("<p>",$tour->header_schedule);
-        // print_r(json_encode($tt));
-        // die;
         return view('tour.show')->withTour($tour);
     }
 
@@ -138,7 +125,6 @@ class TourController extends Controller
         {
             $hot[$hotel->id] = $hotel->name;
         }
-
         $locations = Location::all();
         $loca = [];
         foreach($locations as $location)
@@ -167,23 +153,6 @@ class TourController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $tour = Tour::find($id);
-        // if($request->input('slug') == $tour->slug) {
-        //     $this->validate($request, array(
-        //         'name' => 'required|max:255',
-        //         'price' => 'required|integer',
-        //         'day' => 'required|integer',
-        //         'detail' => 'required',
-        //     ));
-        // } else {
-        //     $this->validate($request, array(
-        //         'name' => 'required|max:255',
-        //         'slug'  => 'required|alpha_dash|min:5|max:255|unique:tours,slug',
-        //         'price' => 'required|integer',
-        //         'day' => 'required|integer',
-        //         'detail' => 'required',
-        //     ));
-        // }
         //save the data to the database
         $tour = Tour::find($id);
 

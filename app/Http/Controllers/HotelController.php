@@ -32,22 +32,6 @@ class HotelCOntroller extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $locations = Location::all();
-        $loca = [];
-        foreach($locations as $location)
-        {
-            $loca[$location->id] = $location->name;
-        }
-        return view('hotel.create')->withLocations($loca);
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -70,18 +54,6 @@ class HotelCOntroller extends Controller
 
         Session::flash('success', 'The new hotel was sucessfully save!');
         return redirect()->route('hotel.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $hotel = Hotel::find($id);
-        return view('hotel.show')->withHotel($hotel);
     }
 
     /**

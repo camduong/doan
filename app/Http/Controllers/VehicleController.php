@@ -21,20 +21,7 @@ class VehicleController extends Controller
     public function index()
     {
         $vehicles = Vehicle::all();
-        // return response()->json(
-        //     $vehicles
-        // );
         return view('vehicle.index')->withVehicles($vehicles);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('vehicle.create');
     }
 
     /**
@@ -57,18 +44,6 @@ class VehicleController extends Controller
 
         Session::flash('success', 'The new vehicle was sucessfully save!');
         return redirect()->route('vehicle.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $vehicle = Vehicle::find($id);
-        return view('vehicle.show')->withVehicle($vehicle);
     }
 
     /**
