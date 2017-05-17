@@ -60,7 +60,7 @@
 							<th>{{ $location->id }}</th>
 							<td>{{ $location->name }}</td>
 							<td>{{ $location->introduce }}</td>
-							<td>
+							<td style="text-align: center;">
 								{!! Form::open(['route' => ['location.destroy', $location->id], 'method' => 'DELETE']) !!}
 										{!! Html::linkRoute('location.edit', 'Sửa', array($location->id), array('class' => 'btn btn-primary btn-md')) !!}
 										{!! Form::submit('Xóa', ['class' => 'btn btn-danger btn-md']) !!}

@@ -72,7 +72,7 @@
                             <td>{{ $hotel->address }}</td>
                             <td>{{ $hotel->phone }}</td>
                             <td>{{ $hotel->locations->name }}</td>
-                            <td>
+                            <td style="text-align: center;">
                                 {!! Form::open(['route' => ['hotel.destroy', $hotel->id], 'method' => 'DELETE']) !!}
                                     {!! Html::linkRoute('hotel.edit', 'Sửa', array($hotel->id), array('class' => 'btn btn-primary btn-md')) !!}
                                     {!! Form::submit('Xóa', ['class' => 'btn btn-danger btn-md']) !!}

@@ -137,17 +137,15 @@
 							<th>{{ $tour->id }}</th>
 							<td>{{ $tour->name }}</td>
 							<td>{{ number_format($tour->price) . ' VNĐ' }}</td>
-							<td>{{ $tour->day }}</td>
-							<td>{{ date('j m,Y', strtotime($tour->created_at)) }}</td>
-							<td>
-								<div>
-									<a href="{{ route('tour.show', $tour->id) }}" class="btn btn-info btn-md">
-										Xem
-									</a>
-									<a href="{{ route('tour.edit', $tour->id) }}" class="btn btn-primary btn-md">
-										Sửa
-									</a>
-								</div>
+							<td>{{ $tour->day }} ngày</td>
+							<td>{{ date('d/m/Y', strtotime($tour->created_at)) }}</td>
+							<td style="text-align: center;">
+								<a href="{{ route('tour.show', $tour->id) }}" class="btn btn-info btn-md">
+									Xem
+								</a>
+								<a href="{{ route('tour.edit', $tour->id) }}" class="btn btn-primary btn-md">
+									Sửa
+								</a>
 							</td>
 						</tr>
 					@endforeach

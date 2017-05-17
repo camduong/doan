@@ -59,10 +59,10 @@
 							<th>{{ $vehicle->id }}</th>
 							<td>{{ $vehicle->name }}</td>
 							<td>{{ $vehicle->introduce }}</td>
-							<td>
+							<td style="text-align: center;">
 								 {!! Form::open(['route' => ['vehicle.destroy', $vehicle->id], 'method' => 'DELETE']) !!}
-									{!! Html::linkRoute('vehicle.edit', 'Edit', array($vehicle->id), array('class' => 'btn btn-primary btn-md')) !!}
-									{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-md']) !!}
+									{!! Html::linkRoute('vehicle.edit', 'Sửa', array($vehicle->id), array('class' => 'btn btn-primary btn-md')) !!}
+									{!! Form::submit('Xóa', ['class' => 'btn btn-danger btn-md']) !!}
 								{!! Form::close() !!}
 							</td>
 						</tr>

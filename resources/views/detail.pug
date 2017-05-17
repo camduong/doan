@@ -17,13 +17,11 @@ block content
 						ul.detail-lab.col-lg-4
 							li Thời gian:
 							li Khởi hành:
-							li Nơi khởi hành:
 							li Số chỗ còn nhận:
 						ul.detail-inf.col-lg-8
 							li=$tour->day
 								|  ngày
 							li=date('d/m/Y',strtotime($tour->depart_date))
-							li=$tour->locations->name
 							li=$tour->number
 								|  chỗ
 					.col-xs-4.col-lg-5.p-b

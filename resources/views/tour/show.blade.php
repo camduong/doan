@@ -38,9 +38,11 @@
 				<div class="well">
 					<div class="row">
 						<div class="col-sm-12">
-							<p class="lead">URL:</p>
-							<p><a href="{{ route('tour.single', $tour->slug) }}">{{ substr($tour->slug, 0, 20) }}</a></p>
+							<span class="lead">URL: </span>
+							<span><a href="{{ route('tour.single', $tour->slug) }}">{{ substr($tour->slug, 0, 20) }}</a></span>
 						</div>
+						<div class="clearfix"></div>
+						<hr>
 						<div class="col-sm-6">
 							<a href="{{ route('tour.edit', $tour->id) }}" class="btn btn-primary btn-block">
 								Sửa
@@ -58,7 +60,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<a href="{{ route('tour.index') }}" class="btn btn-info btn-block btn-h1-spacing">
-								<h4><i class="fa fa-angle-double-left"> Xem tất cả</i></h4>
+								<h4><i class="fa fa-angle-double-left"></i> Xem tất cả</h4>
 							</a>
 						</div>
 					</div>
