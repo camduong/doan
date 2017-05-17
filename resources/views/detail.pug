@@ -4,10 +4,10 @@ block content
 		.container
 			#tour-con.col-xs-12.col-sm-7
 				ul.bxslider
-					navs = json_decode('[["sea0"],["sea1"],["mountains2"],["relax"]]')
+					navs = $tour->image
 					each nav, i in navs
 						li
-							img(src='../img/#{nav[0]}.jpg')
+							img(src='../img/'+nav)
 
 
 				.row
@@ -40,52 +40,7 @@ block content
 								a(href='#binhluan', aria-controls='binhluan', role='tab', data-toggle='tab') Bình luận
 						.tab-content
 							#chuongtrinh.tab-pane.fade.in.active(role='tabpanel')
-								ul
-									li
-										h4#ngay1 Ngày 1: TP.HCM - SA ĐÉC - CẦN THƠ (Ăn ba bữa)
-										| Lorem ipsum dolor sit amet, id utinam epicuri salutandi cum. Eum verear numquam salutatus te. Et ponderum accusata intellegam ius, in dicam utamur consetetur mei, his assum prompta hendrerit te. Te dicit eleifend torquatos qui, vis nisl soluta ad, no virtute laoreet honestatis sit. Eu menandri mandamus vix, ei tempor dolores sed. Qui ad vitae perfecto.
-
-										| Nec in consul sanctus philosophia. Te accusam definitionem vis. Ex sed novum decore. Essent epicurei vim no. Sit eros tractatos eloquentiam id, sed ex vidisse imperdiet constituto, duo primis disputando eloquentiam cu.
-
-										| Eam te minim libris labore. Vis quod semper scripta id, vel audire electram cu. Et dolor invidunt salutandi nec, mei praesent complectitur no. Ius te regione aperiam moderatius, vis putent tractatos ei, no doming cotidieque mei.
-
-										| Essent regione reprehendunt cum id, homero ancillae mentitum ei mei, case facer populo qui an. Per no dicam oratio euripidis. Agam referrentur per ex. Quas iisque iracundia ad pri, nihil nemore aperiri cu qui. Ei eam option delectus scribentur, vim id alia assum summo, scripta rationibus vim eu. Ex sea nostro prompta aliquando.
-
-										| Mel electram mediocrem cu, cum an sonet delenit, vix ut agam omnis equidem. Vel cu iisque alterum. No mei mundi meliore erroribus, alia erant iracundia pro cu. Vis malorum nominati id. In vix magna integre urbanitas, nam paulo omnium id. Omnis copiosae eam ea, aperiri placerat id vim.
-									li
-										h4#ngay2 Ngày 2: CẦN THƠ - CÀ MAU (Ăn ba bữa)
-										| Lorem ipsum dolor sit amet, id utinam epicuri salutandi cum. Eum verear numquam salutatus te. Et ponderum accusata intellegam ius, in dicam utamur consetetur mei, his assum prompta hendrerit te. Te dicit eleifend torquatos qui, vis nisl soluta ad, no virtute laoreet honestatis sit. Eu menandri mandamus vix, ei tempor dolores sed. Qui ad vitae perfecto.
-
-										| Nec in consul sanctus philosophia. Te accusam definitionem vis. Ex sed novum decore. Essent epicurei vim no. Sit eros tractatos eloquentiam id, sed ex vidisse imperdiet constituto, duo primis disputando eloquentiam cu.
-
-										| Eam te minim libris labore. Vis quod semper scripta id, vel audire electram cu. Et dolor invidunt salutandi nec, mei praesent complectitur no. Ius te regione aperiam moderatius, vis putent tractatos ei, no doming cotidieque mei.
-
-										| Essent regione reprehendunt cum id, homero ancillae mentitum ei mei, case facer populo qui an. Per no dicam oratio euripidis. Agam referrentur per ex. Quas iisque iracundia ad pri, nihil nemore aperiri cu qui. Ei eam option delectus scribentur, vim id alia assum summo, scripta rationibus vim eu. Ex sea nostro prompta aliquando.
-
-										| Mel electram mediocrem cu, cum an sonet delenit, vix ut agam omnis equidem. Vel cu iisque alterum. No mei mundi meliore erroribus, alia erant iracundia pro cu. Vis malorum nominati id. In vix magna integre urbanitas, nam paulo omnium id. Omnis copiosae eam ea, aperiri placerat id vim.
-									li
-										h4#ngay3 Ngày 3: CÀ MAU - ĐẤT MŨI - BẠC LIÊU (Ăn ba bữa)
-										| Lorem ipsum dolor sit amet, id utinam epicuri salutandi cum. Eum verear numquam salutatus te. Et ponderum accusata intellegam ius, in dicam utamur consetetur mei, his assum prompta hendrerit te. Te dicit eleifend torquatos qui, vis nisl soluta ad, no virtute laoreet honestatis sit. Eu menandri mandamus vix, ei tempor dolores sed. Qui ad vitae perfecto.
-
-										| Nec in consul sanctus philosophia. Te accusam definitionem vis. Ex sed novum decore. Essent epicurei vim no. Sit eros tractatos eloquentiam id, sed ex vidisse imperdiet constituto, duo primis disputando eloquentiam cu.
-
-										| Eam te minim libris labore. Vis quod semper scripta id, vel audire electram cu. Et dolor invidunt salutandi nec, mei praesent complectitur no. Ius te regione aperiam moderatius, vis putent tractatos ei, no doming cotidieque mei.
-
-										| Essent regione reprehendunt cum id, homero ancillae mentitum ei mei, case facer populo qui an. Per no dicam oratio euripidis. Agam referrentur per ex. Quas iisque iracundia ad pri, nihil nemore aperiri cu qui. Ei eam option delectus scribentur, vim id alia assum summo, scripta rationibus vim eu. Ex sea nostro prompta aliquando.
-
-										| Mel electram mediocrem cu, cum an sonet delenit, vix ut agam omnis equidem. Vel cu iisque alterum. No mei mundi meliore erroribus, alia erant iracundia pro cu. Vis malorum nominati id. In vix magna integre urbanitas, nam paulo omnium id. Omnis copiosae eam ea, aperiri placerat id vim.
-
-									li
-										h4#ngay4 Ngày 4: BẠC LIÊU - SÓC TRĂNG - TP.HCM (Ăn sáng, trưa)
-										| Lorem ipsum dolor sit amet, id utinam epicuri salutandi cum. Eum verear numquam salutatus te. Et ponderum accusata intellegam ius, in dicam utamur consetetur mei, his assum prompta hendrerit te. Te dicit eleifend torquatos qui, vis nisl soluta ad, no virtute laoreet honestatis sit. Eu menandri mandamus vix, ei tempor dolores sed. Qui ad vitae perfecto.
-
-										| Nec in consul sanctus philosophia. Te accusam definitionem vis. Ex sed novum decore. Essent epicurei vim no. Sit eros tractatos eloquentiam id, sed ex vidisse imperdiet constituto, duo primis disputando eloquentiam cu.
-
-										| Eam te minim libris labore. Vis quod semper scripta id, vel audire electram cu. Et dolor invidunt salutandi nec, mei praesent complectitur no. Ius te regione aperiam moderatius, vis putent tractatos ei, no doming cotidieque mei.
-
-										| Essent regione reprehendunt cum id, homero ancillae mentitum ei mei, case facer populo qui an. Per no dicam oratio euripidis. Agam referrentur per ex. Quas iisque iracundia ad pri, nihil nemore aperiri cu qui. Ei eam option delectus scribentur, vim id alia assum summo, scripta rationibus vim eu. Ex sea nostro prompta aliquando.
-
-										| Mel electram mediocrem cu, cum an sonet delenit, vix ut agam omnis equidem. Vel cu iisque alterum. No mei mundi meliore erroribus, alia erant iracundia pro cu. Vis malorum nominati id. In vix magna integre urbanitas, nam paulo omnium id. Omnis copiosae eam ea, aperiri placerat id vim.
+								div!=$tour->schedule
 							#binhluan.tab-pane.fade(role='tabpanel')
 								.fb-comments(data-href='http://doan.dev/detail', data-numposts='5')
 								#fb-root
@@ -107,30 +62,6 @@ block content
 							li
 								a(href="#{tts[1]}") #{tts[0]}
 							hr
-					ul.sub-less-pri
-						h3.headers Có thể bạn muốn đi?
-						li
-							a(href='#')
-								h4 Nha Trang - Nghỉ dưỡng Vinpearl Resort 5* (Máy Bay. Đã bao gồm vé tham quan ...
-							span.col-lg-7
-								h3 6,990,000 VNĐ
-								p Giá đã giảm 1,500,000 VNĐ
-							span.col-lg-5
-								p Khởi hành
-								p 05/05/2017
-							.clearfix
-						hr
-						li
-							a(href='#')
-								h4 Nha Trang - Nghỉ dưỡng Vinpearl Resort 5* (Máy Bay. Đã bao gồm vé tham quan ...
-							span.col-lg-7
-								h3 6,990,000 VNĐ
-								p Giá đã giảm 1,500,000 VNĐ
-							span.col-lg-5
-								p Khởi hành
-								p 05/05/2017
-							.clearfix
-						hr
 
 	include layouts/app-footer
 	script(src='../js/ckeditor/ckeditor.js', type='text/javascript', charset='utf-8')

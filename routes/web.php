@@ -19,9 +19,6 @@ Auth::routes();
 Route::get('tour/{slug}', ['as' => 'tour.single', 'uses' => 'HomeController@getSingle'])->where('slug', '[\w\d\-\_]+');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/tour', 'HomeController@tour');
-Route::get('/detail', function() {
-    return view('detail');
-});
 Route::get('/login','Auth\UserLoginController@showLoginForm')->name('user.login');
 Route::post('login','Auth\UserLoginController@login')->name('user.login.submit');
 Route::post('logout','Auth\UserLoginController@logout')->name('user.logout.submit');
