@@ -13,7 +13,7 @@
 			"lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
 		  "columnDefs": [
 		  	{ "width": "10", "targets": 0},
-		    { "width": "100", "targets": "_all"}
+		    { "width": "150", "targets": "_all"}
 
 		  ]
 		});

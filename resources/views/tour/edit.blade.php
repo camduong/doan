@@ -4,7 +4,10 @@
 
 @section('stylesheets')
 	{!! Html::style('css/parsley.css') !!}
+	{!! Html::style('assets/css/gsdk-bootstrap-wizard.css') !!}
 	{!! Html::style('assets/css/demo.css') !!}
+	{!! Html::style('css/datepicker.min.css') !!}
+	{!! Html::style('css/thuvienadmin.css') !!}
 @endsection
 
 @section('content')
@@ -41,15 +44,15 @@
 										</div>
 										<div class="col-md-6">
 											{{ Form::label('number', 'Số vé:', ['class' => 'form-spacing-top']) }}
-											{{ Form:: number('number', 0, ['class' => 'form-control', 'required' => '', 'min' => '0']) }}
+											{{ Form:: number('number', null, ['class' => 'form-control', 'required' => '', 'min' => '0']) }}
 										</div>
 									</div>
 									<br>
 									{{ Form::label('depart_date', 'Hành trình:', ['class' => 'form-spacing-top'])  }}
 									<div class="datepicker input-daterange input-group">
-										{{ Form:: text('depart_date', \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y') , ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày đi']) }}
+										{{ Form:: text('depart_date', date('d/m/Y', strtotime($tour->depart_date)),['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày đi']) }}
 											<span class="input-to input-group-addon">đến</span>
-										{{ Form:: text('back_date', \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y'), ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày về']) }}
+										{{ Form:: text('back_date', date('d/m/Y',strtotime($tour->back_date)), ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày về']) }}
 									</div>
 									<br>
 									{{ Form::label ('featured_image', 'Tải ảnh lên (có thể chọn nhiều ảnh):') }}
@@ -74,11 +77,8 @@
 						<div class="tab-pane" id="step3">
 							<div class="row">
 								<div class="col-sm-12">
-									{{ Form::label('day', 'Số ngày của chuyến đi:', ['class' => 'form-spacing-top']) }}
-									{{ Form::number('day', 0, ['class' => 'form-control', 'required' => '', 'min' => '0']) }}
-									<br>
 									{{ Form::label('detail', 'Chi tiết chuyến đi:', ['class' => 'form-spacing-top']) }}
-									{{ Form::textarea('detail', null, ['class' => 'form-control ckeditor', 'required', 'name' => 'editor', 'id' => 'detail', 'rows' => 10, 'cols' => 60, 'style' => 'margin:0 1% !important']) }}
+									{{ Form::textarea('detail', $tour->schedule, null, ['class' => 'form-control ckeditor', 'required', 'id' => 'detail', 'rows' => 10, 'cols' => 60, 'style' => 'margin:0 1% !important']) }}
 								</div>
 							</div>
 						</div>
@@ -107,9 +107,51 @@
 	{!! Html::script('assets/js/jquery.validate.min.js') !!}
 	{!! Html::script('assets/js/jquery.bootstrap.wizard.js') !!}
 	{!! Html::script('assets/js/gsdk-bootstrap-wizard.js') !!}
-	{!! Html::script('js/ckeditor/ckeditor.js') !!}
+	{!! Html::script('ckeditor/ckeditor.js') !!}
+	{!! Html::script('js/datepicker.min.js') !!}
 	<script>
-		CKEDITOR.replace( 'header' );
+	$(document).ready(function(){
+		$('.datepicker.input-daterange').datepicker({
+			format: "dd-mm-yyyy",
+			startDate: "-infinity",
+			endDate:"+7m",
+			maxViewMode: 1,
+			todayBtn: "linked",
+			todayHighlight: true
+		});
 		CKEDITOR.replace( 'detail' );
+
+		function ChangeToSlug()
+		{
+		    var title, slug;
+		    //Lấy text từ thẻ input title
+		    title = document.getElementById("name").value;
+		    //Đổi chữ hoa thành chữ thường
+		    slug = title.toLowerCase();
+		    //Đổi ký tự có dấu thành không dấu
+		    slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+		    slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+		    slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+		    slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+		    slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+		    slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+		    slug = slug.replace(/đ/gi, 'd');
+		    //Xóa các ký tự đặt biệt
+		    slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+		    //Đổi khoảng trắng thành ký tự gạch ngang
+		    slug = slug.replace(/ /gi, "-");
+		    //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+		    //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+		    slug = slug.replace(/\-\-\-\-\-/gi, '-');
+		    slug = slug.replace(/\-\-\-\-/gi, '-');
+		    slug = slug.replace(/\-\-\-/gi, '-');
+		    slug = slug.replace(/\-\-/gi, '-');
+		    //Xóa các ký tự gạch ngang ở đầu và cuối
+		    slug = '@'+slug+'@';
+		    slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+		    //In slug ra textbox có id “slug”
+		    document.getElementById('slug').value = slug;
+		}
+	});
 	</script>
 @endsection

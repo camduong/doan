@@ -5,8 +5,8 @@
 @section('stylesheets')
 	{!! Html::style('css/parsley.css') !!}
 	{!! Html::style('assets/css/gsdk-bootstrap-wizard.css') !!}
-	{!! Html::style('css/datepicker.min.css') !!}
 	{!! Html::style('assets/css/demo.css') !!}
+	{!! Html::style('css/datepicker.min.css') !!}
 	{!! Html::style('css/thuvienadmin.css') !!}
 
 @section('content')
@@ -48,7 +48,7 @@
 									<div class="row">
 										<div class="col-sm-10 col-sm-offset-1">
 											{{ Form::label('name', 'Tên chuyến đi:') }}
-											{{ Form::text('name', null, ['class' => 'form-control ', 'onkeyup' => 'ChangeToSlug()', 'required' => '']) }}
+											{{ Form::textarea('name', null, ['class' => 'form-control ', 'onkeyup' => 'ChangeToSlug()', 'required' => '', 'rows' => '4']) }}
 											<br>
 											{{ Form::label('slug', 'Slug:', ['class' => 'form-spacing-top']) }}
 											{{ Form:: text('slug', null, ['class' => 'form-control', 'required' => '', "readonly"=>"true"]) }}
@@ -140,12 +140,14 @@
 							<td>{{ $tour->day }}</td>
 							<td>{{ date('j m,Y', strtotime($tour->created_at)) }}</td>
 							<td>
-								<a href="{{ route('tour.show', $tour->id) }}" class="btn btn-app">
-								<i class="fa fa-eye"></i>
-								</a>
-								<a href="{{ route('tour.edit', $tour->id) }}" class="btn btn-app">
-								<i class="fa fa-edit"></i>
-								</a>
+								<div>
+									<a href="{{ route('tour.show', $tour->id) }}" class="btn btn-info btn-md">
+										Xem
+									</a>
+									<a href="{{ route('tour.edit', $tour->id) }}" class="btn btn-primary btn-md">
+										Sửa
+									</a>
+								</div>
 							</td>
 						</tr>
 					@endforeach

@@ -8,24 +8,27 @@ block content
 					each nav, i in navs
 						li
 							img(src='../img/#{nav[0]}.jpg')
+
+
 				.row
-					h3.tour-name
-						| Miền Tây - Sa Đéc - Cần Thơ - Cà Mau - Bạc Liêu - Sóc Trăng (1 đêm khách sạn 5 sao tại Cà Mau)
+					h3.tour-name=$tour->name
+
 					.col-xs-8.col-lg-7.tour-det
 						ul.detail-lab.col-lg-4
-							li Mã tour:
 							li Thời gian:
 							li Khởi hành:
 							li Nơi khởi hành:
 							li Số chỗ còn nhận:
 						ul.detail-inf.col-lg-8
-							li NDSGN846-032-150417XE-U-1
-							li 4 ngày
-							li 15/04/2017
-							li Hồ Chí Minh
-							li 2
+							li=$tour->day
+								|  ngày
+							li=date('d/m/Y',strtotime($tour->depart_date))
+							li=$tour->locations->name
+							li=$tour->number
+								|  chỗ
 					.col-xs-4.col-lg-5.p-b
-						h3.gia 5.399.000 VND
+						h3.gia=number_format($tour->price)
+							sup VND
 						p
 							a.btn.btn-default(href='#', role='button') Đặt ngay
 					.clearfix

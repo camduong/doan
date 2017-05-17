@@ -9,31 +9,31 @@
         <div class="row">
             {!! Form::model($location, ['route' => ['location.update', $location->id], 'method' => 'PUT']) !!}
             <div class="col-md-8">
-                {{ Form::label('name','Name:') }}
+                {{ Form::label('name','Tên:') }}
                 {{ Form::text('name', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '100'))}}
 
-                {{ Form::label('introduce', 'Location Introduce:') }}
+                {{ Form::label('introduce', 'Giới thiệu địa điểm:') }}
                 {{ Form::textarea('introduce', null, array('class' => 'form-control', 'required' => ''))}}
             </div>
 
             <div class="col-md-4">
                 <div class="well">
                     <dl class="dl-horizontal">
-                        <dt>Created At:</dt>
+                        <dt>Ngày tạo:</dt>
                         <dd>{{ date('j m,Y h:i a', strtotime($location->created_at)) }}</dd>
                     </dl>
 
                     <dl class="dl-horizontal">
-                        <dt>Last Updated:</dt>
+                        <dt>Ngày cập nhật:</dt>
                         <dd>{{ date('j m,Y h:i a',strtotime($location->updated_at)) }}</dd>
                     </dl>
                     <hr>
                     <div class="row">
                         <div class="col-sm-6">
-                            {!! Html::linkRoute('location.index', 'Cancel', null, ['class' => 'btn btn-danger btn-block']) !!}
+                            {!! Html::linkRoute('location.index', 'Thoát', null, ['class' => 'btn btn-danger btn-block']) !!}
                         </div>
                         <div class="col-sm-6">
-                            {{ Form::submit('Save Changes', ['class' => 'btn btn-success btn-block']) }}
+                            {{ Form::submit('Lưu', ['class' => 'btn btn-success btn-block']) }}
                         </div>
                     </div>
 

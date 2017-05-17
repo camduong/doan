@@ -145,7 +145,6 @@ class TourController extends Controller
         {
             $loca[$location->id] = $location->name;
         }
-        
         $vehicles = Vehicle::all();
         $veh = [];
         foreach($vehicles as $vehicle)
@@ -168,23 +167,23 @@ class TourController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tour = Tour::find($id);
-        if($request->input('slug') == $tour->slug) {
-            $this->validate($request, array(
-                'name' => 'required|max:255',
-                'price' => 'required|integer',
-                'day' => 'required|integer',
-                'detail' => 'required',
-            ));
-        } else {
-            $this->validate($request, array(
-                'name' => 'required|max:255',
-                'slug'  => 'required|alpha_dash|min:5|max:255|unique:tours,slug',
-                'price' => 'required|integer',
-                'day' => 'required|integer',
-                'detail' => 'required',
-            ));
-        }
+        // $tour = Tour::find($id);
+        // if($request->input('slug') == $tour->slug) {
+        //     $this->validate($request, array(
+        //         'name' => 'required|max:255',
+        //         'price' => 'required|integer',
+        //         'day' => 'required|integer',
+        //         'detail' => 'required',
+        //     ));
+        // } else {
+        //     $this->validate($request, array(
+        //         'name' => 'required|max:255',
+        //         'slug'  => 'required|alpha_dash|min:5|max:255|unique:tours,slug',
+        //         'price' => 'required|integer',
+        //         'day' => 'required|integer',
+        //         'detail' => 'required',
+        //     ));
+        // }
         //save the data to the database
         $tour = Tour::find($id);
 
@@ -194,8 +193,8 @@ class TourController extends Controller
         $tour->hotel_id = $request->input('hotel_id');
         $tour->location_id = $request->input('location_id');
         $tour->vehicle_id = $request->input('vehicle_id');
-        $tour->depart_date = $request->input('depart_date');
-        $tour->back_date = $request->input('back_date');
+        $tour->depart_date = date('Y/m/d',strtotime($request->input('depart_date')));
+        $tour->back_date = date('Y/m/d',strtotime($request->input('back_date')));
         $tour->day = (strtotime($tour->back_date) - strtotime($tour->depart_date)) / (60 * 60 * 24) + 1;
         $tour->price = $request->input('price');
         $tour->schedule = $request->input('detail');

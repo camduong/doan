@@ -5,22 +5,7 @@ block content
 
     .container
       .row
-        .col-md-4
-          .input-group
-            input.form-control(type='text', placeholder='Search for...')
-            span.input-group-btn
-              button.btn.btn-secondary(type='button') Go!
-        .col-md-4
-          .input-group
-            input.form-control(type='text', placeholder='Search for...')
-            span.input-group-btn
-              button.btn.btn-secondary(type='button') Go!
-        .col-md-4
-          .datepicker.input-daterange.input-group
-            input.form-control(type='text', name='start')
-            span.input-group-addon to
-            input.form-control(type='text', name='end')
-
+        
       .row.justify-content-md-center#tour-overflow
         .grid
           .grid-sizer
@@ -29,7 +14,7 @@ block content
             .grid-item
               img(src='../img/'+data->image, alt='Card image cap')
               .grid-intro.col-md-12
-                a(href='#')
+                a(href=route('tour.single', data->slug))
                   h3=data->name
                 .schedule.col-md-5.col-xs-12
                   i.fa.fa-clock-o(aria-hidden='true')
@@ -37,9 +22,9 @@ block content
                     |  ngày
                   br
                   i.fa.fa-calendar(aria-hidden='true')
-                  h5=data->depart_date
+                  h5=date('d/m/Y',strtotime(data->depart_date))
                 .price.col-md-7.col-xs-12
-                  h3=data->price
+                  h3=number_format(data->price)
                     sup VND
                   .action.col-sm-12
                     button.btn.btn-primary
@@ -104,7 +89,7 @@ block content
           btn = $('.btn-overflow'),
           page = $('.page'),
           h=text[0].scrollHeight;
-        if(h > 845) {
+        if(h > 1545) {
           btn.addClass('less');
           btn.css('display', 'block');
         }
@@ -116,11 +101,6 @@ block content
             if(h > 1045){
               page.css('display','block');
             }
-          } else {
-            btn.addClass('less');
-            btn.removeClass('more');
-            btn.text('Show more');
-            text.animate({'height': '645px'});
           }
         });
     })

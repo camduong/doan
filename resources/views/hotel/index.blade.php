@@ -38,7 +38,7 @@
                             </div>
                             <div class="form-group">
                                 {{ Form::label('location_id', 'Địa điểm:', ['class' => 'form-spacing-top']) }}
-                                {{ Form::select('location_id', $locations, null, ['class' => 'form-control', 'placeholder' => 'Chọn địa điểm'])}}
+                                {{ Form::select('location_id', $locations, null, ['class' => 'form-control', 'placeholder' => '---Chọn địa điểm---'])}}
                             </div>
                             {{ Form::submit('Lưu', array('class' => 'btn btn-success btn-block', 'style' => 'margin-top: 20px;'))}}
                         {{ Form::close()}}
@@ -74,8 +74,8 @@
                             <td>{{ $hotel->locations->name }}</td>
                             <td>
                                 {!! Form::open(['route' => ['hotel.destroy', $hotel->id], 'method' => 'DELETE']) !!}
-                                    {!! Html::linkRoute('hotel.edit', 'Edit', array($hotel->id), array('class' => 'btn btn-primary btn-md')) !!}
-                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-md']) !!}
+                                    {!! Html::linkRoute('hotel.edit', 'Sửa', array($hotel->id), array('class' => 'btn btn-primary btn-md')) !!}
+                                    {!! Form::submit('Xóa', ['class' => 'btn btn-danger btn-md']) !!}
                                 {!! Form::close() !!}
                             </td>
                         </tr>
