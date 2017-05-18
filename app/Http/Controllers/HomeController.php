@@ -65,7 +65,7 @@ class HomeController extends Controller
 
 		$request->session()->put('cart', $cart);
 
-		return redirect()->route('tour');	
+		return redirect()->back();	
 	}
 
 	public function getCart()
@@ -111,4 +111,44 @@ class HomeController extends Controller
 			Session::forget('cart');
 			return redirect()->route('home')->with('success', 'Successfully purchased products!');
 		}
+
+		public function getReduceByOne($id)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->reduceByOne($id);
+
+        if(count($cart->items) > 0) {
+            Session::put('cart', $cart);
+        } else {
+            Session::forget('cart');
+        }
+        
+        return redirect()->route('shoppingCart');
+    }
+
+     public function getAddByOne($id)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->addByOne($id);
+
+        Session::put('cart', $cart);
+        return redirect()->route('shoppingCart');
+    }
+
+    public function getRemoveItem($id)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+
+        if(count($cart->items) > 0) {
+            Session::put('cart', $cart);
+        } else {
+            Session::forget('cart');
+        }
+        
+        return redirect()->route('shoppingCart');
+    }
 }

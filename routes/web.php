@@ -24,6 +24,9 @@ Route::post('login','Auth\UserLoginController@login')->name('user.login.submit')
 Route::post('logout','Auth\UserLoginController@logout')->name('user.logout.submit');
 Route::get('/shopping/{id}', 'HomeController@addShoppingCart')->name('addShoppingCart');
 Route::get('/shopping-cart', 'HomeController@getCart')->name('shoppingCart');
+Route::get('/add/{id}', 'HomeController@getAddByOne')->name('addByOne');
+Route::get('/reduce/{id}', 'HomeController@getReduceByOne')->name('reduceByOne');
+Route::get('/remove/{id}', 'HomeController@getRemoveItem')->name('removeItem');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/checkout', 'HomeController@getCheckout')->name('checkout');
     Route::post('/checkout', 'HomeController@postCheckout')->name('checkout');

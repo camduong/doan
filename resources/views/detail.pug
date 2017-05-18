@@ -28,7 +28,7 @@ block content
 						h3.gia=number_format($tour->price)
 							sup VND
 						p
-							a.btn.btn-default(href='#', role='button') Đặt ngay
+							a.btn.btn-default(href=route('addShoppingCart', $tour->id), role='button') Đặt ngay
 					.clearfix
 					.detail-tour
 						ul.nav.nav-tabs(role='tablist', style='margin-bottom: 20px;')
