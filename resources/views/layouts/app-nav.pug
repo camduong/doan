@@ -5,13 +5,15 @@ header
 	nav.cd-main-nav-wrapper
 		ul.cd-main-nav
 			li
-				a(href='/') Trang chủ Tao
+				a(href='/')
+					span Trang chủ Tao
 			li
-				a(href='/tour') Chuyến đi
+				a(href='/tour')
+					span Chuyến đi
 			li
-				a(href='/shopping-cart') 
-					i.fa.fa-cart-plus(aria-hidden='true') 
-					|  Giỏ hàng
+				a(href='/shopping-cart')
+					i.fa.fa-shopping-cart(aria-hidden='true')
+					span Giỏ hàng
 					span.badge=(Session::has('cart') ? Session::get('cart')->totalQty : '')
 
 			li
