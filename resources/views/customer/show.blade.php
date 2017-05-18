@@ -17,7 +17,7 @@
                         @endforeach
                         </ul>
                     </div>
-                    <div class="panel-footer">
+                    <div class="panel-footer text-right">
                         <strong>Tổng giá: {{ number_format($customers->cart->totalPrice) }} VNĐ</strong>
                     </div>
                 </div>
