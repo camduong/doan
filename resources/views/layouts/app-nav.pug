@@ -9,6 +9,12 @@ header
 			li
 				a(href='/tour') Chuyến đi
 			li
+				a(href='/shopping-cart') 
+					i.fa.fa-cart-plus(aria-hidden='true') 
+					|  Giỏ hàng
+					span.badge=(Session::has('cart') ? Session::get('cart')->totalQty : '')
+
+			li
 				a.cd-subnav-trigger(href='#0')
 					span Menu
 				ul

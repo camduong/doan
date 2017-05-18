@@ -18,10 +18,16 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('tour/{slug}', ['as' => 'tour.single', 'uses' => 'HomeController@getSingle'])->where('slug', '[\w\d\-\_]+');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/tour', 'HomeController@tour');
+Route::get('/tour', 'HomeController@tour')->name('tour');
 Route::get('/login','Auth\UserLoginController@showLoginForm')->name('user.login');
 Route::post('login','Auth\UserLoginController@login')->name('user.login.submit');
 Route::post('logout','Auth\UserLoginController@logout')->name('user.logout.submit');
+Route::get('/shopping/{id}', 'HomeController@addShoppingCart')->name('addShoppingCart');
+Route::get('/shopping-cart', 'HomeController@getCart')->name('shoppingCart');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/checkout', 'HomeController@getCheckout')->name('checkout');
+    Route::post('/checkout', 'HomeController@postCheckout')->name('checkout');
+});
 Route::prefix('admin')->group(function(){
     Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('login','Auth\AdminLoginController@login')->name('admin.login.submit');

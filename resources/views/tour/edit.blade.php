@@ -54,9 +54,6 @@
 											<span class="input-to input-group-addon">đến</span>
 										{{ Form:: text('back_date', date('d/m/Y',strtotime($tour->back_date)), ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày về']) }}
 									</div>
-									<br>
-									{{-- {{ Form::label ('featured_image', 'Tải ảnh lên (có thể chọn nhiều ảnh):') }}
-									{{ Form::file('featured_image[]', ['multiple' => ''])}} --}}
 								</div>
 							</div>
 						</div>
@@ -103,7 +100,6 @@
 
 @section('scripts')
 	{!! Html::script('js/parsley.min.js') !!}
-	{{-- {!! Html::script('vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js') !!} --}}
 	{!! Html::script('assets/js/jquery.validate.min.js') !!}
 	{!! Html::script('assets/js/jquery.bootstrap.wizard.js') !!}
 	{!! Html::script('assets/js/gsdk-bootstrap-wizard.js') !!}
