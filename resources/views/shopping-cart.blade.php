@@ -1,11 +1,4 @@
-@extends('layouts.appsss')
-
-@section('title')
-  Laravel Shopping Cart
-@endsection
-
-@section('content')
-    @if(Session::has('cart'))
+@if(Session::has('cart'))
   <div class="row">
     <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
       <ul class="list-group">
@@ -45,5 +38,3 @@
     </div>
   </div>
 @endif
-@endsection
- 

@@ -7,6 +7,7 @@ use App\Tour;
 use App\Images;
 use App\Cart;
 use App\Order;
+use App\Location;
 use Auth;
 use Session;
 
@@ -17,14 +18,6 @@ class HomeController extends Controller
 	 *
 	 * @return void
 	 */
-	 public function __construct()
-	 {
-		 	$oldCart = Session::has('cart') ? Session::get('cart') : null;
-			$cart = new Cart($oldCart);
-
-			$num = count($cart->items);
-			return $num;
-	 }
 
 	/**
 	 * Show the application dashboard.
@@ -33,7 +26,8 @@ class HomeController extends Controller
 	 */
 	public function index()
 	{
-		 return view('welcome');
+		$location = Location::all();
+		return view('welcome')->withLocation($location);
 	}
 
 	public function tour()

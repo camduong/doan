@@ -10,11 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'HomeController@index');
 Auth::routes();
 Route::get('tour/{slug}', ['as' => 'tour.single', 'uses' => 'HomeController@getSingle'])->where('slug', '[\w\d\-\_]+');
 Route::get('/home', 'HomeController@index')->name('home');

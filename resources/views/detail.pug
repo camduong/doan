@@ -32,9 +32,9 @@ block content
 					.clearfix
 					.detail-tour
 						ul.nav.nav-tabs(role='tablist', style='margin-bottom: 20px;')
-							li.active(role='presentation')
+							li#program.active(role='presentation')
 								a(href='#chuongtrinh', aria-controls='chuongtrinh', role='tab', data-toggle='tab') Chương trình
-							li(role='presentation')
+							li#comment(role='presentation')
 								a(href='#binhluan', aria-controls='binhluan', role='tab', data-toggle='tab') Bình luận
 						.tab-content
 							#chuongtrinh.tab-pane.fade.in.active(role='tabpanel')
@@ -55,11 +55,7 @@ block content
 				#myaffix
 					ul.sum-tour
 						h3.headers Tóm tắt chuyến đi
-						tt = json_decode('[["Ngày 1: TP.HCM - SA ĐÉC - CẦN THƠ (Ăn ba bữa)","#ngay1"],["Ngày 2: CẦN THƠ - CÀ MAU (Ăn ba bữa)","#ngay2"],["Ngày 3: CÀ MAU - ĐẤT MŨI - BẠC LIÊU (Ăn ba bữa)","#ngay3"],["Ngày 4: BẠC LIÊU - SÓC TRĂNG - TP.HCM (Ăn sáng, trưa)","#ngay4"]]')
-						each tts,i in tt
-							li
-								a(href="#{tts[1]}") #{tts[0]}
-							hr
+						.sub-sum
 
 	include layouts/app-footer
 	//- script(src='../js/sticky-kit.min.js', type='text/javascript')
@@ -86,7 +82,9 @@ block content
 
 		//- smooth scroll
 		var offset=100;
+		var pro = $("#program").hasClass(null);
 		$(".sum-tour").on("click","a[href*=\\#]:not([href=\\#])", function(event){
+			$('[href=\\#chuongtrinh]').tab("show");
 			var hash = this.hash;
 			var $target = $(hash);
 			 if($target.length){
@@ -99,4 +97,10 @@ block content
 				});
 				event.preventDefault();
 			}
+		});
+		$("#chuongtrinh").ready(function(){
+			$("h4").each(function(i,l){
+				$(this).attr('id', 'ngay'+(i+1))
+				$(".sub-sum").append("<li><a href='#ngay"+(i+1)+"'>" + $(this).text() + "</a></li><hr/>")
+			});
 		});

@@ -12,11 +12,10 @@ block content
     //- {{-- carousel end --}}
     .container.book-form
       .form-group.text-center
-        nbvs = json_decode('[["Loại hình","false",["Trong nước","Ngoài nước"]],["Nơi đến","true",["Bình Định","Cà Mau","Cần Thơ","Gia Lai","Hà Nội","Hải Phòng","Khánh Hòa","Kiên Giang","Kiên Giang","Lâm Đồng","Nghệ An","Phú Yên","Quảng Bình","Quảng Nam","Thanh Hóa","Thành phố Hồ Chí Minh","Thừa Thiên - Huế","Điện Biên","Đà Nẵng","Đắk Lắk"]]]')
-        each nbv, i in nbvs
-          select.selectpicker.input-group.col-xs-4(data-live-search='#{nbv[1]}', title='#{nbv[0]}')
-            each ncv,a in nbv[2]
-              option(data-tokens=('#{ncv}')) #{ncv}
+        select.selectpicker.input-group.col-xs-4(data-live-search='true', title='Nơi đến')
+          nbvs = $location
+          each nbv, i in nbvs
+            option(data-tokens=nbv->slug)=nbv->name
 
         .col-xs-2.input-group.text-center(style='display:inline-block; padding:15px;')
           button.btn.btn-default.btn-member(type='submit' style='width:100%')
