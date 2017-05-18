@@ -27,7 +27,7 @@
 					<a href="{{ route('location.index') }}"><i class="fa fa-location-arrow"></i>Địa điểm</a>
 				</li>
 				<li>
-					<a href="#"><i class="fa fa-users"></i>Khách hàng</a>
+					<a href="{{ route('customer.index') }}"><i class="fa fa-users"></i>Khách hàng</a>
 				</li>
 			</ul>
 		</div>

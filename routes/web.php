@@ -35,8 +35,9 @@ Route::prefix('admin')->group(function(){
     Route::get('logout','Auth\AdminLoginController@logout')->name('admin.logout.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
     Route::resource('tour', 'TourController');
-    Route::resource('vehicle', 'VehicleController',['except' => 'create']);
-    Route::resource('hotel', 'HotelController',['except' => 'create']);
-    Route::resource('location', 'LocationController',['except' => 'create']);
+    Route::resource('vehicle', 'VehicleController',['except' => ['create','show']]);
+    Route::resource('hotel', 'HotelController',['except' => ['create','show']]);
+    Route::resource('location', 'LocationController',['except' => ['create','show']]);
+    Route::resource('customer', 'CustomerController',['only' => ['index','show']]);
 });
 
