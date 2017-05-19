@@ -34,22 +34,23 @@ block content
 
 			.text-center
 				button.btn.btn-secondary.btn-lg.btn-overflow(type='button') Xem thêm
-		nav.page(aria-label='Page navigation example')
-			ul.pagination.justify-content-center
-				li.page-item
-					a.page-link(href='#', aria-label='Previous')
-						span(aria-hidden='true') &laquo;
-						span.sr-only Previous
-				li.page-item
-					a.page-link(href='#') 1
-				li.page-item
-					a.page-link(href='#') 2
-				li.page-item
-					a.page-link(href='#') 3
-				li.page-item
-					a.page-link(href='#', aria-label='Next')
-						span(aria-hidden='true') &raquo;
-						span.sr-only Next
+		.text-center!=$tours->links()
+		//- nav.page(aria-label='Page navigation example')
+		//- 	ul.pagination.justify-content-center
+		//- 		li.page-item
+		//- 			a.page-link(href='#', aria-label='Previous')
+		//- 				span(aria-hidden='true') &laquo;
+		//- 				span.sr-only Previous
+		//- 		li.page-item
+		//- 			a.page-link(href='#') 1
+		//- 		li.page-item
+		//- 			a.page-link(href='#') 2
+		//- 		li.page-item
+		//- 			a.page-link(href='#') 3
+		//- 		li.page-item
+		//- 			a.page-link(href='#', aria-label='Next')
+		//- 				span(aria-hidden='true') &raquo;
+		//- 				span.sr-only Next
 		.second
 
 	include layouts/app-footer
