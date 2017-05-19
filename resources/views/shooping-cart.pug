@@ -1,0 +1,37 @@
+
+		#myModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel")
+			.modal-dialog(role="document")
+				.modal-content
+					.modal-header
+						button.close(type="button", data-dismiss="modal", aria-label="Close")
+							span(aria-hidden="true") ×
+						h4 Giỏ hàng
+
+					if (Session::has('cart'))
+						.modal-body
+							each ($tours as $tour)
+							li.list-group-item
+								span.badge=$tour['qty']
+								strong=$tour['item']['name']
+								span.label.label-success=number_format($tour['price']) VNĐ
+								.btn-group
+									button.btn.btn-primary.btn-xs-dropdown-toogle(data-toggle="dropdown")
+										| Action
+										span.caret
+									ul.dropdown-menu
+										li
+											a(href=route('addByOne', ['id' => $tour['item']['id']])) Add by 1
+										li
+											a(href=route('reduceByOne', ['id' => $tour['item']['id']])) Reduce by 1
+										li
+											a(href=route('removeItem', ['id' => $tour['item']['id']])) Reduce All
+						.row
+							.col-sm-6.col-md-6.col-md-offset-3.col-sm-offset-3
+								strong Total:=number_format($totalPrice) VNĐ
+					else
+						.row(style="text-align: center;")
+							h2 No Items in Cart!
+
+					.modal-footer
+						button.btn.btn-default(type="button", data-dismiss="modal") Tắt
+						a.btn.btn-success(href=route('checkout'), type="button") Thanh toán

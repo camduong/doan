@@ -12,14 +12,15 @@ block content
     //- {{-- carousel end --}}
     .container.book-form
       .form-group.text-center
-        select.selectpicker.input-group.col-xs-4(data-live-search='true', title='Nơi đến')
-          nbvs = $location
-          each nbv, i in nbvs
-            option(data-tokens=nbv->slug)=nbv->name
+        form
+          select.selectpicker.input-group.col-xs-4(data-live-search='true',name='noiden', title='Nơi đến')
+            nbvs = $location
+            each nbv, i in nbvs
+              option(data-tokens=nbv->slug, value="/tour/" + nbv->slug)=nbv->name
 
-        .col-xs-2.input-group.text-center(style='display:inline-block; padding:15px;')
-          button.btn.btn-default.btn-member(type='submit' style='width:100%')
-            i.glyphicon.glyphicon-search
+          //- .col-xs-2.input-group.text-center(style='display:inline-block; padding:15px;')
+          //-   button.btn.btn-default.btn-member(type='submit' style='width:100%')
+          //-     i.glyphicon.glyphicon-search
 
         //- li.col-md-3
         //-   .input-group
@@ -97,6 +98,10 @@ block content
     $('.selectpicker').selectpicker({
       style: 'btn-default',
       size: 3
+    });
+    $('.selectpicker').on('changed.bs.select', function (e) {
+      var picker = $(this).val();
+      window.location.href = picker;
     });
 
 

@@ -18,7 +18,12 @@ class HomeController extends Controller
 	 *
 	 * @return void
 	 */
-
+	public function Cart()
+	{
+		$oldCart = Session::get('cart');
+		$cart = new Cart($oldCart);
+		return $cart;
+	}
 	/**
 	 * Show the application dashboard.
 	 *
@@ -27,7 +32,8 @@ class HomeController extends Controller
 	public function index()
 	{
 		$location = Location::all();
-		return view('welcome')->withLocation($location);
+		$cart = $this->Cart();
+		return view('welcome')->withLocation($location)->withCarts($cart->items)->withPrice($cart->totalPrice);
 	}
 
 	public function tour()
@@ -37,7 +43,8 @@ class HomeController extends Controller
 			$image = Images::select('img_name')->where('tour_id',$tour->id)->first();
 			$tours[$k]['image'] = $image -> img_name;
 		}
-		return view('tour')->withTours($tours);
+		$cart = $this->Cart();
+		return view('tour')->withTours($tours)->withCarts($cart->items)->withPrice($cart->totalPrice);
 	}
 
 	public function getSingle($slug)
@@ -59,7 +66,7 @@ class HomeController extends Controller
 
 		$request->session()->put('cart', $cart);
 
-		return redirect()->back();	
+		return redirect()->back();
 	}
 
 	public function getCart()
@@ -117,7 +124,6 @@ class HomeController extends Controller
         } else {
             Session::forget('cart');
         }
-        
         return redirect()->route('shoppingCart');
     }
 
@@ -142,7 +148,6 @@ class HomeController extends Controller
         } else {
             Session::forget('cart');
         }
-        
         return redirect()->route('shoppingCart');
     }
 }

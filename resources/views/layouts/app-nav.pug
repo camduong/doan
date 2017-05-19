@@ -6,28 +6,35 @@ header
 		ul.cd-main-nav
 			li
 				a(href='/')
+					i.fa.fa-home(aria-hidden='true')
 					span Trang chủ Tao
 			li
 				a(href='/tour')
+					i.fa.fa-paper-plane(aria-hidden='true')
 					span Chuyến đi
 			li
-				a(href='/shopping-cart')
+				a.nav-link(href='', data-toggle='modal', data-target='#shopping')
 					i.fa.fa-shopping-cart(aria-hidden='true')
 					span Giỏ hàng
 					span.badge=(Session::has('cart') ? Session::get('cart')->totalQty : '')
 
 			li
 				a.cd-subnav-trigger(href='#0')
-					span Menu
+					i.fa.fa-user(aria-hidden='true')
+					span Tài khoản
 				ul
 					li.go-back
 						a(href='#0') Menu
 
 					if (Auth::guest())
 						li.nav-item
-							a.nav-link(href='', data-toggle='modal', data-target='#login') Đăng nhập
+							a.nav-link(href='', data-toggle='modal', data-target='#login')
+								i.fa.fa-sign-in(aria-hidden="true")
+								span Đăng nhập
 						li.nav-item
-							a.nav-link(href='', data-toggle='modal', data-target='#register') Đăng ký
+							a.nav-link(href='', data-toggle='modal', data-target='#register')
+								i.fa.fa-user-plus(aria-hidden="true")
+								span Đăng ký
 					else
 						li.dropdown
 							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')=Auth::user()->name
@@ -35,6 +42,7 @@ header
 								span.caret
 							ul.dropdown-menu.dropdown-logout(role='menu')
 								li
+									i.fa.fa-sign-out(aria-hidden="true")
 									a(href= route('user.logout.submit'), onclick="event.preventDefault();document.getElementById('logout-form').submit();") Logout
 									form#logout-form(action=route('user.logout.submit'), method='POST', style='display: none;')
 										div!=csrf_field()
@@ -79,7 +87,6 @@ div
 									| Don't have an account?
 									br
 									| Register now!
-
 
 div
 	#register.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
@@ -145,3 +152,45 @@ div
 							.col-md-12
 								a.back-logout.col-md-4.col-sm-3.col-xs.btn.btn-warning(href=route('home'), type='submit') Quay lại
 								button#reg_btn.col-md-4.col-sm-3.col-xs.btn.btn-success(type='submit')  Đăng ký
+
+div
+	#shopping.modal.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel")
+			.modal-dialog(role="document")
+				.modal-content
+					.modal-header
+						button.close(type="button", data-dismiss="modal", aria-label="Close")
+							span(aria-hidden="true") ×
+						h4 Giỏ hàng
+
+					if (Session::has('cart'))
+						.modal-body
+							carts = $carts
+							each tour, i in carts
+								li.list-group-item
+									span.badge=$tour['qty']
+									strong=$tour['item']['name']
+									span.label.label-success=number_format($tour['price'])
+										|  VNĐ
+									.btn-group
+										button.btn.btn-primary.btn-xs-dropdown-toogle(data-toggle="dropdown")
+											| Action
+											span.caret
+										ul.dropdown-menu
+											li
+												a(href=route('addByOne', ['id' => $tour['item']['id']])) Add by 1
+											li
+												a(href=route('reduceByOne', ['id' => $tour['item']['id']])) Reduce by 1
+											li
+												a(href=route('removeItem', ['id' => $tour['item']['id']])) Reduce All
+							.row
+								.col-sm-6.col-md-6.col-md-offset-3.col-sm-offset-3
+									strong Total:
+										span=number_format($price)
+											|  VNĐ
+					else
+						.row(style="text-align: center;")
+							h2 No Items in Cart!
+
+					.modal-footer
+						button.btn.btn-default.btn-warning(type="button", data-dismiss="modal") Tắt
+						a.btn.btn-success(href=route('checkout'), type="button") Thanh toán
