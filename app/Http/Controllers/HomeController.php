@@ -38,7 +38,19 @@ class HomeController extends Controller
 
 	public function tour()
 	{
-		$tours = Tour::all();
+		$tours = Tour::orderBy('updated_at', 'desc')->paginate(2);
+		foreach ($tours as $k => $tour) {
+			$image = Images::select('img_name')->where('tour_id',$tour->id)->first();
+			$tours[$k]['image'] = $image -> img_name;
+		}
+		$cart = $this->Cart();
+		return view('tour')->withTours($tours)->withCarts($cart->items)->withPrice($cart->totalPrice);
+	}
+
+	public function tourInLocation($slug)
+	{
+		$location = Location::where('slug', '=', $slug)->first();
+		$tours = Tour::where('location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(2);
 		foreach ($tours as $k => $tour) {
 			$image = Images::select('img_name')->where('tour_id',$tour->id)->first();
 			$tours[$k]['image'] = $image -> img_name;
@@ -49,12 +61,13 @@ class HomeController extends Controller
 
 	public function getSingle($slug)
   {
-	$tour = Tour::where('slug', '=', $slug)->first();
+		$tour = Tour::where('slug', '=', $slug)->first();
 		$images = Images::select('img_name')->where('tour_id',$tour->id)->get();
 		foreach ($images as $k => $image) {
 			$tour['image'][$k] = $image -> img_name;
 		}
-	return view('detail')->withTour($tour);
+		$cart = $this->Cart();
+		return view('detail')->withTour($tour)->withCarts($cart->items)->withPrice($cart->totalPrice);
   }
 
 	public function addShoppingCart(Request $request, $id)
@@ -124,7 +137,7 @@ class HomeController extends Controller
         } else {
             Session::forget('cart');
         }
-        return redirect()->route('shoppingCart');
+        return redirect()->back();
     }
 
      public function getAddByOne($id)
@@ -134,7 +147,7 @@ class HomeController extends Controller
         $cart->addByOne($id);
 
         Session::put('cart', $cart);
-        return redirect()->route('shoppingCart');
+        return redirect()->back();
     }
 
     public function getRemoveItem($id)
@@ -148,6 +161,6 @@ class HomeController extends Controller
         } else {
             Session::forget('cart');
         }
-        return redirect()->route('shoppingCart');
+        return redirect()->back();
     }
 }

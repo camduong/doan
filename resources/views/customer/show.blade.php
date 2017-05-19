@@ -26,6 +26,17 @@
             <div class="col-md-4">
                 <div class="well">
                     <div class="row">
+                        <div class="col-sm-12">
+							<span class="lead">Tình trạng: </span>
+							<span class="lead">{{$customers->status}}</span>
+						</div>
+                        <div class="clearfix"></div>
+						<hr>
+						<div class="col-sm-12">
+							<a href="{{ route('customer.edit', $customers->id) }}" class="btn btn-primary btn-block">
+								Sửa
+							</a>
+						</div>
                         <div class="col-md-12">
                             <a href="{{ route('customer.index') }}" class="btn btn-info btn-block btn-h1-spacing">
 								<h4><i class="fa fa-angle-double-left"></i> Xem tất cả</h4>

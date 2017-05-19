@@ -36,4 +36,23 @@ class CustomerController extends Controller
         $customers->cart = unserialize($customers->cart);
         return view('customer.show', ['customers' => $customers]);
     }
+
+    public function edit($id)
+    {
+        $customers = Order::find($id);
+        $customers->cart = unserialize($customers->cart);
+        return view('customer.edit', ['customer' => $customers]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        //save the data to the database
+        $customers = Order::find($id);
+
+        $customers->status = $request->input("status");
+        $customers->save();
+        //set flash data with success message
+
+        return redirect()->route('customer.show', $customers->id);
+    }
 }

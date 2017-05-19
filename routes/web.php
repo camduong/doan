@@ -12,9 +12,10 @@
 */
 Route::get('/', 'HomeController@index');
 Auth::routes();
-Route::get('tour/{slug}', ['as' => 'tour.single', 'uses' => 'HomeController@getSingle'])->where('slug', '[\w\d\-\_]+');
+Route::get('detaitour/{slug}', ['as' => 'tour.single', 'uses' => 'HomeController@getSingle'])->where('slug', '[\w\d\-\_]+');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/tour', 'HomeController@tour')->name('tour');
+Route::get('tour/{slug}', ['as' => 'tour.location', 'uses' => 'HomeController@tourInLocation'])->where('slug', '[\w\d\-\_]+');
 Route::get('/login','Auth\UserLoginController@showLoginForm')->name('user.login');
 Route::post('login','Auth\UserLoginController@login')->name('user.login.submit');
 Route::post('logout','Auth\UserLoginController@logout')->name('user.logout.submit');
@@ -37,6 +38,6 @@ Route::prefix('admin')->group(function(){
     Route::resource('vehicle', 'VehicleController',['except' => ['create','show']]);
     Route::resource('hotel', 'HotelController',['except' => ['create','show']]);
     Route::resource('location', 'LocationController',['except' => ['create','show']]);
-    Route::resource('customer', 'CustomerController',['only' => ['index','show']]);
+    Route::resource('customer', 'CustomerController',['expect' => ['create','destroy','store']]);
 });
 
