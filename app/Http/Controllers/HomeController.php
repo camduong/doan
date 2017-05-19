@@ -164,4 +164,14 @@ class HomeController extends Controller
         }
         return redirect()->back();
     }
+
+		public function getProfile()
+    {
+        $orders = Auth::user()->orders;
+        $orders->transform(function($order, $key) {
+            $order->cart = unserialize($order->cart);
+            return $order;
+        });
+        return view('profile')->withOrders($orders);
+    }
 }

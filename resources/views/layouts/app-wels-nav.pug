@@ -42,6 +42,9 @@ header
 								span.caret
 							ul.dropdown-menu.dropdown-logout(role='menu')
 								li
+									a(href=route('user.profile'))
+										span Hồ sơ khách hàng
+								li
 									a(href= route('user.logout.submit'), onclick="event.preventDefault();document.getElementById('logout-form').submit();")
 										i.fa.fa-sign-out(aria-hidden="true")
 										span Logout

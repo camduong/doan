@@ -19,6 +19,7 @@ Route::get('tour/{slug}', ['as' => 'tour.location', 'uses' => 'HomeController@to
 Route::get('/login','Auth\UserLoginController@showLoginForm')->name('user.login');
 Route::post('login','Auth\UserLoginController@login')->name('user.login.submit');
 Route::post('logout','Auth\UserLoginController@logout')->name('user.logout.submit');
+Route::get('/profile','HomeController@getProfile')->name('user.profile');
 Route::get('/shopping/{id}', 'HomeController@addShoppingCart')->name('addShoppingCart');
 Route::get('/shopping-cart', 'HomeController@getCart')->name('shoppingCart');
 Route::get('/add/{id}', 'HomeController@getAddByOne')->name('addByOne');

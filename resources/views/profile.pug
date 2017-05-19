@@ -1,0 +1,52 @@
+extends layouts/app-wels
+block content
+  .row
+    .col-md-8.col-md-offset-2
+      h1 Hồ sơ khách hàng
+      hr
+      h2 Danh mục đơn hàng của bạn
+      orders = $orders
+      each order,i in orders
+        .panel.panel-default
+          .panel-body
+            ul.list-group
+              items = $order->cart->items
+              each item,i in items
+                li.list-group-item
+                  span.badge=number_format($item['price'])
+                    |  VNĐ
+                  span=$item['item']['name']
+                    |  | 
+                    =number_format($item['item']['price'])
+                    |  VNĐ | 
+                    =item['qty']
+                    |  Vé
+          .panel-footer
+            strong Total Price: 
+              =number_format(order->cart->totalPrice)
+              |  VNĐ
+  include layouts/app-wels-footer
+
+//- <div class="row">
+//-     <div class="col-md-8 col-md-offset-2">
+//-       <h1>User Profile</h1>
+//-       <hr>
+//-       <h2>My Orders</h2>
+//-       @foreach($orders as $order)
+//-         <div class="panel panel-default">
+//-           <div class="panel-body">
+//-             <ul class="list-group">
+//-             @foreach($order->cart->items as $item)
+//-               <li class="list-group-item"><span class="badge">{{ $item['price'] }}</span>
+//-               {{ $item['item']['title'] }} | {{ $item['qty'] }} Units
+//-               </li>
+//-             @endforeach
+//-             </ul>
+//-           </div>
+//-           <div class="panel-footer">
+//-             <strong>Total Price: {{ $order->cart->totalPrice }}</strong>
+//-           </div>
+//-         </div>
+//-       @endforeach
+//-     </div>
+//-   </div> 
