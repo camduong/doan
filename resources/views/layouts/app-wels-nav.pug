@@ -42,8 +42,9 @@ header
 								span.caret
 							ul.dropdown-menu.dropdown-logout(role='menu')
 								li
-									i.fa.fa-sign-out(aria-hidden="true")
-									a(href= route('user.logout.submit'), onclick="event.preventDefault();document.getElementById('logout-form').submit();") Logout
+									a(href= route('user.logout.submit'), onclick="event.preventDefault();document.getElementById('logout-form').submit();")
+										i.fa.fa-sign-out(aria-hidden="true")
+										span Logout
 									form#logout-form(action=route('user.logout.submit'), method='POST', style='display: none;')
 										div!=csrf_field()
 					li
@@ -193,4 +194,7 @@ div
 
 					.modal-footer
 						button.btn.btn-default.btn-warning(type="button", data-dismiss="modal") Tắt
-						a.btn.btn-success(href=route('checkout'), type="button") Thanh toán
+						if (Auth::guest())
+							a.btn.btn-success(type="button", data-dismiss="modal", data-toggle='modal', data-target='#login') Thanh toán
+						else
+							a.btn.btn-success(href=route('checkout'), type="button") Thanh toán
