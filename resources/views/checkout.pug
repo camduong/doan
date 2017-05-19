@@ -1,23 +1,26 @@
+extends layouts/app-wels
+block content
 
-div.row
-	div.col-sm-6.col-md-4.col-md-offset-4.col-sm-offset-3
-		h1 Checkout
-		h4 Your Total:
-			span=number_format($total)
-			 |  VNĐ
-		form#checkout-form(action=route('checkout'), method="post")
-			div#charge-error.alert.alert-danger=(!Session::has('error') ? 'hidden' : '')
-				div=(Session::get ('error'))
+	main.cd-main-content.main-user.main-checkout
+		.container
+			.row.warp-check
+				h1 Thanh toán
+				span Tổng tiền:&nbsp;&nbsp;
+					h3(style="color: red; display: inline-block")=number_format($total)
+						| &nbsp;VNĐ
+				form#checkout-form(action=route('checkout'), method="post")
+					#charge-error.alert.alert-danger(class=(!Session::has('error') ? 'hidden' : ''))=(Session::get ('error'))
 
-				div.row
-					div.col-xs-12
-						div.form-group
-							label(for="name") Name
+					div
+						.form-group
+							label(for="name") Tên
 							input#name.form-control(type="text", required, name="name", value=(Auth::user()->name))
 
-					div.col-xs-12
-						div.form-group
-							label(for="address") Address
+						.form-group
+							label(for="address") Địa chỉ
 							input#address.form-control(type="text",required, name="address",value=(Auth::user()->email)))
-				div!=csrf_field()
-				button.btn.btn-success(type="submit") Buy now
+					div!=csrf_field()
+					div.text-right
+						button.btn.btn-success(type="submit") Mua ngay
+
+	include layouts/app-wels-footer

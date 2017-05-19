@@ -1,27 +1,27 @@
 header
 	.cd-logo
 		a(href='/')
-			img(src='../img/logo.png', alt='Logo')
+			img(src='../img/logo_nui.png', alt='Logo')
 	nav.cd-main-nav-wrapper
 		ul.cd-main-nav
 			li
 				a(href='/')
 					i.fa.fa-home(aria-hidden='true')
-					span Trang chủ Tao
+					span &nbsp;Trang chủ
 			li
 				a(href='/tour')
 					i.fa.fa-paper-plane(aria-hidden='true')
-					span Chuyến đi
+					span &nbsp;Chuyến đi
 			li
 				a.nav-link(href='', data-toggle='modal', data-target='#shopping')
 					i.fa.fa-shopping-cart(aria-hidden='true')
-					span Giỏ hàng
+					span &nbsp;Giỏ hàng&nbsp;
 					span.badge=(Session::has('cart') ? Session::get('cart')->totalQty : '')
 
 			li
 				a.cd-subnav-trigger(href='#0')
 					i.fa.fa-user(aria-hidden='true')
-					span Tài khoản
+					span &nbsp;Tài khoản
 				ul
 					li.go-back
 						a(href='#0') Menu
@@ -30,11 +30,11 @@ header
 						li.nav-item
 							a.nav-link(href='', data-toggle='modal', data-target='#login')
 								i.fa.fa-sign-in(aria-hidden="true")
-								span Đăng nhập
+								span &nbsp;Đăng nhập
 						li.nav-item
 							a.nav-link(href='', data-toggle='modal', data-target='#register')
 								i.fa.fa-user-plus(aria-hidden="true")
-								span Đăng ký
+								span &nbsp;Đăng ký
 					else
 						li.dropdown
 							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')=Auth::user()->name
@@ -43,11 +43,12 @@ header
 							ul.dropdown-menu.dropdown-logout(role='menu')
 								li
 									a(href=route('user.profile'))
-										span Hồ sơ khách hàng
+										i.fa.fa-list-ul(aria-hidden="true")
+										span &nbsp;Lịch sử giao dịch
 								li
 									a(href= route('user.logout.submit'), onclick="event.preventDefault();document.getElementById('logout-form').submit();")
 										i.fa.fa-sign-out(aria-hidden="true")
-										span Logout
+										span &nbsp;Đăng xuất
 									form#logout-form(action=route('user.logout.submit'), method='POST', style='display: none;')
 										div!=csrf_field()
 					li

@@ -100,7 +100,7 @@ class HomeController extends Controller
 			$oldCart = Session::get('cart');
 			$cart = new Cart($oldCart);
 			$total = $cart->totalPrice;
-			return view('checkout')->withTotal($total);
+			return view('checkout')->withTotal($total)->withCarts($cart->items)->withPrice($cart->totalPrice);
 		}
 
 		public function postCheckout(Request $request)

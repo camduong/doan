@@ -4,9 +4,9 @@
       <h1>Checkout</h1>
       <h4>Your Total: ${{ number_format($total) }} VNĐ</h4>
       <form action="{{ route('checkout') }}" method="post" id="checkout-form">
-      <div id="charge-error" class="alert alert-danger {{ !Session::has('error') ? 'hidden' : ''  }}">
-        {{ Session::get('error') }}
-      </div>
+        <div id="charge-error" class="alert alert-danger {{ !Session::has('error') ? 'hidden' : ''  }}">
+          {{ Session::get('error') }}
+        </div>
         <div class="row">
           <div class="col-xs-12">
             <div class="form-group">
