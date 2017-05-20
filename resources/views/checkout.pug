@@ -6,7 +6,7 @@ block content
 			.row.warp-check
 				h1 Thanh toán
 				span Tổng tiền:&nbsp;&nbsp;
-					h3(style="color: red; display: inline-block")=number_format($total)
+					h3(style="color: red; display: inline-block")=number_format($price)
 						| &nbsp;VNĐ
 				form#checkout-form(action=route('checkout'), method="post")
 					#charge-error.alert.alert-danger(class=(!Session::has('error') ? 'hidden' : ''))=(Session::get ('error'))

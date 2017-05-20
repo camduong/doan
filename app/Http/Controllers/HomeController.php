@@ -172,6 +172,7 @@ class HomeController extends Controller
             $order->cart = unserialize($order->cart);
             return $order;
         });
-        return view('profile')->withOrders($orders);
+		$cart = $this->Cart();
+        return view('profile')->withOrders($orders)->withCarts($cart->items)->withPrice($cart->totalPrice);
     }
 }

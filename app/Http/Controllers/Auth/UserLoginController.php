@@ -39,7 +39,7 @@ class UserLoginController extends Controller
                 $oldCart = Session::get('cart');
                 $cart = new Cart($oldCart);
                 $total = $cart->totalPrice;
-                return view('checkout')->withTotal($total);
+                return redirect('/checkout')->withCarts($cart->items)->withPrice($total);
             }
         }
 
