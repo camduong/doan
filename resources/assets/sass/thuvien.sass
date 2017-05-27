@@ -95,19 +95,7 @@ a:hover
 		a
 			color: #747373
 			font-weight: 600
-.book-form
-	height: 100%
-	margin-bottom: 2%
-	box-shadow: 0px 5px 12px #888
-	background-color: rgba(5, 195, 219, 0.69)
-	.form-group
-		width: 70%
-		margin: auto
-		.btn-member
-			background-color: #e6e6e6
-			border-color: #cccccc
-			i
-				color: #333333
+
 .introduce .i-header, .offer .o-header
 	border-bottom: 1px solid gray
 	width: 50%
@@ -125,15 +113,6 @@ a:hover
 .wrap-offer
 	background: rgba(0, 0, 0, 0.35)
 
-
-
-.o-tn-img-box
-	position: relative
-	width: 250px
-	height: 350px
-	overflow: hidden
-	margin: auto
-
 .offer
 	box-shadow: -1px -3px 14px 4px grey
 	background: url(/img/mountains.jpg) no-repeat fixed
@@ -147,133 +126,117 @@ a:hover
 	background-color: #ffffff
 	border: 1px solid #cccccc
 	box-shadow: 0 0 20px -5px
+
 .i-tn-img-box
 	position: relative
 	width: 350px
+	height: 250px
+	overflow: hidden
+	margin: auto
+
+.o-tn-img-box
+	position: relative
+	width: 250px
 	height: 350px
 	overflow: hidden
 	margin: auto
+
+.i-tn-img-box, .o-tn-img-box
+	-webkit-transition: all .3s
+	-moz-transition: all .3s
+	-ms-transition: all .3s
+	-o-transition: all .3s
+	transition: all .3s
 	img
-		position: absolute
-		width: 100%
-		height: 100%
 		-webkit-transition: all .5s ease
 		-moz-transition: all .5s ease
 		-ms-transition: all .5s ease
 		-o-transition: all .5s ease
 		transition: all .5s ease
-
-.o-tn-img-box img
-	position: absolute
-	width: 100%
-	height: 100%
-	-webkit-transition: all .5s ease
-	-moz-transition: all .5s ease
-	-ms-transition: all .5s ease
-	-o-transition: all .5s ease
-	transition: all .5s ease
-
-.i-tn-img-box:hover img, .o-tn-img-box:hover img
-	-moz-transform: scale(1.2)
-	-webkit-transform: scale(1.2)
-	transform: scale(1.2)
-
-.i-tn-img-box:hover .cap-header, .o-tn-img-box:hover .cap-header
-	opacity: 0
-
-.i-tn-img-box .cap-header h1, .o-tn-img-box .cap-header h1
-	text-align: center
-	display: inline-block
-
-.i-tn-img-box .cap-header
-	position: absolute
-	color: white
-	width: 100%
-	height: 100%
-	text-align: center
-	-webkit-transition: opacity 1s ease
-	-moz-transition: opacity 1s ease
-	-ms-transition: opacity 1s ease
-	-o-transition: opacity 1s ease
-	transition: opacity 1s ease
-
-
-.o-tn-img-box .cap-header
-	position: absolute
-	color: white
-	width: 100%
-	height: 100%
-	text-align: center
-	-webkit-transition: opacity 1s ease
-	-moz-transition: opacity 1s ease
-	-ms-transition: opacity 1s ease
-	-o-transition: opacity 1s ease
-	transition: opacity 1s ease
-
-	&:before
-		content: ""
 		height: 100%
-		display: inline-block
+		width: 100%
 		vertical-align: middle
-
-.i-tn-img-box
-	.cap-header:before, .block-caption:before
-		content: ""
+	&:hover
+		opacity: 1
+		box-shadow: -3px 4px 100px 1px
+		transform: scale(1.07, 1.07)
+		img
+			-moz-transform: scale(1.2)
+			-webkit-transform: scale(1.2)
+			transform: scale(1.2)
+		.cap-header
+			opacity: 0
+		.block-caption
+			opacity: 1
+	.cap-header
+		opacity: 1
+		position: absolute
+		top: 0
+		color: white
+		width: 100%
 		height: 100%
-		display: inline-block
-		vertical-align: middle
-
-.o-tn-img-box .block-caption:before
-	content: ""
-	height: 100%
-	display: inline-block
-	vertical-align: middle
-
-.i-tn-img-box .block-caption, .o-tn-img-box .block-caption
-	position: absolute
-	opacity: 0
-	color: white
-	width: 100%
-	height: 100%
-	text-align: center
-	background-color: rgba(73, 117, 146, 0.46)
-	-webkit-transition: opacity 1s
-	-moz-transition: opacity 1s
-	-ms-transition: opacity 1s
-	-o-transition: opacity 1s
-	transition: opacity 1s
-
-.i-tn-img-box:hover .block-caption, .o-tn-img-box:hover .block-caption
-	opacity: 1
-
-.i-tn-img-box .block-caption .info, .o-tn-img-box .block-caption .info
-	display: inline-block
-	vertical-align: middle
-	width: 90%
-
-.i-tn-img-box .block-caption .info .btn, .o-tn-img-box .block-caption .info .btn
-	border: 1px solid white !important
-	color: white
-	-webkit-transition: all 1s
-	-moz-transition: all 1s
-	-ms-transition: all 1s
-	-o-transition: all 1s
-	transition: all 1s
-
-.i-tn-img-box .block-caption .info .btn:hover, .o-tn-img-box .block-caption .info .btn:hover
-	color: rgb(18, 81, 160)
-	background-color: white
-
-.block-caption h5
-	max-width: 500px
-	padding: 20px
-	position: absolute
-	top: 50%
-	left: 50%
-	width: 100%
-	-ms-transform: translate(-50%, -50%)
-	-webkit-transform: translate(-50%, -50%)
-	transform: translate(-50%, -150%)
+		text-align: center
+		-webkit-transition: all 1s ease
+		-moz-transition: all 1s ease
+		-ms-transition: all 1s ease
+		-o-transition: all 1s ease
+		transition: all 1s ease
+		h1
+			vertical-align: middle
+			text-align: center
+			display: inline-block
+			padding: 2% 10%
+			background-color: rgba(51, 51, 51, 0.58)
+			border: 1px dashed
+		&:before
+			content: ""
+			height: 100%
+			display: inline-block
+			vertical-align: middle
+	.block-caption
+		top: 0
+		position: absolute
+		opacity: 0
+		color: white
+		width: 100%
+		height: 100%
+		text-align: center
+		background-color: rgba(41, 46, 49, 0.46)
+		-webkit-transition: all 1s
+		-moz-transition: all 1s
+		-ms-transition: all 1s
+		-o-transition: all 1s
+		transition: all 1s
+		h5
+			max-width: 500px
+			padding: 20px
+			position: absolute
+			top: 50%
+			left: 50%
+			width: 100%
+			-ms-transform: translate(-50%, -50%)
+			-webkit-transform: translate(-50%, -50%)
+			transform: translate(-50%, -150%)
+		.info
+			display: inline-block
+			vertical-align: middle
+			width: 90%
+			.btn
+				border: 1px solid white !important
+				color: white
+				-webkit-transition: all 1s
+				-moz-transition: all 1s
+				-ms-transition: all 1s
+				-o-transition: all 1s
+				transition: all 1s
+				&:hover
+					color: rgb(18, 81, 160)
+					background-color: white
+		&:before
+			content: ""
+			height: 100%
+			display: inline-block
+			vertical-align: middle
 
 .thumbnail
 	display: block
@@ -283,11 +246,9 @@ a:hover
 	background: none
 	border: none
 	border-radius: none
-	-webkit-transition: border .2s ease-in-out
-	-o-transition: border .2s ease-in-out
-	transition: border .2s ease-in-out
-
-
+	-webkit-transition: all .2s ease-in-out
+	-o-transition: all .2s ease-in-out
+	transition: all .2s ease-in-out
 
 .form_padding_email
 	max-width: 500px
@@ -498,7 +459,39 @@ button.btn.dropdown-toggle.btn-default
 		padding: 0 15px
 		font-weight: bolder
 
+#search-tabs
+	margin-bottom: 2%
+	ul.nav.nav-tabs
+		display: table-cell
+		box-shadow: 0px 5px 12px #888
+		li.active
+			a
+				background-color: #05c3db
+				&:hover, &:focus
+					border: 1px solid transparent
+		li
+			a
+				border: 1px solid transparent
+				padding: 10px 30px
+				font-size: 20px
+				font-weight: 400
 
+	.tab-content
+		box-shadow: 0px 5px 12px #888
+		margin-bottom: 2%
+		background-color: #05c3db
+		height: 100px
+		line-height: 100px
+		.tab-pane
+			.book-form
+				height: 100%
+				.form-group
+					width: 70%
+					margin: auto
+					.btn-group
+						.dropdown-menu.open
+							input.form-control
+								display: block !important
 
 #chuongtrinh
 	ul
@@ -564,12 +557,15 @@ button.btn.btn-secondary.btn-lg.btn-overflow
 	.bx-wrapper
 		margin-bottom: 50px
 		.bx-viewport
-			height: 450px !important
+			height: 250px !important
 			.bxslider
 				li
 					img
 						width: 100%
 						height: 450px
+						vertical-align: middle
+						position: absolute
+						top: -25vh
 
 #tour-con
 	.bx-wrapper

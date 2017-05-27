@@ -6,7 +6,7 @@ jQuery(document).ready(function($){
 	});
 
 	//mobile version - open/close navigation
-	$('.cd-nav-trigger').on('click', function(event){
+	$('.cd-nav-trigger').on('click',function(event){
 		event.preventDefault();
 		if($('header').hasClass('nav-is-visible')) $('.moves-out').removeClass('moves-out');
 		$('header').toggleClass('nav-is-visible');
@@ -21,10 +21,12 @@ jQuery(document).ready(function($){
 	});
 
 	//open sub-navigation
-	$('.cd-subnav-trigger').on('click', function(event){
-		event.preventDefault();
-		$('.cd-main-nav').toggleClass('moves-out');
+	$('.cd-subnav-trigger').hover(function(event){
+		$('.cd-main-nav').addClass('moves-out');
 	});
+	$('.cd-main-nav-wrapper').mouseleave(function () {
+		$('.cd-main-nav').removeClass('moves-out');
+	})
 
 	function moveNavigation(){
 		var navigation = $('.cd-main-nav-wrapper');
