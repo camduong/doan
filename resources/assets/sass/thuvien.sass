@@ -96,22 +96,39 @@ a:hover
 			color: #747373
 			font-weight: 600
 
-.introduce .i-header, .offer .o-header
-	border-bottom: 1px solid gray
-	width: 50%
-	margin: 30px auto
-	padding-bottom: 10px
+.introduce, .offer
+	.d-header
+		border-bottom: 1px solid gray
+		width: 70%
+		margin: 30px auto
+		padding-bottom: 10px
+	.d-info
+		margin: 5% 0 0
+	.i-btn
+		border: 1px solid black !important
+		color: black
+		-webkit-transition: all 1s
+		-moz-transition: all 1s
+		-ms-transition: all 1s
+		-o-transition: all 1s
+		transition: all 1s
+		margin: auto
+		&:hover
+			color: gray
+			background-color: black
+	.o-btn
+		border: 1px solid white !important
+		color: white
+		-webkit-transition: all 1s
+		-moz-transition: all 1s
+		-ms-transition: all 1s
+		-o-transition: all 1s
+		transition: all 1s
+		margin: auto
+		&:hover
+			color: gray
+			background-color: white
 
-.introduce .i-info, .offer .o-info
-	margin: 5% 0 0
-
-.wrap-intro, .wrap-offer-content
-	margin-bottom: 2%
-	margin-top: 2%
-	width: 50%
-
-.wrap-offer
-	background: rgba(0, 0, 0, 0.35)
 
 .offer
 	box-shadow: -1px -3px 14px 4px grey
@@ -121,6 +138,16 @@ a:hover
 	width: 100%
 	margin: 0 auto
 	padding: 0
+
+.wrap-intro, .wrap-offer-content
+	margin-bottom: 2%
+	margin-top: 2%
+	width: 50%
+
+.wrap-offer
+	background: rgba(0, 0, 0, 0.35)
+
+
 
 .panel-wrap
 	background-color: #ffffff
@@ -229,7 +256,7 @@ a:hover
 				-o-transition: all 1s
 				transition: all 1s
 				&:hover
-					color: rgb(18, 81, 160)
+					color: gray
 					background-color: white
 		&:before
 			content: ""
