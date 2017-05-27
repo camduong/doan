@@ -38,7 +38,7 @@ class HomeController extends Controller
 
 	public function tour()
 	{
-		$tours = Tour::orderBy('updated_at', 'desc')->paginate(2);
+		$tours = Tour::orderBy('updated_at', 'desc')->paginate(9);
 		foreach ($tours as $k => $tour) {
 			$image = Images::select('img_name')->where('tour_id',$tour->id)->first();
 			if($image != null)

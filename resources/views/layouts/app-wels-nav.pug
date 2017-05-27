@@ -160,45 +160,54 @@ div
 
 div
 	#shopping.modal.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel")
-			.modal-dialog(role="document")
+			.modal-dialog(role="document" style="width: 750px")
 				.modal-content
 					.modal-header
 						button.close(type="button", data-dismiss="modal", aria-label="Close")
 							span(aria-hidden="true") ×
-						h3 Giỏ hàng
+						h1 Giỏ hàng
 
 					if (Session::has('cart'))
 						.modal-body
 							carts = $carts
 							each cart, i in carts
 								li.list-group-item
-									span.badge=$cart['qty']
-									strong=$cart['item']['name']
-									span.label.label-success=number_format($cart['price'])
-										|  VNĐ
-									.btn-group
-										button.btn.btn-primary.btn-xs-dropdown-toogle(data-toggle="dropdown")
-											| Action
-											span.caret
-										ul.dropdown-menu
-											li
-												a(href=route('addByOne', ['id' => $cart['item']['id']])) Add by 1
-											li
-												a(href=route('reduceByOne', ['id' => $cart['item']['id']])) Reduce by 1
-											li
-												a(href=route('removeItem', ['id' => $cart['item']['id']])) Reduce All
+									.row(style='margin: 0.75rem 0;')
+										.col-md-4
+											h3(style='margin: 0;')
+												strong=$cart['item']['name']
+										.col-md-7.text-center
+											input.quantity.text-center(type='text', data-id=$cart['item']['id'], value=$cart['qty'], size='1')
+											span &nbsp;vé x &nbsp;
+												strong=number_format($cart['item']['price'])
+													sup &nbsp;VND&nbsp;
+												| =&nbsp;
+											strong(style='font-size: 100%;')=number_format($cart['price'])
+												sup &nbsp;VND
+										.col-md-1.text-center
+											a.btn.btn-danger.btn-delete(href='', data-id=$cart['item']['id'], style='padding: 2px 12px') X
+						.modal-footer
 							.row
-								.col-sm-6.col-md-6.col-md-offset-3.col-sm-offset-3
-									strong Total:
-										span=number_format($price)
-											|  VNĐ
+								.form-group.text-center
+									.col-md-6.cart-act
+										button#btnUpdate.btn.btn-sm.btn-primary Cập nhập giỏ hàng
+										if (Auth::guest())
+											a.btn.btn-sm.btn-success(type="button", data-dismiss="modal", data-toggle='modal', data-target='#login') Thanh toán
+										else
+											a.btn.btn-sm.btn-success(href=route('checkout'), type="button") Thanh toán
+										button#btnDelete.btn.btn-sm.btn-danger Xóa
+									.col-md-6
+										h3(style="margin: 0")
+											strong Tổng tiền:&nbsp;
+												=number_format($price)
+												sup &nbsp;VND
 					else
 						.row(style="text-align: center;")
 							h2 No Items in Cart!
 
-					.modal-footer
-						button.btn.btn-default.btn-warning(type="button", data-dismiss="modal") Tắt
-						if (Auth::guest())
-							a.btn.btn-success(type="button", data-dismiss="modal", data-toggle='modal', data-target='#login') Thanh toán
-						else
-							a.btn.btn-success(href=route('checkout'), type="button") Thanh toán
+					//- .modal-footer
+					//- 	button.btn.btn-default.btn-warning(type="button", data-dismiss="modal") Tắt
+					//- 	if (Auth::guest())
+					//- 		a.btn.btn-success(type="button", data-dismiss="modal", data-toggle='modal', data-target='#login') Thanh toán
+					//- 	else
+					//- 		a.btn.btn-success(href=route('checkout'), type="button") Thanh toán
