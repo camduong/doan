@@ -18,11 +18,12 @@ class CreateToursTable extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->integer('hotel_id')->unsigned();
-            $table->integer('location_id')->unsigned();
+            $table->integer('depart_location_id')->unsigned();
+            $table->integer('dest_location_id')->unsigned();
             $table->integer('vehicle_id')->unsigned();
             $table->integer('number')->unsigned();
             $table->date('depart_date');
-            $table->date('back_date');
+            $table->date('return_date');
             $table->tinyinteger('day')->unsigned();
             $table->unsignedInteger('price');
             $table->text('schedule');

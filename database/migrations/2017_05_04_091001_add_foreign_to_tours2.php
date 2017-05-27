@@ -15,7 +15,8 @@ class AddForeignToTours2 extends Migration
     {
         Schema::table('tours', function (Blueprint $table) {
             $table->foreign('hotel_id')->references('id')->on('hotels');
-            $table->foreign('location_id')->references('id')->on('locations');
+            $table->foreign('depart_location_id')->references('id')->on('locations');
+            $table->foreign('dest_location_id')->references('id')->on('locations');
             $table->foreign('vehicle_id')->references('id')->on('vehicles');
         });
     }

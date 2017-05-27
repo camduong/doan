@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('user123'),
             'address' => 'HCM',
             'phone' => '0901234567',
-            'gender' => true,
+            'gender' => '0',
             'p_code' => '1234567890',
             'birthday' => '1994/08/12'
         ]);
