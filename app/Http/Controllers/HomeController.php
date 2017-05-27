@@ -38,10 +38,13 @@ class HomeController extends Controller
 
 	public function tour()
 	{
-		$tours = Tour::orderBy('updated_at', 'desc')->paginate(15);
+		$tours = Tour::orderBy('updated_at', 'desc')->paginate(2);
 		foreach ($tours as $k => $tour) {
 			$image = Images::select('img_name')->where('tour_id',$tour->id)->first();
-			$tours[$k]['image'] = $image -> img_name;
+			if($image != null)
+				$tours[$k]['image'] = $image -> img_name;
+			else
+				$tours[$k]['image'] = 'no-img.jpg';
 		}
 		$cart = $this->Cart();
 		return view('tour')->withTours($tours)->withCarts($cart->items)->withPrice($cart->totalPrice);

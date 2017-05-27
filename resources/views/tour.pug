@@ -30,27 +30,8 @@ block content
 										a.btn.btn-primary(href=route('tour.single', data->slug))
 											i.fa.fa-eye(aria-hidden='true')
 										a.btn.btn-primary(href=route('addShoppingCart', data->id))
-											i.fa.fa-cart-plus(aria-hidden='true')
-
-			.text-center
-				button.btn.btn-secondary.btn-lg.btn-overflow(type='button') Xem thêm
-		.text-center!=$tours->links()
-		//- nav.page(aria-label='Page navigation example')
-		//- 	ul.pagination.justify-content-center
-		//- 		li.page-item
-		//- 			a.page-link(href='#', aria-label='Previous')
-		//- 				span(aria-hidden='true') &laquo;
-		//- 				span.sr-only Previous
-		//- 		li.page-item
-		//- 			a.page-link(href='#') 1
-		//- 		li.page-item
-		//- 			a.page-link(href='#') 2
-		//- 		li.page-item
-		//- 			a.page-link(href='#') 3
-		//- 		li.page-item
-		//- 			a.page-link(href='#', aria-label='Next')
-		//- 				span(aria-hidden='true') &raquo;
-		//- 				span.sr-only Next
+											i.fa.fa-cart-plus(aria-hidden='true')	
+		.text-center!=$tours->links()		
 		.second
 
 	include layouts/app-wels-footer
@@ -85,23 +66,3 @@ block content
 			todayBtn: "linked",
 			todayHighlight: true
 		});
-		$(window).on("load",function(){
-			var text = $('#tour-overflow'),
-					btn = $('.btn-overflow'),
-					page = $('.page'),
-					h=text[0].scrollHeight;
-				if(h > 1545) {
-					btn.addClass('less');
-					btn.css('display', 'block');
-				}
-				btn.click(function(e){
-					if (btn.hasClass('less')) {
-						btn.removeClass('less');
-						btn.css('display','none');
-						text.animate({'height': h});
-						if(h > 1045){
-							page.css('display','block');
-						}
-					}
-				});
-		})
