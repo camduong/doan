@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "bkwld/laravel-pug",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BKWLD/laravel-pug.git",
-                "reference": "8459bd61bf1f2cf6a500125a5bcfb1e3b5ffede0"
+                "reference": "a132a5de84a4142d3154f4c01d462fc65b6f331b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BKWLD/laravel-pug/zipball/8459bd61bf1f2cf6a500125a5bcfb1e3b5ffede0",
-                "reference": "8459bd61bf1f2cf6a500125a5bcfb1e3b5ffede0",
+                "url": "https://api.github.com/repos/BKWLD/laravel-pug/zipball/a132a5de84a4142d3154f4c01d462fc65b6f331b",
+                "reference": "a132a5de84a4142d3154f4c01d462fc65b6f331b",
                 "shasum": ""
             },
             "require": {
@@ -43,7 +43,7 @@
                 }
             ],
             "description": "Pug view adapter for Laravel",
-            "time": "2017-03-27T20:04:34+00:00"
+            "time": "2017-05-11T16:39:19+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -403,16 +403,16 @@
         },
         {
             "name": "js-phpize/js-phpize",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pug-php/js-phpize.git",
-                "reference": "32d49ff4766329792e19df89b4c0b88256d664b9"
+                "reference": "46d602e3c36b66089c6a38844211676fc877a36f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pug-php/js-phpize/zipball/32d49ff4766329792e19df89b4c0b88256d664b9",
-                "reference": "32d49ff4766329792e19df89b4c0b88256d664b9",
+                "url": "https://api.github.com/repos/pug-php/js-phpize/zipball/46d602e3c36b66089c6a38844211676fc877a36f",
+                "reference": "46d602e3c36b66089c6a38844211676fc877a36f",
                 "shasum": ""
             },
             "require": {
@@ -439,20 +439,20 @@
                 }
             ],
             "description": "Convert js-like syntax to standalone PHP code.",
-            "time": "2017-02-14T09:43:13+00:00"
+            "time": "2017-05-25T14:19:37+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.22",
+            "version": "v5.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "fc5c7a18644f231bcb8d02f4ec2f3a2517f5015d"
+                "reference": "ad82327705658dbf5f0ce72805caa950dfbe150d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/fc5c7a18644f231bcb8d02f4ec2f3a2517f5015d",
-                "reference": "fc5c7a18644f231bcb8d02f4ec2f3a2517f5015d",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ad82327705658dbf5f0ce72805caa950dfbe150d",
+                "reference": "ad82327705658dbf5f0ce72805caa950dfbe150d",
                 "shasum": ""
             },
             "require": {
@@ -568,7 +568,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-05-08T21:45:45+00:00"
+            "time": "2017-05-11T20:10:35+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -630,16 +630,16 @@
         },
         {
             "name": "laravelcollective/html",
-            "version": "v5.4.1",
+            "version": "v5.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "7570f25d58a00fd6909c0563808590f9cdb14d47"
+                "reference": "9b8f51e7a2368911c896f5d42757886bae0717b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/7570f25d58a00fd6909c0563808590f9cdb14d47",
-                "reference": "7570f25d58a00fd6909c0563808590f9cdb14d47",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/9b8f51e7a2368911c896f5d42757886bae0717b5",
+                "reference": "9b8f51e7a2368911c896f5d42757886bae0717b5",
                 "shasum": ""
             },
             "require": {
@@ -680,7 +680,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
-            "time": "2017-01-26T19:27:05+00:00"
+            "time": "2017-05-22T06:35:07+00:00"
         },
         {
             "name": "league/flysystem",
@@ -993,16 +993,16 @@
         },
         {
             "name": "nodejs-php-fallback/nodejs-php-fallback",
-            "version": "1.2.5",
+            "version": "1.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kylekatarnls/nodejs-php-fallback.git",
-                "reference": "9749fbc04fbfbb378603eac2906750728cb0ef10"
+                "reference": "b7a1e744ec5ad3e642da2c5d20c6fc69047e4b37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kylekatarnls/nodejs-php-fallback/zipball/9749fbc04fbfbb378603eac2906750728cb0ef10",
-                "reference": "9749fbc04fbfbb378603eac2906750728cb0ef10",
+                "url": "https://api.github.com/repos/kylekatarnls/nodejs-php-fallback/zipball/b7a1e744ec5ad3e642da2c5d20c6fc69047e4b37",
+                "reference": "b7a1e744ec5ad3e642da2c5d20c6fc69047e4b37",
                 "shasum": ""
             },
             "require": {
@@ -1012,7 +1012,7 @@
             "require-dev": {
                 "codeclimate/php-test-reporter": "dev-master",
                 "composer/composer": "^1.2",
-                "phpunit/phpunit": ">=4.0"
+                "phpunit/phpunit": ">=4.8 <6.0"
             },
             "type": "composer-plugin",
             "extra": {
@@ -1031,7 +1031,7 @@
                 }
             ],
             "description": "Allow you to call node.js module or scripts throught PHP and call a fallback function if node.js is not available",
-            "time": "2016-08-01T19:30:27+00:00"
+            "time": "2017-05-12T10:16:01+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -1180,16 +1180,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.3",
+            "version": "v0.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "1dd4bbbc64d71e7ec075ffe82b42d9e096dc8d5e"
+                "reference": "38a9d21406597a0440690eafbcb0222f528c8ac6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1dd4bbbc64d71e7ec075ffe82b42d9e096dc8d5e",
-                "reference": "1dd4bbbc64d71e7ec075ffe82b42d9e096dc8d5e",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/38a9d21406597a0440690eafbcb0222f528c8ac6",
+                "reference": "38a9d21406597a0440690eafbcb0222f528c8ac6",
                 "shasum": ""
             },
             "require": {
@@ -1249,20 +1249,20 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-03-19T21:40:44+00:00"
+            "time": "2017-05-17T06:49:19+00:00"
         },
         {
             "name": "pug-php/pug",
-            "version": "2.5.7",
+            "version": "2.5.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pug-php/pug.git",
-                "reference": "54e7505c59d73a1aeb971b42510e11412aaed60f"
+                "reference": "b4c50ec3ea2f7f01d794a85c98c9c819a524d352"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pug-php/pug/zipball/54e7505c59d73a1aeb971b42510e11412aaed60f",
-                "reference": "54e7505c59d73a1aeb971b42510e11412aaed60f",
+                "url": "https://api.github.com/repos/pug-php/pug/zipball/b4c50ec3ea2f7f01d794a85c98c9c819a524d352",
+                "reference": "b4c50ec3ea2f7f01d794a85c98c9c819a524d352",
                 "shasum": ""
             },
             "require": {
@@ -1413,7 +1413,7 @@
                 "pug",
                 "template"
             ],
-            "time": "2017-05-08T13:49:21+00:00"
+            "time": "2017-05-11T16:35:44+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -3096,16 +3096,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.19",
+            "version": "5.7.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "69c4f49ff376af2692bad9cebd883d17ebaa98a1"
+                "reference": "3cb94a5f8c07a03c8b7527ed7468a2926203f58b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/69c4f49ff376af2692bad9cebd883d17ebaa98a1",
-                "reference": "69c4f49ff376af2692bad9cebd883d17ebaa98a1",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3cb94a5f8c07a03c8b7527ed7468a2926203f58b",
+                "reference": "3cb94a5f8c07a03c8b7527ed7468a2926203f58b",
                 "shasum": ""
             },
             "require": {
@@ -3123,7 +3123,7 @@
                 "phpunit/php-timer": "^1.0.6",
                 "phpunit/phpunit-mock-objects": "^3.2",
                 "sebastian/comparator": "^1.2.4",
-                "sebastian/diff": "~1.2",
+                "sebastian/diff": "^1.4.3",
                 "sebastian/environment": "^1.3.4 || ^2.0",
                 "sebastian/exporter": "~2.0",
                 "sebastian/global-state": "^1.1",
@@ -3174,7 +3174,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-04-03T02:22:27+00:00"
+            "time": "2017-05-22T07:42:55+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3346,23 +3346,23 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "1.4.1",
+            "version": "1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
+                "reference": "7f066a26a962dbe58ddea9f72a4e82874a3975a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
-                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/7f066a26a962dbe58ddea9f72a4e82874a3975a4",
+                "reference": "7f066a26a962dbe58ddea9f72a4e82874a3975a4",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
             },
             "type": "library",
             "extra": {
@@ -3394,7 +3394,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-08T07:14:41+00:00"
+            "time": "2017-05-22T07:24:03+00:00"
         },
         {
             "name": "sebastian/environment",
