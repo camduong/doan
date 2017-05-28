@@ -18,12 +18,13 @@
 							<div role="tabpanel" class="tab-pane fade active in" id="tour" aria-labelledby="home-tab">
 								<h3>{{ $tour->name }}</h3>
 								<p class="lead">Khách sạn: {{ $tour->hotels->name }}</p>
-								<p class="lead">Địa điểm: {{ $tour->locations->name }}</p>
+								<p class="lead">Địa điểm đi: {{ $tour->depart_locations->name }}</p>
+								<p class="lead">Địa điểm đến: {{ $tour->dest_locations->name }}</p>
 								<p class="lead">Phương tiện: {{ $tour->vehicles->name }}</p>
 								<p class="lead">Giá: {{ number_format($tour->price) }}VNĐ</p>
 								<p class="lead">Số ngày: {{ $tour->day }} ngày</p>
 								<p class="lead">Ngày đi: {{ date('l d/m/Y',strtotime($tour->depart_date)) }}</p>
-								<p class="lead">Ngày về: {{ date('l d/m/Y',strtotime($tour->back_date)) }}</p>
+								<p class="lead">Ngày về: {{ date('l d/m/Y',strtotime($tour->return_date)) }}</p>
 							</div>
 							<div role="tabpanel" class="tab-pane fade" id="detailtour" aria-labelledby="profile-tab">
 								<p class="lead">Lịch trình: </p>

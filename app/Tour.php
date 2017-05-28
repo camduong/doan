@@ -11,9 +11,14 @@ class Tour extends Model
         return $this->belongsTo('App\Hotel', 'hotel_id');
     }
 
-    public function locations()
+    public function depart_locations()
     {
-        return $this->belongsTo('App\Location', 'location_id');
+        return $this->belongsTo('App\Location', 'depart_location_id');
+    }
+
+    public function dest_locations()
+    {
+        return $this->belongsTo('App\Location', 'dest_location_id');
     }
 
     public function vehicles()

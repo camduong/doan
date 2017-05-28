@@ -43,6 +43,14 @@ class Cart
       $this->totalPrice += $this->items[$id]['item']['price'];
     }
 
+    public function update($cartModel)
+    {
+      foreach($cartModel as $item)
+      {
+        $id = $item[$id];
+      }
+    }
+
     public function reduceByOne($id)
     {
       $this->items[$id]['qty']--;

@@ -17,4 +17,9 @@ class Location extends Model
     {
         return $this->hasMany('App\Hotel');
     }
+
+    public function regions()
+    {
+        return $this->belongsTo('App\Regions', 'region_id');
+    }
 }

@@ -61,13 +61,22 @@
 							<div class="row">
 								<div class="col-sm-10 col-sm-offset-1">
 									{{ Form::label('hotel_id', 'Khách sạn:', ['class' => 'form-spacing-top']) }}
-									{{ Form::select('hotel_id', $hotels, null, ['class' => 'form-control', 'placeholder' => 'Select hotel'])}}
+									{{ Form::select('hotel_id', $hotels, null, ['class' => 'form-control', 'placeholder' => 'Chọn khách sạn'])}}
 									<br>
-									{{ Form::label('location_id', 'Địa điểm:', ['class' => 'form-spacing-top']) }}
-									{{ Form::select('location_id', $locations, null, ['class' => 'form-control', 'placeholder' => 'Select city'])}}
+									{{ Form::label('depart_location_id', 'Địa điểm đi:', ['class' => 'form-spacing-top']) }}
+									{{ Form::select('depart_location_id', $locations, null, ['class' => 'form-control', 'placeholder' => 'Chọn thành phố'])}}
+									<br>
+									{{ Form::label('dest_location_id', 'Địa điểm đến:', ['class' => 'form-spacing-top']) }}
+									{{ Form::select('dest_location_id', $locations, null, ['class' => 'form-control', 'placeholder' => 'Chọn thành phố'])}}
+									<br>
+									<span class="lead form-spacing-top">Loại hình: </span>
+									<select name="types" class="form-control" placeholder="Chọn loại hình">
+										<option value="0">Trong nước</option>
+										<option value="1">Nước ngoài</option>
+									</select>
 									<br>
 									{{ Form::label('vehicle_id', 'Phương tiện:', ['class' => 'form-spacing-top']) }}
-									{{ Form::select('vehicle_id', $vehicles, null, ['class' => 'form-control', 'placeholder' => 'Select vehicle'])}}
+									{{ Form::select('vehicle_id', $vehicles, null, ['class' => 'form-control', 'placeholder' => 'Chọn phương tiện'])}}
 								</div>
 							</div>
 						</div>

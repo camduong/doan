@@ -27,6 +27,9 @@
 					<a href="{{ route('location.index') }}"><i class="fa fa-location-arrow"></i>Địa điểm</a>
 				</li>
 				<li>
+					<a href="{{ route('region.index') }}"><i class="fa fa-location-arrow"></i>Khu vực</a>
+				</li>
+				<li>
 					<a href="{{ route('customer.index') }}"><i class="fa fa-users"></i>Đơn hàng</a>
 				</li>
 			</ul>

@@ -26,16 +26,16 @@
 
 			<div class="col-md-4">
 				<div class="well">
-          <div class="row">
-						<div class="col-sm-12">
-							<span class="lead">Tình trạng: </span>
-              <select name="status" class="form-control">
-                <option value=" Chưa Xử Lý">Chưa xử lý</option>
-                <option value="Xử Lý">Xử lý</option>
-                <option value="Hủy">Hủy</option>
-              </select>
-						</div>
-					</div>
+          	<div class="row">
+				<div class="col-sm-12">
+					<span class="lead">Tình trạng: </span>
+					<select name="status" class="form-control">
+						<option value=" Chưa Xử Lý">Chưa xử lý</option>
+						<option value="Xử Lý">Xử lý</option>
+						<option value="Hủy">Hủy</option>
+					</select>
+				</div>
+			</div>
 					<hr/>
 					<dl class="dl-horizontal">
 						<dt>Ngày tạo:</dt>

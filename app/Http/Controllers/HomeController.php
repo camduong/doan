@@ -63,7 +63,7 @@ class HomeController extends Controller
 	}
 
 	public function getSingle($slug)
-  {
+  	{
 		$tour = Tour::where('slug', '=', $slug)->first();
 		$images = Images::select('img_name')->where('tour_id',$tour->id)->get();
 		foreach ($images as $k => $image) {
@@ -71,7 +71,7 @@ class HomeController extends Controller
 		}
 		$cart = $this->Cart();
 		return view('detail')->withTour($tour)->withCarts($cart->items)->withPrice($cart->totalPrice);
-  }
+  	}
 
 	public function addShoppingCart(Request $request, $id)
 	{
@@ -85,52 +85,42 @@ class HomeController extends Controller
 		return redirect()->back();
 	}
 
-	// public function getCart()
-	// {
-	// 	if(!Session::has('cart')) {
-	// 		return view('shopping-cart');
-	// 	}
-	// 	$oldCart = Session::get('cart');
-	// 	$cart = new Cart($oldCart);
-	// 	return view('shopping-cart', ['tours' => $cart->items, 'totalPrice' => $cart->totalPrice]);
-	// }
+	public function getCheckout()
+	{
+		if(!Session::has('cart')) {
+			return redirect()->back();
+		}
+		$oldCart = Session::get('cart');
+		$cart = new Cart($oldCart);
+		$total = $cart->totalPrice;
+		return view('checkout')->withTotal($total)->withCarts($cart->items)->withPrice($cart->totalPrice);
+	}
 
-		public function getCheckout()
-		{
-			if(!Session::has('cart')) {
-				return redirect()->back();
-			}
-			$oldCart = Session::get('cart');
-			$cart = new Cart($oldCart);
-			$total = $cart->totalPrice;
-			return view('checkout')->withTotal($total)->withCarts($cart->items)->withPrice($cart->totalPrice);
+	public function postCheckout(Request $request)
+	{
+		if(!Session::has('cart')) {
+			return redirect()->back();
+		}
+		$oldCart = Session::get('cart');
+		$cart = new Cart($oldCart);
+
+		try {
+			$order = new Order();
+			$order->cart = serialize($cart);
+			$order->address = $request->input('address');
+			$order->name = $request->input('name');
+			$order->status = 'Chưa xử lý';
+
+			Auth::user()->orders()->save($order);
+		} catch(\Exception $e) {
+			return redirect()->route('checkout')->with('error', $e->getMessage());
 		}
 
-		public function postCheckout(Request $request)
-		{
-			if(!Session::has('cart')) {
-				return redirect()->back();
-			}
-			$oldCart = Session::get('cart');
-			$cart = new Cart($oldCart);
+		Session::forget('cart');
+		return redirect()->route('home')->with('success', 'Successfully purchased products!');
+	}
 
-			try {
-				$order = new Order();
-				$order->cart = serialize($cart);
-				$order->address = $request->input('address');
-				$order->name = $request->input('name');
-				$order->status = 'Chưa xử lý';
-
-				Auth::user()->orders()->save($order);
-			} catch(\Exception $e) {
-				return redirect()->route('checkout')->with('error', $e->getMessage());
-			}
-
-			Session::forget('cart');
-			return redirect()->route('home')->with('success', 'Successfully purchased products!');
-		}
-
-		public function getReduceByOne($id)
+	public function getReduceByOne($id)
     {
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
@@ -144,11 +134,13 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-     public function getAddByOne($id)
+    public function getUpdate($cartModel)
     {
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->addByOne($id);
+		var_dump($cart);
+		die;
+        $cart->update($cartModel);
 
         Session::put('cart', $cart);
         return redirect()->back();
@@ -168,7 +160,13 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-		public function getProfile()
+	public function getRemoveAll()
+    {
+        Session::forget('cart');
+        return redirect()->back();
+    }
+
+	public function getProfile()
     {
         $orders = Auth::user()->orders;
         $orders->transform(function($order, $key) {

@@ -22,9 +22,9 @@ Route::post('logout','Auth\UserLoginController@logout')->name('user.logout.submi
 Route::get('/profile','HomeController@getProfile')->name('user.profile');
 Route::get('/shopping/{id}', 'HomeController@addShoppingCart')->name('addShoppingCart');
 Route::get('/shopping-cart', 'HomeController@getCart')->name('shoppingCart');
-Route::get('/add/{id}', 'HomeController@getAddByOne')->name('addByOne');
-Route::get('/reduce/{id}', 'HomeController@getReduceByOne')->name('reduceByOne');
-Route::get('/remove/{id}', 'HomeController@getRemoveItem')->name('removeItem');
+Route::post('/update', 'HomeController@getUpdate')->name('update');
+Route::post('/delete', 'HomeController@getRemoveItem')->name('removeItem');
+Route::post('/deleteall', 'HomeController@getRemoveAll')->name('removeAll');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/checkout', 'HomeController@getCheckout')->name('checkout');
     Route::post('/checkout', 'HomeController@postCheckout')->name('checkout');
@@ -39,6 +39,7 @@ Route::prefix('admin')->group(function(){
     Route::resource('vehicle', 'VehicleController',['except' => ['create','show']]);
     Route::resource('hotel', 'HotelController',['except' => ['create','show']]);
     Route::resource('location', 'LocationController',['except' => ['create','show']]);
+    Route::resource('region', 'RegionsController',['except' => ['create','show']]);
     Route::resource('customer', 'CustomerController',['expect' => ['create','destroy','store']]);
 });
 

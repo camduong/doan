@@ -20,6 +20,7 @@ class CreateToursTable extends Migration
             $table->integer('hotel_id')->unsigned();
             $table->integer('depart_location_id')->unsigned();
             $table->integer('dest_location_id')->unsigned();
+            $table->boolean('type');
             $table->integer('vehicle_id')->unsigned();
             $table->integer('number')->unsigned();
             $table->date('depart_date');

@@ -68,7 +68,7 @@
 											<div class="datepicker input-daterange input-group">
 												{{ Form:: text('depart_date', \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y') , ['class' => 'col-md-4 form-control', 'placeholder' => 'Ngày đi']) }}
 													<span class="input-to input-group-addon">đến</span>
-												{{ Form:: text('back_date', \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y'), ['class' => 'col-md-4 form-control', 'placeholder' => 'Ngày về']) }}
+												{{ Form:: text('return_date', \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y'), ['class' => 'col-md-4 form-control', 'placeholder' => 'Ngày về']) }}
 											</div>
 											<br>
 											{{ Form::label ('featured_image', 'Tải ảnh lên (có thể chọn nhiều ảnh):') }}
@@ -82,8 +82,17 @@
 											{{ Form::label('hotel_id', 'Khách sạn:', ['class' => 'form-spacing-top']) }}
 											{{ Form::select('hotel_id', $hotels, null, ['class' => 'form-control', 'placeholder' => 'Chọn khách sạn'])}}
 											<br>
-											{{ Form::label('location_id', 'Địa điểm:', ['class' => 'form-spacing-top']) }}
-											{{ Form::select('location_id', $locations, null, ['class' => 'form-control', 'placeholder' => 'Chọn thành phố'])}}
+											{{ Form::label('depart_location_id', 'Địa điểm đi:', ['class' => 'form-spacing-top']) }}
+											{{ Form::select('depart_location_id', $locations, null, ['class' => 'form-control', 'placeholder' => 'Chọn thành phố'])}}
+											<br>
+											{{ Form::label('dest_location_id', 'Địa điểm đến:', ['class' => 'form-spacing-top']) }}
+											{{ Form::select('dest_location_id', $locations, null, ['class' => 'form-control', 'placeholder' => 'Chọn thành phố'])}}
+											<br>
+											<span class="lead form-spacing-top">Loại hình: </span>
+											<select name="type" class="form-control" placeholder="Chọn loại hình">
+												<option value="0">Trong nước</option>
+												<option value="1">Nước ngoài</option>
+											</select>
 											<br>
 											{{ Form::label('vehicle_id', 'Phương tiện:', ['class' => 'form-spacing-top']) }}
 											{{ Form::select('vehicle_id', $vehicles, null, ['class' => 'form-control', 'placeholder' => 'Chọn phương tiện'])}}

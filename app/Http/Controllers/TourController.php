@@ -70,16 +70,19 @@ class TourController extends Controller
         $tour->slug = $request->slug;
         $tour->number = $request->number;
         $tour->hotel_id = $request->hotel_id;
-        $tour->location_id = $request->location_id;
+        $tour->depart_location_id = $request->depart_location_id;
+        $tour->dest_location_id = $request->dest_location_id;
+        $tour->type = $request->type;
         $tour->vehicle_id = $request->vehicle_id;
         $tour->depart_date = date('Y/m/d',strtotime($request->depart_date));
-        $tour->back_date = date('Y/m/d',strtotime($request->back_date));
-        $tour->day = (strtotime($tour->back_date) - strtotime($tour->depart_date)) / (60 * 60 * 24) + 1;
+        $tour->return_date = date('Y/m/d',strtotime($request->return_date));
+        $tour->day = (strtotime($tour->return_date) - strtotime($tour->depart_date)) / (60 * 60 * 24) + 1;
         $tour->price = $request->price;
         $tour->schedule = $request->detail;
         $tour->save();
         foreach ($uprequest->featured_image as $image2) {
-            $filename = $tour->id . '_' . mt_rand() . '_' . time() . '.' . $image2->getClientOriginalExtension();
+            // $filename = $tour->id . '_' . mt_rand() . '_' . time() . '.' . $image2->getClientOriginalExtension();
+            $filename = $image2->getClientOriginalName();
             $location = public_path('img/'. $filename);
             Image::make($image2)->resize(800, 400)->save($location);
 
@@ -160,11 +163,13 @@ class TourController extends Controller
         $tour->slug = $request->input('slug');
         $tour->number = $request->input('number');
         $tour->hotel_id = $request->input('hotel_id');
-        $tour->location_id = $request->input('location_id');
+        $tour->depart_location_id = $request->input('depart_location_id');
+        $tour->dest_location_id = $request->input('dest_location_id');
+        $tour->type = $request->input('type');
         $tour->vehicle_id = $request->input('vehicle_id');
-        $tour->depart_date = date('Y/m/d',strtotime($request->input('depart_date')));
-        $tour->back_date = date('Y/m/d',strtotime($request->input('back_date')));
-        $tour->day = (strtotime($tour->back_date) - strtotime($tour->depart_date)) / (60 * 60 * 24) + 1;
+        $tour->depart_date = date('yy/mm/dd',strtotime($request->input('depart_date')));
+        $tour->return_date = date('yy/mm/dd',strtotime($request->input('return_date')));
+        $tour->day = (strtotime($tour->return_date) - strtotime($tour->depart_date)) / (60 * 60 * 24) + 1;
         $tour->price = $request->input('price');
         $tour->schedule = $request->input('detail');
         $tour->save();

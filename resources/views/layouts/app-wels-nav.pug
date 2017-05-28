@@ -194,7 +194,7 @@ div
 										if (Auth::guest())
 											a.btn.btn-sm.btn-success(type="button", data-dismiss="modal", data-toggle='modal', data-target='#login') Thanh toán
 										else
-											a.btn.btn-sm.btn-success(href=route('checkout'), type="button") Thanh toán
+											a#btnCheckout.btn.btn-sm.btn-success(href=route('checkout'), type="button") Thanh toán
 										button#btnDelete.btn.btn-sm.btn-danger Xóa
 									.col-md-6
 										h3(style="margin: 0")
