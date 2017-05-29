@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Regions;
 use App\Tour;
 use App\Images;
 use App\Cart;
@@ -24,6 +25,18 @@ class HomeController extends Controller
 		$cart = new Cart($oldCart);
 		return $cart;
 	}
+
+	public function getImage($tours)
+	{
+		foreach ($tours as $k => $tour) {
+			$image = Images::select('img_name')->where('tour_id',$tour->id)->first();
+			if($image != null)
+				$tours[$k]['image'] = $image -> img_name;
+			else
+				$tours[$k]['image'] = 'no-img.jpg';
+		}
+		return $tours;
+	}
 	/**
 	 * Show the application dashboard.
 	 *
@@ -39,25 +52,43 @@ class HomeController extends Controller
 	public function tour()
 	{
 		$tours = Tour::orderBy('updated_at', 'desc')->paginate(9);
-		foreach ($tours as $k => $tour) {
-			$image = Images::select('img_name')->where('tour_id',$tour->id)->first();
-			if($image != null)
-				$tours[$k]['image'] = $image -> img_name;
-			else
-				$tours[$k]['image'] = 'no-img.jpg';
-		}
+		$tours = $this->getImage($tours);
 		$cart = $this->Cart();
 		return view('tour')->withTours($tours)->withCarts($cart->items)->withPrice($cart->totalPrice);
 	}
 
-	public function tourInLocation($slug)
+	public function tourInLocation($name, $slug)
 	{
-		$location = Location::where('slug', '=', $slug)->first();
-		$tours = Tour::where('location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(2);
-		foreach ($tours as $k => $tour) {
-			$image = Images::select('img_name')->where('tour_id',$tour->id)->first();
-			$tours[$k]['image'] = $image -> img_name;
+		switch($name)
+		{
+			case 'noidi':
+				$location = Location::where('slug', '=', $slug)->first();
+				$tours = Tour::where('depart_location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(2);
+				break;
+			case 'noiden':
+				$location = Location::where('slug', '=', $slug)->first();
+				$tours = Tour::where('dest_location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(2);
+				break;
+			case 'vung':
+				$region = Regions::where('slug',$slug)->first();				
+				$locations = Location::where('region_id',$region->id)->get();				
+				foreach ($locations as $location) {
+					$tours = Tour::where('dest_location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(2);
+				}
+				break;
+			case 'loaihinh':
+				switch($slug)
+				{
+					case "trong-nuoc":
+						$tours = Tour::where('type','0')->orderBy('updated_at', 'desc')->paginate(2);
+						break;
+					case "nuoc-ngoai":
+						$tours = Tour::where('type','1')->orderBy('updated_at', 'desc')->paginate(2);
+						break;	
+				}
+				break;				
 		}
+		$tours = $this->getImage($tours);
 		$cart = $this->Cart();
 		return view('tour')->withTours($tours)->withCarts($cart->items)->withPrice($cart->totalPrice);
 	}

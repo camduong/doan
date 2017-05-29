@@ -25,9 +25,4 @@ class Tour extends Model
     {
         return $this->belongsTo('App\Vehicle', 'vehicle_id');
     }
-
-    public function image()
-    {
-        return $this->hasMany('App\Images');
-    }
 }
