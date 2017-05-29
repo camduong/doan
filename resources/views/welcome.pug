@@ -25,13 +25,14 @@ block content
 					#booking.tab-pane.fade.in.active(role='tabpanel')
 						.book-form
 							.form-group.text-center
-								form
+								form(action=)
 									btns = json_decode('[["noidi","Nơi đi"], ["noiden","Nơi đến"]]')
 									each btn, i in btns
 										select.selectpicker.input-group.col-xs-4(data-live-search='true',name='#{btn[0]}', title='#{btn[1]}')
 											nbvs = $location
 											each nbv, i in nbvs
-												option(data-tokens=nbv->slug, value="/tour/" + nbv->slug)=nbv->name
+												option(data-tokens=nbv->slug, value="/tour/"+ btn[0] + "=" + nbv->slug)=nbv->name
+									button.btn.btn-default.btn-b-s(type='submit') Tìm kiếm
 
 					#profile.tab-pane.fade(role='tabpanel')
 						p coming soon
@@ -60,10 +61,10 @@ block content
 										h2 #{nav[1]}
 										p
 											| #{nav[2]}
-										a.btn(href='')
+										a.btn(href='/tour/vung='+ nav[0])
 											| Đọc thêm &#62;&#62;
 			.text-center(style="padding: 15px 0;")
-				a.btn.i-btn(href='')
+				a.btn.i-btn(href='/tour/loaihinh=trong-nuoc' )
 					| Đọc thêm &#62;&#62;
 		.offer
 			.wrap-offer
@@ -73,7 +74,7 @@ block content
 						| Các chương trình tour của Vacation World đến các quốc gia trên thế giới với dịch vụ trọn gói, nhiều ưu đãi đảm bảo cho du khách có những hành trình tuyệt vời, trải nghiệm khó quên.
 				.container
 					.row.no-margin
-						navs = json_decode('[["chaua_thum","Châu Á","Tour du lịch Châu Á là thế mạnh của Vacation World, du khách sẽ được khám phá những kỳ quan danh lam thắng cảnh tuyệt đẹp, đậm nét đặc sắc văn hóa vùng miền. Hành trình đa sắc màu ở Cambodia, Lào, Thái, Malaysia-Singapore, Trung Quốc, Nhật Bản, Hàn Quốc..."],["chauau_thum","Châu Âu","Vacation World - Top 10 công ty du lịch Hàng Đầu Việt Nam chuyên tổ chức các tour du lịch Châu Âu, thường xuyên mở bán những đường tour mới nhất, đưa bạn tới những điểm đến độc đáo của Châu Âu. Đồng hành cùng Vacation World, du khách sẽ được tận hưởng những giá trị tốt nhất trên mỗi đường tour."],["chauuc_thum","Châu Úc","Vacation World - Top 10 công ty du lịch Hàng Đầu Việt Nam chuyên tổ chức các tour du lịch Châu Úc, thường xuyên mở bán những đường tour mới nhất, đưa bạn tới những điểm đến độc đáo của Châu Úc. Đồng hành cùng Lửa Việt, du khách sẽ được tận hưởng những giá trị tốt nhất trên mỗi đường tour."],["chaumy_thum","Châu Mỹ","Vacation World - Top 10 công ty du lịch Hàng Đầu Việt Nam chuyên tổ chức các tour du lịch Châu Mỹ cao cấp dịch vụ Cao Cấp Chất Lượng. Du lịch Châu Mỹ khám phá những vùng đất mới vừa huyền bí vừa tráng lệ."]]')
+						navs = json_decode('[["chaua","Châu Á","Tour du lịch Châu Á là thế mạnh của Vacation World, du khách sẽ được khám phá những kỳ quan danh lam thắng cảnh tuyệt đẹp, đậm nét đặc sắc văn hóa vùng miền. Hành trình đa sắc màu ở Cambodia, Lào, Thái, Malaysia-Singapore, Trung Quốc, Nhật Bản, Hàn Quốc..."],["chauau","Châu Âu","Vacation World - Top 10 công ty du lịch Hàng Đầu Việt Nam chuyên tổ chức các tour du lịch Châu Âu, thường xuyên mở bán những đường tour mới nhất, đưa bạn tới những điểm đến độc đáo của Châu Âu. Đồng hành cùng Vacation World, du khách sẽ được tận hưởng những giá trị tốt nhất trên mỗi đường tour."],["chauuc","Châu Úc","Vacation World - Top 10 công ty du lịch Hàng Đầu Việt Nam chuyên tổ chức các tour du lịch Châu Úc, thường xuyên mở bán những đường tour mới nhất, đưa bạn tới những điểm đến độc đáo của Châu Úc. Đồng hành cùng Lửa Việt, du khách sẽ được tận hưởng những giá trị tốt nhất trên mỗi đường tour."],["chaumy","Châu Mỹ","Vacation World - Top 10 công ty du lịch Hàng Đầu Việt Nam chuyên tổ chức các tour du lịch Châu Mỹ cao cấp dịch vụ Cao Cấp Chất Lượng. Du lịch Châu Mỹ khám phá những vùng đất mới vừa huyền bí vừa tráng lệ."]]')
 						each nav, i in navs
 							.col.col-md-3.col-sm-6.no-padding.thumbnail
 								div(id="block#{i}").clearfix
@@ -86,10 +87,10 @@ block content
 												h2 #{nav[1]}
 												p
 													| #{nav[2]}
-												a.btn(href='')
+												a.btn(href='/tour/vung='+ nav[0])
 													| Đọc thêm &#62;&#62;
 				.text-center(style="padding: 15px 0;")
-					a.btn.o-btn(href='')
+					a.btn.o-btn(href='/tour/loaihinh=nuoc-ngoai')
 						| Đọc thêm &#62;&#62;
 
 

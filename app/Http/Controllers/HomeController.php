@@ -46,8 +46,9 @@ class HomeController extends Controller
 			else
 				$tours[$k]['image'] = 'no-img.jpg';
 		}
+		$location = Location::all();
 		$cart = $this->Cart();
-		return view('tour')->withTours($tours)->withCarts($cart->items)->withPrice($cart->totalPrice);
+		return view('tour')->withTours($tours)->withLocation($location)->withCarts($cart->items)->withPrice($cart->totalPrice);
 	}
 
 	public function tourInLocation($slug)

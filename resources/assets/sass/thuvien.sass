@@ -493,15 +493,21 @@ button.btn.dropdown-toggle.btn-default
 		li.active
 			a
 				background-color: #05c3db
-				&:hover, &:focus
+				&:focus, &:hover
+					color: #fff
 					border: 1px solid transparent
 		li
+			background: rgba(0, 0, 0, 0.28)
 			a
 				border: 1px solid transparent
 				padding: 10px 30px
 				font-size: 20px
 				font-weight: 400
-
+				margin: 0
+				color: #fff
+				transition: all 1s
+				&:hover
+					color: #000
 	.tab-content
 		box-shadow: 0px 5px 12px #888
 		margin-bottom: 2%
@@ -515,6 +521,7 @@ button.btn.dropdown-toggle.btn-default
 					width: 70%
 					margin: auto
 					.btn-group
+						padding-left: 0
 						.dropdown-menu.open
 							input.form-control
 								display: block !important

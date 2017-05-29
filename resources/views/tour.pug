@@ -2,10 +2,37 @@ extends layouts/app-wels
 block content
 	main.cd-main-content.main-user.main-tour
 		.intro
+			#search-tabs
+				ul.nav.nav-tabs(role='tablist')
+					li.active(role='presentation')
+						a(href='#booking', aria-controls='home', role='tab', data-toggle='tab') Du lịch trong nước
+					li(role='presentation')
+						a(href='#profile', aria-controls='profile', role='tab', data-toggle='tab') Du lịch nước ngoài
+					li(role='presentation')
+						a(href='#messages', aria-controls='messages', role='tab', data-toggle='tab') Tìm vé máy bay
+					li(role='presentation')
+						a(href='#settings', aria-controls='settings', role='tab', data-toggle='tab') Dịch vụ cho thuê xe
+
+				.tab-content.text-center
+					#booking.tab-pane.fade.in.active(role='tabpanel')
+						.book-form
+							.form-group.text-center
+								form
+									btns = json_decode('[["noidi","Nơi đi"], ["noiden","Nơi đến"]]')
+									each btn, i in btns
+										select.selectpicker.input-group.col-xs-4(data-live-search='true',name='#{btn[0]}', title='#{btn[1]}')
+											nbvs = $location
+											each nbv, i in nbvs
+												option(data-tokens=nbv->slug, value="/tour/" + nbv->slug)=nbv->name
+
+					#profile.tab-pane.fade(role='tabpanel')
+						p coming soon
+					#messages.tab-pane.fade(role='tabpanel')
+						p	coming soon
+					#settings.tab-pane.fade(role='tabpanel')
+						p coming soon
 
 		.container
-			.row
-
 			.row.justify-content-md-center#tour-overflow
 				.grid
 					.grid-sizer
@@ -15,7 +42,7 @@ block content
 							img(src='../img/'+data->image, alt='Card image cap')
 							.grid-intro.col-md-12
 								a(href=route('tour.single', data->slug))
-									h3=data->name
+									h3.h-g-intro=data->name
 								.schedule.col-md-5.col-xs-12
 									i.fa.fa-clock-o(aria-hidden='true')
 									h5=data->day
@@ -41,6 +68,7 @@ block content
 	script(type='text/javascript', src='../js/isotope.pkgd.min.js')
 	script(type='text/javascript', src='../js/imagesloaded.pkgd.min.js')
 	script(type='text/javascript', src='../js/curtail.min.js')
+	script(type='text/javascript', src='../js/jquery.dotdotdot.min.js')
 	script(type='text/javascript').
 		$('.intro').parallax("50%", 0.1);
 		$('.second').parallax("50%", 0.1);
@@ -65,4 +93,9 @@ block content
 			maxViewMode: 1,
 			todayBtn: "linked",
 			todayHighlight: true
+		});
+		$(document).ready(function(){
+			$('.h-g-intro').dotdotdot({
+				height: 30,
+			});
 		});
