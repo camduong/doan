@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UploadRequest;
 use App\Tour;
-use App\Images;
 use App\Hotel;
 use App\Location;
 use App\Vehicle;
@@ -80,18 +79,6 @@ class TourController extends Controller
         $tour->price = $request->price;
         $tour->schedule = $request->detail;
         $tour->save();
-        foreach ($uprequest->featured_image as $image2) {
-            // $filename = $tour->id . '_' . mt_rand() . '_' . time() . '.' . $image2->getClientOriginalExtension();
-            $filename = $image2->getClientOriginalName();
-            $location = public_path('img/'. $filename);
-            Image::make($image2)->resize(800, 400)->save($location);
-
-            $image = new Images;
-            $image->tour_id = $tour->id;
-            $image->img_name = $filename;
-        // $myimage[] = $filename;
-            $image->save();
-        }
 
         //print_r($myimage);
         //die;
