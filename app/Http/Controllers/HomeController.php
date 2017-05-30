@@ -25,17 +25,6 @@ class HomeController extends Controller
 		return $cart;
 	}
 
-	public function getImage($tours)
-	{
-		foreach ($tours as $k => $tour) {
-			$image = Images::select('img_name')->where('tour_id',$tour->id)->first();
-			if($image != null)
-				$tours[$k]['image'] = $image -> img_name;
-			else
-				$tours[$k]['image'] = 'no-img.jpg';
-		}
-		return $tours;
-	}
 	/**
 	 * Show the application dashboard.
 	 *
@@ -51,14 +40,36 @@ class HomeController extends Controller
 	public function tour()
 	{
 		$tours = Tour::orderBy('updated_at', 'desc')->paginate(9);
-<<<<<<< HEAD
-		// $tours = $this->getImage($tours);
-=======
-		$tours = $this->getImage($tours);
 		$location = Location::all();
->>>>>>> 70601a1880ae3350d49942b4105b9d54ae90210a
 		$cart = $this->Cart();
 		return view('tour')->withTours($tours)->withLocation($location)->withCarts($cart->items)->withPrice($cart->totalPrice);
+	}
+
+	public function searchTour(Request $request)
+	{
+		$noidi = $request->noidi;
+		$noiden = $request->noiden;
+		if($noidi != null && $noiden !=null)
+		{
+			$depart_location = Location::where('slug', '=', $noidi)->first();
+			$dest_location = Location::where('slug', '=', $noiden)->first();
+			$tours = Tour::where('depart_location_id',$depart_location->id && 'dest_location_id',$dest_location->id)->orderBy('updated_at', 'desc')->paginate(2);
+			$cart = $this->Cart();
+			$location = Location::all();
+			return view('tour')->withTours($tours)->withLocation($location)->withCarts($cart->items)->withPrice($cart->totalPrice);
+		}
+		else if($noidi == null && $noiden != null)
+		{
+			return $this->tourInLocation('noiden',$noiden);
+		}
+		else if($noidi != null && $noiden == null)
+		{
+			return $this->tourInLocation('noidi',$noidi);
+		}
+		else
+		{
+			return $this->tour();
+		}
 	}
 
 	public function tourInLocation($name, $slug)
@@ -92,18 +103,14 @@ class HomeController extends Controller
 				}
 				break;
 		}
-		// $tours = $this->getImage($tours);
 		$cart = $this->Cart();
-		return view('tour')->withTours($tours)->withCarts($cart->items)->withPrice($cart->totalPrice);
+		$location = Location::all();
+		return view('tour')->withTours($tours)->withLocation($location)->withCarts($cart->items)->withPrice($cart->totalPrice);
 	}
 
 	public function getSingle($slug)
   	{
 		$tour = Tour::where('slug', '=', $slug)->first();
-		// $images = Images::select('img_name')->where('tour_id',$tour->id)->get();
-		// foreach ($images as $k => $image) {
-		// 	$tour['image'][$k] = $image -> img_name;
-		// }
 		$cart = $this->Cart();
 		return view('detail')->withTour($tour)->withCarts($cart->items)->withPrice($cart->totalPrice);
   	}

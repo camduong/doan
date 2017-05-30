@@ -17,13 +17,13 @@ block content
 					#booking.tab-pane.fade.in.active(role='tabpanel')
 						.book-form
 							.form-group.text-center
-								form
+								form(action=route('tour.search'))
 									btns = json_decode('[["noidi","Nơi đi"], ["noiden","Nơi đến"]]')
 									each btn, i in btns
 										select.selectpicker.input-group.col-xs-4(data-live-search='true',name='#{btn[0]}', title='#{btn[1]}')
 											nbvs = $location
 											each nbv, i in nbvs
-												option(data-tokens=nbv->slug, value="/tour/"+ btn[0] + "=" + nbv->slug)=nbv->name
+												option(data-tokens=nbv->slug, value=nbv->slug)=nbv->name
 									button.btn.btn-default.btn-b-s(type='submit') Tìm kiếm
 
 					#profile.tab-pane.fade(role='tabpanel')
