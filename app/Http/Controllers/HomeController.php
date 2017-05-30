@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Regions;
 use App\Tour;
-use App\Images;
 use App\Cart;
 use App\Order;
 use App\Location;
@@ -52,7 +51,7 @@ class HomeController extends Controller
 	public function tour()
 	{
 		$tours = Tour::orderBy('updated_at', 'desc')->paginate(9);
-		$tours = $this->getImage($tours);
+		// $tours = $this->getImage($tours);
 		$cart = $this->Cart();
 		return view('tour')->withTours($tours)->withCarts($cart->items)->withPrice($cart->totalPrice);
 	}
@@ -88,7 +87,7 @@ class HomeController extends Controller
 				}
 				break;				
 		}
-		$tours = $this->getImage($tours);
+		// $tours = $this->getImage($tours);
 		$cart = $this->Cart();
 		return view('tour')->withTours($tours)->withCarts($cart->items)->withPrice($cart->totalPrice);
 	}
@@ -96,10 +95,10 @@ class HomeController extends Controller
 	public function getSingle($slug)
   	{
 		$tour = Tour::where('slug', '=', $slug)->first();
-		$images = Images::select('img_name')->where('tour_id',$tour->id)->get();
-		foreach ($images as $k => $image) {
-			$tour['image'][$k] = $image -> img_name;
-		}
+		// $images = Images::select('img_name')->where('tour_id',$tour->id)->get();
+		// foreach ($images as $k => $image) {
+		// 	$tour['image'][$k] = $image -> img_name;
+		// }
 		$cart = $this->Cart();
 		return view('detail')->withTour($tour)->withCarts($cart->items)->withPrice($cart->totalPrice);
   	}
