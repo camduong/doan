@@ -51,9 +51,14 @@ class HomeController extends Controller
 	public function tour()
 	{
 		$tours = Tour::orderBy('updated_at', 'desc')->paginate(9);
+<<<<<<< HEAD
 		// $tours = $this->getImage($tours);
+=======
+		$tours = $this->getImage($tours);
+		$location = Location::all();
+>>>>>>> 70601a1880ae3350d49942b4105b9d54ae90210a
 		$cart = $this->Cart();
-		return view('tour')->withTours($tours)->withCarts($cart->items)->withPrice($cart->totalPrice);
+		return view('tour')->withTours($tours)->withLocation($location)->withCarts($cart->items)->withPrice($cart->totalPrice);
 	}
 
 	public function tourInLocation($name, $slug)
@@ -69,8 +74,8 @@ class HomeController extends Controller
 				$tours = Tour::where('dest_location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(2);
 				break;
 			case 'vung':
-				$region = Regions::where('slug',$slug)->first();				
-				$locations = Location::where('region_id',$region->id)->get();				
+				$region = Regions::where('slug',$slug)->first();
+				$locations = Location::where('region_id',$region->id)->get();
 				foreach ($locations as $location) {
 					$tours = Tour::where('dest_location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(2);
 				}
@@ -83,9 +88,9 @@ class HomeController extends Controller
 						break;
 					case "nuoc-ngoai":
 						$tours = Tour::where('type','1')->orderBy('updated_at', 'desc')->paginate(2);
-						break;	
+						break;
 				}
-				break;				
+				break;
 		}
 		// $tours = $this->getImage($tours);
 		$cart = $this->Cart();
