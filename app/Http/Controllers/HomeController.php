@@ -33,8 +33,9 @@ class HomeController extends Controller
 	public function index()
 	{
 		$location = Location::all();
+		$regions = Regions::all();
 		$cart = $this->Cart();
-		return view('welcome')->withLocation($location)->withCarts($cart->items)->withPrice($cart->totalPrice);
+		return view('welcome')->withRegions($regions)->withLocation($location)->withCarts($cart->items)->withPrice($cart->totalPrice);
 	}
 
 	public function tour()

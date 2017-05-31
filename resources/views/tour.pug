@@ -23,7 +23,8 @@ block content
 										select.selectpicker.input-group.col-xs-4(data-live-search='true',name='#{btn[0]}', title='#{btn[1]}')
 											nbvs = $location
 											each nbv, i in nbvs
-												option(data-tokens=nbv->slug, value=nbv->slug)=nbv->name
+												if (nbv->region_id <= 3)
+													option(data-tokens=nbv->slug, value=nbv->slug)=nbv->name
 									button.btn.btn-default.btn-b-s(type='submit') Tìm kiếm
 
 					#outlanding.tab-pane.fade(role='tabpanel')
