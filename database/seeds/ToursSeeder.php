@@ -11,7 +11,7 @@ class ToursSeeder extends Seeder
      */
     public function run()
     {
-         DB::table('hotels')->insert([
+         DB::table('tours')->insert([[
              'name' => 'Hồ Chí Minh-Thành phố về đêm',
              'slug' => 'ho-chi-minh-thanh-pho-ve-dem',
              'number' => '20',
@@ -25,6 +25,6 @@ class ToursSeeder extends Seeder
              'day' => '3',
              'price' => '2000000',
              'schedule' => '<h4>Ngày 1:</h4?'
-         ]);
+         ]]);
     }
 }

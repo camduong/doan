@@ -11,7 +11,7 @@ class LocationsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('regions')->insert([
+        DB::table('locations')->insert([[
             'name' => 'Đà Lạt',
             'slug' => 'da-lat',
             'region_id' => '3',
@@ -58,6 +58,6 @@ class LocationsSeeder extends Seeder
             'slug' => 'canada',
             'region_id' => '7',
             'introduce' => 'Canada'
-        ]);
+        ]]);
     }
 }

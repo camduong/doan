@@ -11,9 +11,9 @@ class VehiclesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('vehicles')->insert([
+        DB::table('vehicles')->insert([[
             'name' => 'VietJet Air',
             'introduce' => 'Hãng hàng không VietJet Air',
-        ]);
+        ]]);
     }
 }

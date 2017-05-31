@@ -11,7 +11,7 @@ class RegionsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('regions')->insert([
+        DB::table('regions')->insert([[
             'name' => 'Miền Bắc',
             'slug' => 'mienbac',
             'introduce' => 'Tour Du Lịch Miền Bắc - Vacation World tổ chức các tour du lịch đi các tỉnh miền bắc với giá cực tốt, chất lượng dịch vụ đảm bảo, điểm tham quan hấp dẫn.',
@@ -45,6 +45,6 @@ class RegionsSeeder extends Seeder
             'name' => 'Châu Mỹ',
             'slug' => 'mienbac',
             'introduce' => 'Vacation World - Top 10 công ty du lịch Hàng Đầu Việt Nam chuyên tổ chức các tour du lịch Châu Mỹ cao cấp dịch vụ Cao Cấp Chất Lượng. Du lịch Châu Mỹ khám phá những vùng đất mới vừa huyền bí vừa tráng lệ.',
-        ]);
+        ]]);
     }
 }

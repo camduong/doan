@@ -13,18 +13,24 @@ var cart = {
             $.each(listTour, function (i, item) {
                 cartList.push({
                     Quatity: $(item).val(),
-                    Tour: {
-                        Id: $(item).data('id')
-                    }
+                    Tour: $(item).data('id')
+                    
                 });
             });
 
             $.ajax({
                 url: '/update',
-                data: { cartModel: JSON.stringify(cartList) },
+                 headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: { cartModel: cartList },
                 dataType: 'json',
                 type: 'POST',
-                
+                success: function (res) {
+                    if (res == true) {
+                        window.location.href = '/tour';
+                    }
+                }
             })
         });
 
@@ -32,20 +38,34 @@ var cart = {
             e.preventDefault();
             $.ajax({
                 url: '/delete',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 data: { id: $(this).data('id') },
                 dataType: 'json',
                 type: 'POST',
-                
+                success: function (res) {
+                    if (res == true) {
+                        window.location.href = '/tour';
+                    }
+                }
             })
         });
 
         $('#btnDelete').off('click').on('click', function () {
 
             $.ajax({
-                url: "{{ route ('deleteall')}}",
+                url: "/deleteall",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 dataType: 'json',
                 type: 'POST',
-                
+                success: function (res) {
+                    if (res == true) {
+                        window.location.href = '/';
+                    }
+                }
             })
         });
     }

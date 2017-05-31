@@ -11,11 +11,11 @@ class HotelsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('hotels')->insert([
+        DB::table('hotels')->insert([[
             'name' => 'New World',
             'phone' => '84812345678',
             'address' => 'Lê Lợi',
             'location_id' => '1'
-        ]);
+        ]]);
     }
 }

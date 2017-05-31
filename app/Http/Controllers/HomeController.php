@@ -48,12 +48,12 @@ class HomeController extends Controller
 	public function searchTour(Request $request)
 	{
 		$noidi = $request->noidi;
-		$noiden = $request->noiden;
+		$noiden = $request->noiden;		
 		if($noidi != null && $noiden !=null)
 		{
 			$depart_location = Location::where('slug', '=', $noidi)->first();
 			$dest_location = Location::where('slug', '=', $noiden)->first();
-			$tours = Tour::where('depart_location_id',$depart_location->id && 'dest_location_id',$dest_location->id)->orderBy('updated_at', 'desc')->paginate(2);
+			$tours = Tour::where('depart_location_id',$depart_location->id)->where('dest_location_id',$dest_location->id)->orderBy('updated_at', 'desc')->paginate(9);
 			$cart = $this->Cart();
 			$location = Location::all();
 			return view('tour')->withTours($tours)->withLocation($location)->withCarts($cart->items)->withPrice($cart->totalPrice);
@@ -78,27 +78,27 @@ class HomeController extends Controller
 		{
 			case 'noidi':
 				$location = Location::where('slug', '=', $slug)->first();
-				$tours = Tour::where('depart_location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(2);
+				$tours = Tour::where('depart_location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(9);
 				break;
 			case 'noiden':
 				$location = Location::where('slug', '=', $slug)->first();
-				$tours = Tour::where('dest_location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(2);
+				$tours = Tour::where('dest_location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(9);
 				break;
 			case 'vung':
 				$region = Regions::where('slug',$slug)->first();
 				$locations = Location::where('region_id',$region->id)->get();
 				foreach ($locations as $location) {
-					$tours = Tour::where('dest_location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(2);
+					$tours = Tour::where('dest_location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(9);
 				}
 				break;
 			case 'loaihinh':
 				switch($slug)
 				{
 					case "trong-nuoc":
-						$tours = Tour::where('type','0')->orderBy('updated_at', 'desc')->paginate(2);
+						$tours = Tour::where('type','0')->orderBy('updated_at', 'desc')->paginate(9);
 						break;
 					case "nuoc-ngoai":
-						$tours = Tour::where('type','1')->orderBy('updated_at', 'desc')->paginate(2);
+						$tours = Tour::where('type','1')->orderBy('updated_at', 'desc')->paginate(9);
 						break;
 				}
 				break;
@@ -176,36 +176,45 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-    public function getUpdate($cartModel)
+    public function getUpdate(Request $request)
     {
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-		var_dump($cart);
-		die;
-        $cart->update($cartModel);
+		if($request->ajax())
+		{
+			$oldCart = Session::has('cart') ? Session::get('cart') : null;
+			$cart = new Cart($oldCart);
+			foreach($request->cartModel as $item)
+			{
+				$id = $item['Tour'];
+				$qty = $item['Quatity'];
+				$cart->update($id,$qty);
+			}
 
-        Session::put('cart', $cart);
-        return redirect()->back();
+			Session::put('cart', $cart);
+			return response()->json(true);
+		}
     }
 
-    public function getRemoveItem($id)
+    public function getRemoveItem(Request $request)
     {
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        $cart->removeItem($id);
+		if($request->ajax())
+		{
+			$oldCart = Session::has('cart') ? Session::get('cart') : null;
+			$cart = new Cart($oldCart);
+			$cart->removeItem($request->id);
 
-        if(count($cart->items) > 0) {
-            Session::put('cart', $cart);
-        } else {
-            Session::forget('cart');
-        }
-        return redirect()->back();
-    }
+			if(count($cart->items) > 0) {
+				Session::put('cart', $cart);
+			} else {
+				Session::forget('cart');
+			}
+			return response()->json(true);
+		}
+	}
 
 	public function getRemoveAll()
     {
         Session::forget('cart');
-        return redirect()->back();
+        return response()->json(true);
     }
 
 	public function getProfile()
