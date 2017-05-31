@@ -58,10 +58,6 @@ class LocationsSeeder extends Seeder
             'slug' => 'canada',
             'introduce' => 'Canada',
             'region_id' => '7',
-<<<<<<< HEAD
-=======
-            'introduce' => 'Canada'
->>>>>>> sửa cart
         ]]);
     }
 }
