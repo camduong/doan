@@ -12,7 +12,7 @@
 */
 Route::get('/', 'HomeController@index');
 Auth::routes();
-Route::get('detaitour/{slug}', ['as' => 'tour.single', 'uses' => 'HomeController@getSingle'])->where('slug', '[\w\d\-\_]+');
+Route::get('detailtour/{slug}', ['as' => 'tour.single', 'uses' => 'HomeController@getSingle'])->where('slug', '[\w\d\-\_]+');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/tour', 'HomeController@tour')->name('tour');
 Route::get('/tour', 'HomeController@searchTour')->name('tour.search');

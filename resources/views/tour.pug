@@ -7,7 +7,7 @@ block content
 					li.active(role='presentation')
 						a(href='#booking', aria-controls='home', role='tab', data-toggle='tab') Du lịch trong nước
 					li(role='presentation')
-						a(href='#profile', aria-controls='profile', role='tab', data-toggle='tab') Du lịch nước ngoài
+						a(href='#outlanding', aria-controls='outlanding', role='tab', data-toggle='tab') Du lịch nước ngoài
 					li(role='presentation')
 						a(href='#messages', aria-controls='messages', role='tab', data-toggle='tab') Tìm vé máy bay
 					li(role='presentation')
@@ -26,8 +26,19 @@ block content
 												option(data-tokens=nbv->slug, value=nbv->slug)=nbv->name
 									button.btn.btn-default.btn-b-s(type='submit') Tìm kiếm
 
-					#profile.tab-pane.fade(role='tabpanel')
-						p coming soon
+					#outlanding.tab-pane.fade(role='tabpanel')
+						.book-form
+							.form-group.text-center
+								form(action=route('tour.search'))
+									btns = json_decode('[["noidi","Nơi đi"], ["noiden","Nơi đến"]]')
+									each btn, i in btns
+										select.selectpicker.input-group.col-xs-4(data-live-search='true',name='#{btn[0]}', title='#{btn[1]}')
+											nbns = $location
+											each nbn, i in nbns
+												if (nbn->region_id > 3)
+													option(data-tokens=nbn->slug, value=nbn->slug)=nbn->name
+									button.btn.btn-default.btn-b-s(type='submit') Tìm kiếm
+
 					#messages.tab-pane.fade(role='tabpanel')
 						p	coming soon
 					#settings.tab-pane.fade(role='tabpanel')
@@ -99,4 +110,8 @@ block content
 			$('.h-g-intro').dotdotdot({
 				height: 30,
 			});
+		});
+		$('.selectpicker').selectpicker({
+			style: 'btn-default',
+			size: 5
 		});

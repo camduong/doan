@@ -14,50 +14,54 @@ class LocationsSeeder extends Seeder
         DB::table('locations')->insert([[
             'name' => 'Đà Lạt',
             'slug' => 'da-lat',
+            'introduce' => 'Đà Lạt',
             'region_id' => '3',
-            'introduce' => 'Đà Lạt'
         ],
         [
             'name' => 'Hồ Chí Minh',
             'slug' => 'ho-chi-minh',
+            'introduce' => 'Hồ Chí Minh',
             'region_id' => '3',
-            'introduce' => 'Hồ Chí Minh'
         ],
         [
             'name' => 'Nha Trang',
             'slug' => 'nha-trang',
+            'introduce' => 'Nha Trang',
             'region_id' => '2',
-            'introduce' => 'Nha Trang'
         ],
         [
             'name' => 'Hà Nội',
             'slug' => 'ha-noi',
+            'introduce' => 'Hà Nội',
             'region_id' => '1',
-            'introduce' => 'Hà Nội'
         ],
         [
             'name' => 'Hàn Quốc',
             'slug' => 'han-quoc',
+            'introduce' => 'Hàn Quốc',
             'region_id' => '4',
-            'introduce' => 'Hàn Quốc'
         ],
         [
             'name' => 'Pháp',
             'slug' => 'phap',
+            'introduce' => 'Pháp',
             'region_id' => '5',
-            'introduce' => 'Pháp'
         ],
         [
             'name' => 'Nước Úc',
             'slug' => 'nuoc-uc',
+            'introduce' => 'Nước Úc',
             'region_id' => '6',
-            'introduce' => 'Nước Úc'
         ],
         [
             'name' => 'Cananda',
             'slug' => 'canada',
+            'introduce' => 'Canada',
             'region_id' => '7',
+<<<<<<< HEAD
+=======
             'introduce' => 'Canada'
+>>>>>>> sửa cart
         ]]);
     }
 }

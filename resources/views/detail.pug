@@ -4,10 +4,10 @@ block content
 		.container
 			#tour-con.col-xs-12.col-sm-7
 				ul.bxslider
-					navs = $tour->image
-					each nav, i in navs
-						li
-							img(src='../img/'+nav)
+					//- navs = $tour->image
+					//- each nav, i in navs
+					//- 	li
+					//- 		img(src='../img/'+nav)
 
 
 				.row
@@ -51,11 +51,11 @@ block content
 									fjs.parentNode.insertBefore(js, fjs);
 									}(document, 'script', 'facebook-jssdk'));
 				hr
-			#sidebar.col-xs-6.col-sm-5
-				#myaffix
-					ul.sum-tour
-						h3.headers Tóm tắt chuyến đi
-						.sub-sum
+		#sidebar.col-xs-6.col-sm-5
+			#myaffix
+				ul.sum-tour
+					h3.headers Tóm tắt chuyến đi
+					.sub-sum
 
 	include layouts/app-wels-footer
 	//- script(src='../js/sticky-kit.min.js', type='text/javascript')

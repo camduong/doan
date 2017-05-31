@@ -21,7 +21,7 @@ class ToursSeeder extends Seeder
              'type' => '0',
              'vehicle_id' => '1',
              'depart_date' => '2017/06/02',
-             'return_date' => '2017/06/4',
+             'return_date' => '2017/06/04',
              'day' => '3',
              'price' => '2000000',
              'schedule' => '<h4>Ngày 1:</h4?'
