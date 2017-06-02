@@ -75,7 +75,7 @@
                             <td style="text-align: center;">
                                 {!! Form::open(['route' => ['hotel.destroy', $hotel->id], 'method' => 'DELETE']) !!}
                                     {!! Html::linkRoute('hotel.edit', 'Sửa', array($hotel->id), array('class' => 'btn btn-primary btn-md')) !!}
-                                    {!! Form::submit('Xóa', ['class' => 'btn btn-danger btn-md']) !!}
+                                    {{-- {!! Form::submit('Xóa', ['class' => 'btn btn-danger btn-md']) !!} --}}
                                 {!! Form::close() !!}
                             </td>
                         </tr>

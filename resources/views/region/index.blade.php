@@ -67,7 +67,7 @@
 							<td style="text-align: center;">
 								{!! Form::open(['route' => ['region.destroy', $region->id], 'method' => 'DELETE']) !!}
 										{!! Html::linkRoute('region.edit', 'Sửa', array($region->id), array('class' => 'btn btn-primary btn-md')) !!}
-										{!! Form::submit('Xóa', ['class' => 'btn btn-danger btn-md']) !!}
+										{{-- {!! Form::submit('Xóa', ['class' => 'btn btn-danger btn-md']) !!} --}}
 								{!! Form::close() !!}
 							</td>
 						</tr>

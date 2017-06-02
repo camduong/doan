@@ -23,8 +23,8 @@
 								<p class="lead">Phương tiện: {{ $tour->vehicles->name }}</p>
 								<p class="lead">Giá: {{ number_format($tour->price) }}VNĐ</p>
 								<p class="lead">Số ngày: {{ $tour->day }} ngày</p>
-								<p class="lead">Ngày đi: {{ date('l d/m/Y',strtotime($tour->depart_date)) }}</p>
-								<p class="lead">Ngày về: {{ date('l d/m/Y',strtotime($tour->return_date)) }}</p>
+								<p class="lead">Ngày đi: {{ date('d/m/Y',strtotime($tour->depart_date)) }}</p>
+								<p class="lead">Ngày về: {{ date('d/m/Y',strtotime($tour->return_date)) }}</p>
 							</div>
 							<div role="tabpanel" class="tab-pane fade" id="detailtour" aria-labelledby="profile-tab">
 								<p class="lead">Lịch trình: </p>
@@ -40,22 +40,22 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<span class="lead">URL: </span>
-							<span><a href="{{ route('tour.single', $tour->slug) }}">{{ substr($tour->slug, 0, 20) }}</a></span>
+							<span><a href="{{ route('tour.single', $tour->slug) }}">{{ $tour->slug }}</a></span>
 						</div>
 						<div class="clearfix"></div>
 						<hr>
-						<div class="col-sm-6">
+						<div class="col-sm-12">
 							<a href="{{ route('tour.edit', $tour->id) }}" class="btn btn-primary btn-block">
 								Sửa
 							</a>
 						</div>
-						<div class="col-sm-6">
+						{{-- <div class="col-sm-6">
 							{!! Form::open(['route' => ['tour.destroy', $tour->id], 'method' => 'DELETE']) !!}
 
 							{!! Form::submit('Xóa', ['class' => 'btn btn-danger btn-block']) !!}
 
 							{!! Form::close() !!}
-						</div>
+						</div> --}}
 					</div>
 
 					<div class="row">
