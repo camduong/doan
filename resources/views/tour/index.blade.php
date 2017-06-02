@@ -103,8 +103,8 @@
 								<div class="tab-pane" id="step3">
 									<div class="row">
 										<div class="col-sm-12">
-											{{ Form::label('detail', 'Chi tiết chuyến đi:', ['class' => 'form-spacing-top']) }}
-											{{ Form::textarea('detail', null, ['class' => 'form-control ckeditor', 'required', 'id' => 'detail', 'rows' => 10, 'cols' => 60, 'style' => 'margin:0 1% !important']) }}
+											{{ Form::label('schedule', 'Chi tiết chuyến đi:', ['class' => 'form-spacing-top']) }}
+											{{ Form::textarea('schedule', null, ['class' => 'form-control ckeditor', 'required', 'id' => 'detail', 'rows' => 10, 'cols' => 60, 'style' => 'margin:0 1% !important']) }}
 										</div>
 									</div>
 								</div>

@@ -9,7 +9,7 @@ use App\Hotel;
 use App\Location;
 use App\Vehicle;
 use Session;
-use Image;
+use Purifier;
 
 class TourController extends Controller
 {
@@ -77,11 +77,9 @@ class TourController extends Controller
         $tour->return_date = date('Y/m/d',strtotime($request->return_date));
         $tour->day = (strtotime($tour->return_date) - strtotime($tour->depart_date)) / (60 * 60 * 24) + 1;
         $tour->price = $request->price;
-        $tour->schedule = $request->detail;
+        $tour->schedule = Purifier::clean($request->schedule);
         $tour->save();
-
-        //print_r($myimage);
-        //die;
+        
         Session::flash('success', 'The tour was sucessfully save!');
 
         //redirect to another page
@@ -158,7 +156,7 @@ class TourController extends Controller
         $tour->return_date = date('yy/mm/dd',strtotime($request->input('return_date')));
         $tour->day = (strtotime($tour->return_date) - strtotime($tour->depart_date)) / (60 * 60 * 24) + 1;
         $tour->price = $request->input('price');
-        $tour->schedule = $request->input('detail');
+        $tour->schedule = Purifier::clean($request->input('schedule'));
         $tour->save();
         //set flash data with success message
         Session::flash('success', 'This tour was successfully saved.');
@@ -175,9 +173,6 @@ class TourController extends Controller
     public function destroy($id)
     {
         $tour = Tour::find($id);
-        if($img = Images::find($id)) {
-            $img->delete();
-        }
         $tour->delete();
 
         Session::flash('success', 'The tour was successfully deleted.');
