@@ -46,14 +46,16 @@
 					<tr>
 						<th>#</th>
 						<th>Tên</th>
+						<th>Giới thiệu</th>
 						<th>Thao tác</th>
 					</tr>
 				</thead>
 				<tbody>
 					@foreach($regions as $region)
 						<tr>
-							<th>{{ $region->id }}</th>
-							<th>{{ $region->name }}</th>
+							<td>{{ $region->id }}</td>
+							<td>{{ $region->name }}</td>
+							<td>{{ $region->introduce }}</td>
 							<td style="text-align: center;">
 								{!! Form::open(['route' => ['region.destroy', $region->id], 'method' => 'DELETE']) !!}
 										{!! Html::linkRoute('region.edit', 'Sửa', array($region->id), array('class' => 'btn btn-primary btn-md')) !!}

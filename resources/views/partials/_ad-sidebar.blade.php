@@ -24,10 +24,10 @@
 					<a href="{{ route('hotel.index') }}"><i class="fa fa-building"></i>Khách sạn</a>
 				</li>
 				<li>
-					<a href="{{ route('location.index') }}"><i class="fa fa-location-arrow"></i>Địa điểm</a>
+					<a href="{{ route('location.index') }}"><i class="fa fa-map-marker"></i>Địa điểm</a>
 				</li>
 				<li>
-					<a href="{{ route('region.index') }}"><i class="fa fa-location-arrow"></i>Khu vực</a>
+					<a href="{{ route('region.index') }}"><i class="fa fa-map"></i>Khu vực</a>
 				</li>
 				<li>
 					<a href="{{ route('customer.index') }}"><i class="fa fa-users"></i>Đơn hàng</a>

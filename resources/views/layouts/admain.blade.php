@@ -28,7 +28,7 @@
         @yield('content')
         <footer class="footer_fixed">
           <div class="pull-right">
-          Kha Tran Khoi Nguyen created by Gentelella Template
+          Kha Tran Khoi Nguyen - Huynh Cam Duong
           </div>
         </footer>
       </div>
