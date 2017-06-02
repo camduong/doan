@@ -9,14 +9,22 @@
 		<div class="row">
 			{!! Form::model($location, ['route' => ['location.update', $location->id], 'method' => 'PUT']) !!}
 			<div class="col-md-8">
-				{{ Form::label('name','Tên:') }}
-				{{ Form::text('name', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '100'))}}
-				{{ Form::label('slug', 'Slug:', ['class' => 'form-spacing-top']) }}
-				{{ Form:: text('slug', null, ['class' => 'form-control', 'required' => '']) }}
-				{{ Form::label('region_id', 'Khu vực:', ['class' => 'form-spacing-top']) }}
-				{{ Form::select('region_id', $regions, null, ['class' => 'form-control', 'placeholder' => 'Chọn khu vực'])}}
-				{{ Form::label('introduce', 'Giới thiệu địa điểm:') }}
-				{{ Form::textarea('introduce', null, array('class' => 'form-control', 'required' => ''))}}
+				<div class="form-group">
+					{{ Form::label('name','Tên:') }}
+					{{ Form::text('name', null, array('class' => 'form-control', 'required' => '', 'onkeyup' => 'ChangeToSlug()'))}}
+				</div>
+				<div class="form-group">
+					{{ Form::label('slug', 'Slug:', ['class' => 'form-spacing-top']) }}
+					{{ Form:: text('slug', null, ['class' => 'form-control', 'required' => '', "readonly"=>"true"]) }}
+				</div>
+				<div class="form-group">
+					{{ Form::label('region_id', 'Khu vực:', ['class' => 'form-spacing-top']) }}
+					{{ Form::select('region_id', $regions, null, ['class' => 'form-control', 'placeholder' => 'Chọn khu vực'])}}
+				</div>	
+				<div class="form-group">
+					{{ Form::label('introduce', 'Giới thiệu địa điểm:') }}
+					{{ Form::textarea('introduce', null, array('class' => 'form-control', 'required' => ''))}}
+				</div>
 			</div>
 
 			<div class="col-md-4">
