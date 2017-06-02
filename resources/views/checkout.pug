@@ -14,11 +14,15 @@ block content
 					div
 						.form-group
 							label(for="name") Tên
-							input#name.form-control(type="text", required, name="name", value=(Auth::user()->name))
+							input#name.form-control(type="text", required, name="name", value=(Auth::user()->f_name.' '.Auth::user()->l_name))
 
 						.form-group
 							label(for="address") Địa chỉ
-							input#address.form-control(type="text",required, name="address",value=(Auth::user()->email)))
+							input#address.form-control(type="text",required, name="address",value=(Auth::user()->address)))
+
+						.form-group
+							label(for="phone") Điện thoại
+							input#phone.form-control(type="text",required, name="phone",value=(Auth::user()->phone)))
 					div!=csrf_field()
 					div.text-right
 						button.btn.btn-success(type="submit") Mua ngay

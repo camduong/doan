@@ -152,6 +152,7 @@ class HomeController extends Controller
 			$order->cart = serialize($cart);
 			$order->address = $request->input('address');
 			$order->name = $request->input('name');
+			$order->name = $request->input('phone');
 			$order->status = 'Chưa xử lý';
 
 			Auth::user()->orders()->save($order);

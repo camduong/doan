@@ -26,11 +26,11 @@
 	              {{ csrf_field() }}
 	                <div class="form-group">
 	                  {{ Form::label('name','Tên:') }}
-	                  {{ Form::text('name', null, array('class' => 'form-control', 'required' => ''))}}
+	                  {{ Form::text('name', null, array('class' => 'form-control', 'required' => '', 'onkeyup' => 'ChangeToSlug()'))}}
 	                </div>
 									<div class="form-group">
 										{{ Form::label('slug', 'Slug:', ['class' => 'form-spacing-top']) }}
-										{{ Form:: text('slug', null, ['class' => 'form-control', 'required' => '']) }}
+										{{ Form:: text('slug', null, ['class' => 'form-control', 'required' => '', "readonly"=>"true"]) }}
 									</div>
 									<div class="form-group">
 										{{ Form::label('region_id', 'Khu vực:', ['class' => 'form-spacing-top']) }}

@@ -33,6 +33,8 @@ class RegionsController extends Controller
     {
         $region = new Regions;
         $region->name = $request->name;
+        $region->slug = $request->slug;
+        $region->introduce = $request->introduce;
         $region->save();
 
         Session::flash('success', 'The new region was sucessfully save!');
@@ -62,6 +64,8 @@ class RegionsController extends Controller
     {
         $region = Regions::find($id);
         $region->name = $request->input('name');
+        $region->slug = $request->input('slug');
+        $region->introduce = $request->input('introduce');
         $region->save();
 
         Session::flash('success', 'The region was sucessfully edit!');
