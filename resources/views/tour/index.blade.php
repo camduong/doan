@@ -71,8 +71,6 @@
 												{{ Form:: text('return_date', \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y'), ['class' => 'col-md-4 form-control', 'placeholder' => 'Ngày về']) }}
 											</div>
 											<br>
-											{{ Form::label ('featured_image', 'Tải ảnh lên (có thể chọn nhiều ảnh):') }}
-											{{ Form::file('featured_image[]', ['multiple' => ''])}}
 										</div>
 									</div>
 								</div>

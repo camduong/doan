@@ -447,16 +447,16 @@
         },
         {
             "name": "js-phpize/js-phpize",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pug-php/js-phpize.git",
-                "reference": "46d602e3c36b66089c6a38844211676fc877a36f"
+                "reference": "04f1f092e4048b89f63a9b69d322b4c2b43a504c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pug-php/js-phpize/zipball/46d602e3c36b66089c6a38844211676fc877a36f",
-                "reference": "46d602e3c36b66089c6a38844211676fc877a36f",
+                "url": "https://api.github.com/repos/pug-php/js-phpize/zipball/04f1f092e4048b89f63a9b69d322b4c2b43a504c",
+                "reference": "04f1f092e4048b89f63a9b69d322b4c2b43a504c",
                 "shasum": ""
             },
             "require": {
@@ -483,7 +483,7 @@
                 }
             ],
             "description": "Convert js-like syntax to standalone PHP code.",
-            "time": "2017-05-25T14:19:37+00:00"
+            "time": "2017-05-31T09:23:06+00:00"
         },
         {
             "name": "laravel/framework",
@@ -616,16 +616,16 @@
         },
         {
             "name": "laravel/tinker",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/tinker.git",
-                "reference": "3d5b675b55b24ccbf86395964042dbe061d5a965"
+                "reference": "7eb2e281395131897407285672ef5532e87e17f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/tinker/zipball/3d5b675b55b24ccbf86395964042dbe061d5a965",
-                "reference": "3d5b675b55b24ccbf86395964042dbe061d5a965",
+                "url": "https://api.github.com/repos/laravel/tinker/zipball/7eb2e281395131897407285672ef5532e87e17f9",
+                "reference": "7eb2e281395131897407285672ef5532e87e17f9",
                 "shasum": ""
             },
             "require": {
@@ -646,6 +646,11 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Tinker\\TinkerServiceProvider"
+                    ]
                 }
             },
             "autoload": {
@@ -670,7 +675,7 @@
                 "laravel",
                 "psysh"
             ],
-            "time": "2016-12-30T18:13:17+00:00"
+            "time": "2017-06-01T16:31:26+00:00"
         },
         {
             "name": "laravelcollective/html",

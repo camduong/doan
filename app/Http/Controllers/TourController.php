@@ -152,8 +152,8 @@ class TourController extends Controller
         $tour->dest_location_id = $request->input('dest_location_id');
         $tour->type = $request->input('type');
         $tour->vehicle_id = $request->input('vehicle_id');
-        $tour->depart_date = date('yy/mm/dd',strtotime($request->input('depart_date')));
-        $tour->return_date = date('yy/mm/dd',strtotime($request->input('return_date')));
+        $tour->depart_date = date('Y/m/d',strtotime($request->input('depart_date')));
+        $tour->return_date = date('Y/m/d',strtotime($request->input('return_date')));
         $tour->day = (strtotime($tour->return_date) - strtotime($tour->depart_date)) / (60 * 60 * 24) + 1;
         $tour->price = $request->input('price');
         $tour->schedule = Purifier::clean($request->input('schedule'));

@@ -52,7 +52,7 @@
 									<div class="datepicker input-daterange input-group">
 										{{ Form:: text('depart_date', date('d/m/Y', strtotime($tour->depart_date)),['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày đi']) }}
 											<span class="input-to input-group-addon">đến</span>
-										{{ Form:: text('back_date', date('d/m/Y',strtotime($tour->back_date)), ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày về']) }}
+										{{ Form:: text('return_date', date('d/m/Y',strtotime($tour->return_date)), ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày về']) }}
 									</div>
 								</div>
 							</div>
@@ -69,8 +69,9 @@
 									{{ Form::label('dest_location_id', 'Địa điểm đến:', ['class' => 'form-spacing-top']) }}
 									{{ Form::select('dest_location_id', $locations, null, ['class' => 'form-control', 'placeholder' => 'Chọn thành phố'])}}
 									<br>
-									<span class="lead form-spacing-top">Loại hình: </span>
-									<select name="types" class="form-control" placeholder="Chọn loại hình">
+									{{ Form::label('type', 'Loại hình:', ['class' => 'form-spacing-top']) }}
+									<select name="type" class="form-control">
+										<option selected="selected" disabled="disabled" hidden="hidden" value="">Chọn loại hình</option>
 										<option value="0">Trong nước</option>
 										<option value="1">Nước ngoài</option>
 									</select>
