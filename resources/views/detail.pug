@@ -2,60 +2,64 @@ extends layouts/app-wels
 block content
 	main.cd-main-content.main-user
 		.container
-			#tour-con.col-xs-12.col-sm-7
-				ul.bxslider
-					//- navs = $tour->image
-					//- each nav, i in navs
-					//- 	li
-					//- 		img(src='../img/'+nav)
-
-
-				.row
-					h3.tour-name=$tour->name
-
-					.col-xs-8.col-lg-7.tour-det
-						ul.detail-lab.col-lg-4
-							li Thời gian:
-							li Khởi hành:
-							li Số chỗ còn nhận:
-						ul.detail-inf.col-lg-8
-							li=$tour->day
-								|  ngày
-							li=date('d/m/Y',strtotime($tour->depart_date))
-							li=$tour->number
-								|  chỗ
-					.col-xs-4.col-lg-5.p-b
-						h3.gia=number_format($tour->price)
-							sup VND
-						p
-							a.btn.btn-default(href=route('addShoppingCart', $tour->id), role='button') Đặt ngay
+			.row
+				#tour-con.col-sm-7
+					.bxslider
+						.slide
+							img(src='/upload/images/dalat1.jpg')
+						.slide
+							img(src='/upload/images/tfd_140908_Miếu-Bà-Phi-Yến-Côn-Đảo.jpg')
+						.slide
+							img(src='/upload/images/tfd_140908_Mui ca map - Con Dao.jpg')
+						.slide
+							img(src='/upload/images/tfd_140908_Bien Dam Trau - Con Dao.jpg')
+					.row
+						h3.tour-name=$tour->name
+						.col-xs-8.col-lg-7.tour-det
+							ul.detail-lab.col-lg-4
+								li Thời gian:
+								li Khởi hành:
+								li Số chỗ còn nhận:
+							ul.detail-inf.col-lg-8
+								li=$tour->day
+									|  ngày
+								li=date('d/m/Y',strtotime($tour->depart_date))
+								li=$tour->number
+									|  chỗ
+						.col-xs-4.col-lg-5.p-b
+							h3.gia=number_format($tour->price)
+								sup VND
+							p
+								a.btn.btn-default(href=route('addShoppingCart', $tour->id), role='button') Đặt ngay
+						.clearfix
+						.detail-tour
+							ul.nav.nav-tabs(role='tablist', style='margin-bottom: 20px;')
+								li#program.active(role='presentation')
+									a(href='#chuongtrinh', aria-controls='chuongtrinh', role='tab', data-toggle='tab') Chương trình
+								li#comment(role='presentation')
+									a(href='#binhluan', aria-controls='binhluan', role='tab', data-toggle='tab') Bình luận
+							.tab-content
+								#chuongtrinh.tab-pane.fade.in.active(role='tabpanel')
+									div!=$tour->schedule
+								#binhluan.tab-pane.fade(role='tabpanel')
+									.fb-comments(data-href='http://doan.dev/detailtour/', data-numposts='5')
+									#fb-root
+									script(type='text/javascript').
+										(function(d, s, id) {
+										var js, fjs = d.getElementsByTagName(s)[0];
+										if (d.getElementById(id)) return;
+										js = d.createElement(s); js.id = id;
+										js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
+										fjs.parentNode.insertBefore(js, fjs);
+										}(document, 'script', 'facebook-jssdk'));
+						hr
 					.clearfix
-					.detail-tour
-						ul.nav.nav-tabs(role='tablist', style='margin-bottom: 20px;')
-							li#program.active(role='presentation')
-								a(href='#chuongtrinh', aria-controls='chuongtrinh', role='tab', data-toggle='tab') Chương trình
-							li#comment(role='presentation')
-								a(href='#binhluan', aria-controls='binhluan', role='tab', data-toggle='tab') Bình luận
-						.tab-content
-							#chuongtrinh.tab-pane.fade.in.active(role='tabpanel')
-								div!=$tour->schedule
-							#binhluan.tab-pane.fade(role='tabpanel')
-								.fb-comments(data-href='http://doan.dev/detailtour/', data-numposts='5')
-								#fb-root
-								script.
-									(function(d, s, id) {
-									var js, fjs = d.getElementsByTagName(s)[0];
-									if (d.getElementById(id)) return;
-									js = d.createElement(s); js.id = id;
-									js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
-									fjs.parentNode.insertBefore(js, fjs);
-									}(document, 'script', 'facebook-jssdk'));
-				hr
-			#sidebar.col-xs-6.col-sm-5
-				#myaffix
-					ul.sum-tour
-						h3.headers Tóm tắt chuyến đi
-						.sub-sum
+
+				#sidebar.col-sm-5
+					#myaffix
+						div.sum-tour
+							h3.headers Tóm tắt chuyến đi
+							ul.sub-sum
 
 	include layouts/app-wels-footer
 	script(type='text/javascript', src='../js/bxslider.min.js')
@@ -101,4 +105,8 @@ block content
 				$(this).attr('id', 'ngay'+(i+1))
 				$(".sub-sum").append("<li><a href='#ngay"+(i+1)+"'>" + $(this).text() + "</a></li><hr/>")
 			});
+			//- $("img").each(function(i,l){
+			//- 	$(this).attr('class','slide')
+			//- 	$(".bxslider").append("<li><img src='" + $(this).html() + "'/></li>")
+			//- });
 		});

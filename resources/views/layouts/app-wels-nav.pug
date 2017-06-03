@@ -174,8 +174,7 @@ div
 								li.list-group-item
 									.row(style='margin: 0.75rem 0;')
 										.col-md-4
-											h3(style='margin: 0;')
-												strong=$cart['item']['name']
+											h3.h-c(style='margin: 0;')=$cart['item']['name']
 										.col-md-7.text-center
 											input.quantity.text-center(type='text', data-id=$cart['item']['id'], value=$cart['qty'], size='1')
 											span &nbsp;vé x &nbsp;
