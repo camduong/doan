@@ -32,7 +32,7 @@
 							<div class="row">
 								<div class="col-sm-10 col-sm-offset-1">
 									{{ Form::label('name', 'Tên chuyến đi:') }}
-									{{ Form::text('name', null, ['class' => 'form-control ', 'onkeyup' => 'ChangeToSlug()', 'required' => '']) }}
+									{{ Form::textarea('name', null, ['class' => 'form-control ', 'onkeyup' => 'ChangeToSlug()', 'required' => '', 'rows' => '3']) }}
 									<br>
 									{{ Form::label('slug', 'Slug:', ['class' => 'form-spacing-top']) }}
 									{{ Form:: text('slug', null, ['class' => 'form-control', 'required' => '', "readonly"=>"true"]) }}
@@ -84,8 +84,8 @@
 						<div class="tab-pane" id="step3">
 							<div class="row">
 								<div class="col-sm-12">
-									{{ Form::label('detail', 'Chi tiết chuyến đi:', ['class' => 'form-spacing-top']) }}
-									{{ Form::textarea('detail', $tour->schedule, null, ['class' => 'form-control ckeditor', 'required', 'id' => 'detail', 'rows' => 10, 'cols' => 60, 'style' => 'margin:0 1% !important']) }}
+									{{ Form::label('schedule', 'Chi tiết chuyến đi:', ['class' => 'form-spacing-top']) }}
+									{{ Form::textarea('schedule', $tour->schedule, null, ['class' => 'form-control ckeditor', 'required', 'id' => 'detail', 'rows' => 10, 'cols' => 60, 'style' => 'margin:0 1% !important']) }}
 								</div>
 							</div>
 						</div>
@@ -125,7 +125,8 @@
 			todayBtn: "linked",
 			todayHighlight: true
 		});
-		CKEDITOR.replace( 'detail' );
+	});
+		CKEDITOR.replace( 'schedule' );
 
 		function ChangeToSlug()
 		{
@@ -158,6 +159,5 @@
 		    //In slug ra textbox có id “slug”
 		    document.getElementById('slug').value = slug;
 		}
-	});
 	</script>
 @endsection
