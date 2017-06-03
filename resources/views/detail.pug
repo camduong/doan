@@ -5,14 +5,7 @@ block content
 			.row
 				#tour-con.col-sm-7
 					.bxslider
-						.slide
-							img(src='/upload/images/dalat1.jpg')
-						.slide
-							img(src='/upload/images/tfd_140908_Miếu-Bà-Phi-Yến-Côn-Đảo.jpg')
-						.slide
-							img(src='/upload/images/tfd_140908_Mui ca map - Con Dao.jpg')
-						.slide
-							img(src='/upload/images/tfd_140908_Bien Dam Trau - Con Dao.jpg')
+
 					.row
 						h3.tour-name=$tour->name
 						.col-xs-8.col-lg-7.tour-det
@@ -75,12 +68,6 @@ block content
 				}
 			})
 		});
-		$('.bxslider').bxSlider({
-			speed: 800,
-			auto: true,
-			hideControlOnEnd: true,
-			controls: true
-		});
 
 		//- smooth scroll
 		var offset=100;
@@ -100,13 +87,17 @@ block content
 				event.preventDefault();
 			}
 		});
-		$("#chuongtrinh").ready(function(){
-			$("h4").each(function(i,l){
+			$("#chuongtrinh h4").each(function(i,l){
 				$(this).attr('id', 'ngay'+(i+1))
 				$(".sub-sum").append("<li><a href='#ngay"+(i+1)+"'>" + $(this).text() + "</a></li><hr/>")
 			});
-			//- $("img").each(function(i,l){
-			//- 	$(this).attr('class','slide')
-			//- 	$(".bxslider").append("<li><img src='" + $(this).html() + "'/></li>")
-			//- });
+		$("#chuongtrinh img").each(function(i,l){
+			var img = $(this).attr('src')
+			$(".bxslider").append("<div class='slide'><img src='" + img + "'/></div>")
+		});
+		$('.bxslider').bxSlider({
+			speed: 800,
+			auto: true,
+			hideControlOnEnd: true,
+			controls: true
 		});
