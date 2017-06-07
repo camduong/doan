@@ -4,7 +4,7 @@
 			<img src="{{ asset('img/admin.jpg') }}" alt="admin_picture" class="img-circle profile_img">
 		</div>
 		<div class="profile_info">
-			<span>Xin chào, <h2 style="display: inline-block;">{{ Auth::user()->name }}</h2></span>
+			<span>Xin chào, <h2 style="display: inline-block;">{{ Auth::user()->f_name.' '.Auth::user()->l_name }}</h2></span>
 		</div>
 	</div>
 

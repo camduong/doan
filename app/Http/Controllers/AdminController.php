@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -11,10 +12,6 @@ class AdminController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
 
     /**
      * Show the application dashboard.
@@ -24,5 +21,15 @@ class AdminController extends Controller
     public function index()
     {
         return view('admin/index');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::guard('admin')->logout();
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+
+        return redirect('/admin');   
     }
 }
