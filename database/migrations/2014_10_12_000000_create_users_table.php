@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->char('p_code',15)->unique();
             $table->boolean('gender');
             $table->date('birthday');
+            $table->string('role',20);
             $table->rememberToken();
             $table->timestamps();
         });

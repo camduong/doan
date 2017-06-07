@@ -41,6 +41,11 @@ header
 
 								span.caret
 							ul.dropdown-menu.dropdown-logout(role='menu')
+								if (Auth::user()->role=='admin')
+									li
+										a(href=route('admin.dashboard'))
+											i.fa.fa-user-secret(aria-hidden="true")
+											span &nbsp;Trang chủ Admin
 								li
 									a(href=route('user.profile'))
 										i.fa.fa-list-ul(aria-hidden="true")

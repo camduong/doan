@@ -28,7 +28,7 @@
 							<th>{{ $customer->id }}</th>
 							<td>{{ $customer->name }}</td>
 							<td>{{ $customer->address }}</td>
-							<td>{{ $customer->created_at }}</td>
+							<td>{{ date('d/m/Y',strtotime($customer->created_at)) }}</td>
 							<td>{{ $customer->status }}</td>
 							<td style="text-align: center;">
 								<a href="{{ route('customer.show', $customer->id) }}" class="btn btn-info btn-md">
