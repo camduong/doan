@@ -30,7 +30,7 @@
 					<a href="{{ route('region.index') }}"><i class="fa fa-map"></i>Khu vực</a>
 				</li>
 				<li>
-					<a href="{{ route('customer.index') }}"><i class="fa fa-users"></i>Đơn hàng</a>
+					<a href="{{ route('customer.index') }}"><i class="fa fa-money"></i>Đơn hàng</a>
 				</li>
 				<li>
 					<a href="{{ route('user.index') }}"><i class="fa fa-users"></i>User</a>
