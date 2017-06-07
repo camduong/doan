@@ -88,9 +88,11 @@ class HomeController extends Controller
 			case 'vung':
 				$region = Regions::where('slug',$slug)->first();
 				$locations = Location::where('region_id',$region->id)->get();
-				foreach ($locations as $location) {
-					$tours = Tour::where('dest_location_id',$location->id)->orderBy('updated_at', 'desc')->paginate(9);
+				$where = array();
+				foreach ($locations as $k=> $location) {
+					$where[$k] = $location->id;
 				}
+				$tours = Tour::whereIn('dest_location_id',$where)->orderBy('updated_at', 'desc')->paginate(9);
 				break;
 			case 'loaihinh':
 				switch($slug)

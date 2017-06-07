@@ -26,26 +26,26 @@ block content
 						.book-form
 							.form-group.text-center
 								form(action=route('tour.search'))
-									btns = json_decode('[["noidi","Nơi đi"], ["noiden","Nơi đến"]]')
+									btns = json_decode('[["noikhoihanh ","Nơi khởi hành"], ["noiden","Nơi đến"]]')
 									each btn, i in btns
 										select.selectpicker.input-group.col-xs-4(data-live-search='true',name='#{btn[0]}', title='#{btn[1]}')
 											nbvs = $location
 											each nbv, i in nbvs
 												if (nbv->region_id <= 3)
-													option(data-tokens=nbv->slug, value=nbv->slug)=nbv->name
+													option(data-tokens="#{nbv->name} #{nbv->slug}", value=nbv->slug)=nbv->name
 									button.btn.btn-default.btn-b-s(type='submit') Tìm kiếm
 
 					#outlanding.tab-pane.fade(role='tabpanel')
 						.book-form
 							.form-group.text-center
 								form(action=route('tour.search'))
-									btns = json_decode('[["noidi","Nơi đi"], ["noiden","Nơi đến"]]')
+									btns = json_decode('[["noikhoihanh ","Nơi khởi hành"], ["noiden","Nơi đến"]]')
 									each btn, i in btns
 										select.selectpicker.input-group.col-xs-4(data-live-search='true',name='#{btn[0]}', title='#{btn[1]}')
 											nbns = $location
 											each nbn, i in nbns
 												if (nbn->region_id > 3)
-													option(data-tokens=nbn->slug, value=nbn->slug)=nbn->name
+													option(data-tokens="#{nbn->name} #{nbn->slug}", value=nbn->slug)=nbn->name
 									button.btn.btn-default.btn-b-s(type='submit') Tìm kiếm
 
 					#messages.tab-pane.fade(role='tabpanel')
@@ -77,7 +77,7 @@ block content
 												| Đọc thêm &#62;&#62;
 			.text-center(style="padding: 15px 0;")
 				a.btn.i-btn(href='/tour/loaihinh=trong-nuoc' )
-					| Đọc thêm &#62;&#62;
+					| Tìm chuyến đi &#62;&#62;
 		.offer
 			.wrap-offer
 				.wrap-offer-content.container
@@ -103,7 +103,7 @@ block content
 														| Đọc thêm &#62;&#62;
 				.text-center(style="padding: 15px 0;")
 					a.btn.o-btn(href='/tour/loaihinh=nuoc-ngoai')
-						| Đọc thêm &#62;&#62;
+						| Tìm chuyến đi &#62;&#62;
 
 
 	include layouts/app-wels-footer
