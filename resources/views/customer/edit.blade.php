@@ -29,11 +29,7 @@
           	<div class="row">
 				<div class="col-sm-12">
 					<span class="lead">Tình trạng: </span>
-					<select name="status" class="form-control">
-						<option value=" Chưa Xử Lý">Chưa xử lý</option>
-						<option value="Xử Lý">Xử lý</option>
-						<option value="Hủy">Hủy</option>
-					</select>
+					{{ Form::select('status', ['Chưa Xử Lý' => 'Chưa Xử Lý', 'Xử Lý' => 'Xử Lý', 'Hủy' => 'Hủy'], $customer->status, ['class' => 'form-control']) }}
 				</div>
 			</div>
 					<hr/>

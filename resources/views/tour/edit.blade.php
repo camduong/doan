@@ -70,11 +70,7 @@
 									{{ Form::select('dest_location_id', $locations, null, ['class' => 'form-control', 'placeholder' => 'Chọn thành phố'])}}
 									<br>
 									{{ Form::label('type', 'Loại hình:', ['class' => 'form-spacing-top']) }}
-									<select name="type" class="form-control">
-										<option selected="selected" disabled="disabled" hidden="hidden" value="">Chọn loại hình</option>
-										<option value="0">Trong nước</option>
-										<option value="1">Nước ngoài</option>
-									</select>
+									{{ Form::select('type', ['0' => 'Trong nước', '1' => 'Nước ngoài'], $tour->type, ['class' => 'form-control', 'placeholder' => 'Chọn loại hình']) }}
 									<br>
 									{{ Form::label('vehicle_id', 'Phương tiện:', ['class' => 'form-spacing-top']) }}
 									{{ Form::select('vehicle_id', $vehicles, null, ['class' => 'form-control', 'placeholder' => 'Chọn phương tiện'])}}

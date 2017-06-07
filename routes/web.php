@@ -41,6 +41,7 @@ Route::group(['middleware' => 'adminrole'], function(){
         Route::resource('location', 'LocationController',['except' => ['create','show']]);
         Route::resource('region', 'RegionsController',['except' => ['create','show']]);
         Route::resource('customer', 'CustomerController',['expect' => ['create','destroy','store']]);
+        Route::resource('user', 'UserController',['expect' => ['create','destroy','store']]);
     });
 });
 

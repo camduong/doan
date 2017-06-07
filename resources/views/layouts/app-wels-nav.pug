@@ -123,7 +123,7 @@ div
 								.form-group(class=$errors->has('gender') ? ' has-error' : '')
 									.group-sex(name='gender', required='required')
 
-										gens = json_decode('[["Nam"],["Nữ"],["Khác"]]')
+										gens = json_decode('[["Nam"],["Nữ"]]')
 										each gen, i in gens
 											label.radio-inline
 												input(type='radio', value=i, name='gender')
