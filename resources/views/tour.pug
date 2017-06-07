@@ -52,7 +52,8 @@ block content
 					datas = $tours
 					each data, i in datas
 						.grid-item
-							img(src='../img/'+ data->slug + '.jpg', alt='Card image cap')
+							div(style="height: 250px;")
+								img(src='../img/'+ data->slug + '.jpg', alt='Card image cap')
 							.grid-intro.col-md-12
 								a(href=route('tour.single', data->slug))
 									h3.h-g-intro=data->name
@@ -71,7 +72,7 @@ block content
 											i.fa.fa-eye(aria-hidden='true')
 										a.btn.btn-primary(href=route('addShoppingCart', data->id))
 											i.fa.fa-cart-plus(aria-hidden='true')
-		.text-center!=$tours->links()
+		.page.text-center!=$tours->links()
 		.second
 
 	include layouts/app-wels-footer
