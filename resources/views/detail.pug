@@ -50,9 +50,11 @@ block content
 
 				#sidebar.col-sm-5
 					#myaffix
-						div.sum-tour
+						.sum-tour
 							h3.headers Tóm tắt chuyến đi
 							ul.sub-sum
+						.text-center
+							a.btn.btn-default(href=route('addShoppingCart', $tour->id), role='button') Đặt ngay
 
 	include layouts/app-wels-footer
 	script(type='text/javascript', src='../js/bxslider.min.js')
