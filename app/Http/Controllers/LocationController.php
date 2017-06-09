@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Location;
+use App\Regions;
 use Illuminate\Http\Request;
 use Session;
 
 class LocationController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,17 +17,14 @@ class LocationController extends Controller
     public function index()
     {
         $locations = Location::all();
-        return view('location.index')->withLocations($locations);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('location.create');
+        $regions = Regions::all();
+        $regi = [];
+        foreach($regions as $region)
+        {
+            $regi[$region->id] = $region->name;
+        }
+        return view('location.index')->withLocations($locations)
+                                     ->withRegions($regi);
     }
 
     /**
@@ -48,23 +42,13 @@ class LocationController extends Controller
 
         $location = new Location;
         $location->name = $request->name;
+        $location->slug = $request->slug;
+        $location->region_id = $request->region_id;
         $location->introduce = $request->introduce;
         $location->save();
 
         Session::flash('success', 'The new location was sucessfully save!');
         return redirect()->route('location.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $location = Location::find($id);
-        return view('location.show')->withlocation($location);
     }
 
     /**
@@ -76,7 +60,14 @@ class LocationController extends Controller
     public function edit($id)
     {
         $location = Location::find($id);
-        return view('location.edit')->withlocation($location);
+        $regions = Regions::all();
+        $regi = [];
+        foreach($regions as $region)
+        {
+            $regi[$region->id] = $region->name;
+        }
+        return view('location.edit')->withlocation($location)
+                                    ->withRegions($regi);
     }
 
     /**
@@ -95,6 +86,8 @@ class LocationController extends Controller
 
         $location = Location::find($id);
         $location->name = $request->input('name');
+        $location->slug = $request->input('slug');
+        $location->region_id = $request->input('region_id');
         $location->introduce = $request->input('introduce');
         $location->save();
 

@@ -1,53 +1,48 @@
 @extends('layouts.admain')
 
-@section('title', ' All Vehicle')
+@section('title', 'Đơn hàng')
 
 @section('content')
 <div class="right_col" role="main">
-    <div class="row">
-        <div class="col-md-9">
-            <h1>All Vehicle</h1>
-        </div>
-
-        <div class="col-md-3">
-            <a href="{{ route('vehicle.create') }}" class="btn btn-lg btn-primary btn-h1-spacing">Create New Vehicle</a>
-        </div>
-
-        <div class="col-md-12">
-            <hr>
-        </div>
-    </div><!--end of .row-->
-
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table">
-                <thead>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Introduce</th>
-                    <th></th>
-                </thead>
-
-                <tbody>
-                    @foreach($vehicles as $vehicle)
-                        <tr>
-                            <th>{{ $vehicle->id }}</th>
-                            <td>{{ $vehicle->name }}</td>
-                            <td>{{ $vehicle->introduce }}</td>
-                            <td>
-                                <a href="{{ route('vehicle.edit', $vehicle->id) }}" class="btn btn-app">
-                                <i class="fa fa-edit"></i> Edit
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-
-            <div class="text-right">
-                {!! $vehicles->links() !!} 
-            </div>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Đơn hàng</h1>
+		</div>
+	</div><!--end of .row-->
+	<div class="row">
+		<div class="col-md-12">
+			<table id="data_table" class="table display" cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Tên khách hàng</th>
+						<th>Địa chỉ</th>
+						<th>Ngày tạo</th>
+						<th>Trạng thái</th>
+						<th>Thao tác</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($customers as $customer)
+						<tr>
+							<th>{{ $customer->id }}</th>
+							<td>{{ $customer->name }}</td>
+							<td>{{ $customer->address }}</td>
+							<td>{{ date('d/m/Y',strtotime($customer->created_at)) }}</td>
+							<td>{{ $customer->status }}</td>
+							<td style="text-align: center;">
+								<a href="{{ route('customer.show', $customer->id) }}" class="btn btn-info btn-md">
+									Xem
+								</a>
+								<a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-primary btn-md">
+									Sửa
+								</a>
+							</td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
 @endsection

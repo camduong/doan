@@ -31,15 +31,17 @@ CKEDITOR.editorConfig = function( config ) {
 	config.removeButtons = 'Underline,Subscript,Superscript';
 
 	// Set the most common block elements.
-	config.format_tags = 'p;h1;h2;h3;pre';
+	config.extraPlugins = 'format';
+	// config.format_tags = 'p;h1;h2;h3;pre';
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 
-	config.filebrowserBrowseUrl = '../../kcfinder/browse.php?opener=ckeditor&type=files';
-	config.filebrowserImageBrowseUrl = '../../kcfinder/browse.php?opener=ckeditor&type=images';
-	config.filebrowserFlashBrowseUrl = '../../kcfinder/browse.php?opener=ckeditor&type=flash';
-	config.filebrowserUploadUrl = '../../kcfinder/upload.php?opener=ckeditor&type=files';
-	config.filebrowserImageUploadUrl = '../../kcfinder/upload.php?opener=ckeditor&type=images';
-	config.filebrowserFlashUploadUrl = '../../kcfinder/upload.php?opener=ckeditor&type=flash';
+	config.filebrowserBrowseUrl = '../../../kcfinder/browse.php?opener=ckeditor&type=files';
+	config.filebrowserImageBrowseUrl = '../../../kcfinder/browse.php?opener=ckeditor&type=images';
+	config.filebrowserFlashBrowseUrl = '../../../kcfinder/browse.php?opener=ckeditor&type=flash';
+	config.filebrowserUploadUrl = '../../../kcfinder/upload.php?opener=ckeditor&type=files';
+	config.filebrowserImageUploadUrl = '../../../kcfinder/upload.php?opener=ckeditor&type=images';
+	config.filebrowserFlashUploadUrl = '../../../kcfinder/upload.php?opener=ckeditor&type=flash';
+
 };

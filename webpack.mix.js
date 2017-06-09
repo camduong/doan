@@ -11,5 +11,5 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
+mix.sass('resources/assets/sass/thuvienadmin.sass', 'public/css')
    .sass('resources/assets/sass/thuvien.sass', 'public/css');

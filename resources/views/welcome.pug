@@ -1,103 +1,142 @@
 extends layouts/app-wels
 block content
 
-  main.cd-main-content.main-user
-    //- {{-- carousel star --}}
-    .container
-      ul.bxslider
-        navs = json_decode('[["sea0"],["sea1"],["mountains2"],["relax"]]')
-        each nav, i in navs
-          li
-            img(src='../img/#{nav[0]}.jpg')
-    //- {{-- carousel end --}}
-    .container.book-form
-      .form-group.text-center
-        nbvs = json_decode('[["Loại hình","false",["Trong nước","Ngoài nước"]],["Nơi đến","true",["Bình Định","Cà Mau","Cần Thơ","Gia Lai","Hà Nội","Hải Phòng","Khánh Hòa","Kiên Giang","Kiên Giang","Lâm Đồng","Nghệ An","Phú Yên","Quảng Bình","Quảng Nam","Thanh Hóa","Thành phố Hồ Chí Minh","Thừa Thiên - Huế","Điện Biên","Đà Nẵng","Đắk Lắk"]]]')
-        each nbv, i in nbvs
-          select.selectpicker.input-group.col-xs-4(data-live-search='#{nbv[1]}', title='#{nbv[0]}')
-            each ncv,a in nbv[2]
-              option(data-tokens=('#{ncv}')) #{ncv}
+	main.cd-main-content.main-user
+		//- {{-- carousel star --}}
+		.container
+			.bxslider
+				navs = json_decode('[["mountains"],["parallax1"],["parallax2"]]')
+				each nav, i in navs
+					.slide
+						img(src='../img/#{nav[0]}.jpg')
+			//- {{-- carousel end --}}
+			#search-tabs
+				ul.nav.nav-tabs(role='tablist')
+					li.active(role='presentation')
+						a(href='#booking', aria-controls='home', role='tab', data-toggle='tab') Du lịch trong nước
+					li(role='presentation')
+						a(href='#outlanding', aria-controls='outlanding', role='tab', data-toggle='tab') Du lịch nước ngoài
+					li(role='presentation')
+						a(href='#messages', aria-controls='messages', role='tab', data-toggle='tab') Tìm vé máy bay
+					li(role='presentation')
+						a(href='#settings', aria-controls='settings', role='tab', data-toggle='tab') Dịch vụ cho thuê xe
 
-        .col-xs-2.input-group.text-center(style='display:inline-block; padding:15px;')
-          button.btn.btn-default.btn-member(type='submit' style='width:100%')
-            i.glyphicon.glyphicon-search
+				.tab-content.text-center
+					#booking.tab-pane.fade.in.active(role='tabpanel')
+						.book-form
+							.form-group.text-center
+								form(action=route('tour.search'))
+									btns = json_decode('[["noikhoihanh ","Nơi khởi hành"], ["noiden","Nơi đến"]]')
+									each btn, i in btns
+										select.selectpicker.input-group.col-xs-4(data-live-search='true',name='#{btn[0]}', title='#{btn[1]}')
+											nbvs = $location
+											each nbv, i in nbvs
+												if (nbv->region_id <= 3)
+													option(data-tokens="#{nbv->name} #{nbv->slug}", value=nbv->slug)=nbv->name
+									button.btn.btn-default.btn-b-s(type='submit') Tìm kiếm
 
-        //- li.col-md-3
-        //-   .input-group
-        //-     input#member.form-control(type='text', placeholder='Thành viên')
-    .introduce
-      .wrap-intro.container
-        h1.text-center.i-header Giới thiệu
-        p.text-center.i-info
-          | The environment is particularly family, children and young people easily get along. Playing is their form of communication. Adults find common interests and make new friends. That is the ambience at Hotel Paradiso and for many, every time, it feels "like home".
-      .container
-        .row.no-margin
-        navs = json_decode('[["mountains_thum","Mountain","The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club."],["diving_thum","Beach & Diving","Located near the seaside in Villa Rosa – Martinsicuro in the Abruzzo region, this small coastal resort is ideal for family holidays, all submerged amid an oasis of greenery within 200 metres from the beach."],["mountains_thum","Family Hotel","The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club."]]')
-        each nav, i in navs
-          .col.col-md-4.no-padding.thumbnail
-            div(id="block#{i}").clearfix
-              .i-tn-img-box
-                img.img-responsive(src='../img/#{nav[0]}.jpg')
-                .cap-header
-                  h1 #{nav[1]}
-                .block-caption
-                  .info
-                    h2 #{nav[1]}
-                    p
-                      | #{nav[2]}
-                    a.btn(href='') Read more
-    .offer
-      .wrap-offer
-        .wrap-offer-content.container
-          h1.text-center.o-header Khuyến Mãi
-          p.text-center.o-info
-            | The environment is particularly family, children and young people easily get along. Playing is their form of communication. Adults find common interests and make new friends. That is the ambience at Hotel Paradiso and for many, every time, it feels "like home".
-        .container
-          .row.no-margin
-            navs = json_decode('[["mountains_thum","Family Hotel","The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club."],["mountains_thum","Family Hotel","The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club."],["mountains_thum","Family Hotel","The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club."],["mountains_thum","Family Hotel","The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club."]]')
-            each nav, i in navs
-              .col.col-md-3.col-sm-6.no-padding.thumbnail
-                div(id="block#{i}").clearfix
-                  .o-tn-img-box
-                    img.img-responsive(src='../img/#{nav[0]}.jpg')
-                    .cap-header
-                      h1 #{nav[1]}
-                    .block-caption
-                      .info
-                        h2 #{nav[1]}
-                        p
-                          | #{nav[2]}
-                        a.btn(href='') Read more
+					#outlanding.tab-pane.fade(role='tabpanel')
+						.book-form
+							.form-group.text-center
+								form(action=route('tour.search'))
+									btns = json_decode('[["noikhoihanh ","Nơi khởi hành"], ["noiden","Nơi đến"]]')
+									each btn, i in btns
+										select.selectpicker.input-group.col-xs-4(data-live-search='true',name='#{btn[0]}', title='#{btn[1]}')
+											nbns = $location
+											each nbn, i in nbns
+												if (nbn->region_id > 3)
+													option(data-tokens="#{nbn->name} #{nbn->slug}", value=nbn->slug)=nbn->name
+									button.btn.btn-default.btn-b-s(type='submit') Tìm kiếm
+
+					#messages.tab-pane.fade(role='tabpanel')
+						p	coming soon
+					#settings.tab-pane.fade(role='tabpanel')
+						p coming soon
+
+		.introduce
+			.wrap-intro.container
+				h1.text-center.d-header Du lịch trong nước
+				p.text-center.d-info
+					| Tham gia tour du lịch trong nước của Vacation World quý khách sẽ có cơ hội chiêm ngưỡng những cảnh đẹp ở 3 miền Bắc - Trung - Nam của Việt Nam.  Dưới dây là các chương trình tour giá tốt nhất với nhiều chương trình khuyến mãi.
+			.container
+				.row.no-margin
+				navs = $regions
+				each nav, i in navs
+					if (nav->id <= 3 )
+						.col.col-md-4.no-padding.thumbnail
+							div(id="block#{i}").clearfix
+								.i-tn-img-box
+									img.img-responsive(src='../img/' + nav->slug + '.jpg')
+									.cap-header
+										h1=nav->name
+									.block-caption
+										.info
+											h2=nav->name
+											p=nav->introduce
+											a.btn(href='/tour/vung='+ nav->slug)
+												| Đọc thêm &#62;&#62;
+			.text-center(style="padding: 15px 0;")
+				a.btn.i-btn(href='/tour/loaihinh=trong-nuoc' )
+					| Tìm chuyến đi &#62;&#62;
+		.offer
+			.wrap-offer
+				.wrap-offer-content.container
+					h1.text-center.d-header Du lich nước ngoài
+					p.text-center.d-info
+						| Các chương trình tour của Vacation World đến các quốc gia trên thế giới với dịch vụ trọn gói, nhiều ưu đãi đảm bảo cho du khách có những hành trình tuyệt vời, trải nghiệm khó quên.
+				.container
+					.row.no-margin
+						navs = $regions
+						each nav, i in navs
+							if ( nav->id > 3)
+								.col.col-md-3.col-sm-6.no-padding.thumbnail
+									div(id="block#{i}").clearfix
+										.o-tn-img-box
+											img.img-responsive(src='../img/' + nav->slug + '.jpg')
+											.cap-header
+												h1=nav->name
+											.block-caption
+												.info
+													h2=nav->name
+													p=nav->introduce
+													a.btn(href='/tour/vung='+ nav->slug)
+														| Đọc thêm &#62;&#62;
+				.text-center(style="padding: 15px 0;")
+					a.btn.o-btn(href='/tour/loaihinh=nuoc-ngoai')
+						| Tìm chuyến đi &#62;&#62;
 
 
-  include layouts/app-footer
-  script(type='text/javascript', src='../js/parallax.js')
-  script(type='text/javascript', src='../js/bxslider.min.js')
-  script(type='text/javascript', src='../js/moment.js')
-  script(type='text/javascript', src='../js/datepicker.min.js')
-  script(type='text/javascript').
-    $('#datepicker.date').datepicker({
-      format: "dd/mm/yyyy",
-      weekStart: 0,
-      startView: 0,
-      maxViewMode: 1,
-      autoclose: true,
-      todayHighlight: true,
-      startDate:"-infinity",
-      endDate: "+6m",
-      todayBtn: "linked",
-    });
-    $('.offer').parallax("100%", -0.1);
-    $('.bxslider').bxSlider({
-      mode: 'fade',
-      speed: 800,
-      auto: true,
-      hideControlOnEnd: true,
-      controls: true
-    });
-    $('.selectpicker').selectpicker({
-      style: 'btn-default',
-      size: 3
-    });
-
+	include layouts/app-wels-footer
+	script(type='text/javascript', src='../js/parallax.js')
+	script(type='text/javascript', src='../js/bxslider.min.js')
+	script(type='text/javascript', src='../js/moment.js')
+	script(type='text/javascript', src='../js/datepicker.min.js')
+	script(type='text/javascript').
+		$('#datepicker.date').datepicker({
+			format: "dd/mm/yyyy",
+			weekStart: 0,
+			startView: 0,
+			maxViewMode: 2,
+			autoclose: true,
+			todayHighlight: true,
+			endDate: "+6m",
+			todayBtn: "linked",
+		});
+		$('.offer').parallax("50%", -0.04);
+		$(document).ready(function(){
+			$('.bxslider').bxSlider({
+				speed: 800,
+				auto: true,
+				hideControlOnEnd: true,
+				controls: true,
+				slideWidth: 400,
+				minSlides: 2,
+				maxSlides: 3,
+				slideMargin: 10
+			});
+		});
+		$('.selectpicker').selectpicker({
+			style: 'btn-default',
+			size: 5
+		});
 

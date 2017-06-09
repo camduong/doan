@@ -7,7 +7,7 @@
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-        <div class="col-md-3 left_col">
+        <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
               <a href="/admin" class="site_title"><i class="fa fa-globe" style="border: none"></i> <span>Vacation World</span></a>
@@ -20,7 +20,6 @@
             @include('partials._ad-sidebar')
             <!-- /sidebar menu -->
 
-            {{-- @include('partials._ad-menufooter') --}}
           </div>
         </div>
 
@@ -29,7 +28,7 @@
         @yield('content')
         <footer class="footer_fixed">
           <div class="pull-right">
-          Kha Tran Khoi Nguyen created by Gentelella Template
+          Kha Tran Khoi Nguyen - Huynh Cam Duong
           </div>
         </footer>
       </div>

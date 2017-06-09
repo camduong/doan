@@ -1,762 +1,858 @@
 
 html
-  overflow-y: scroll
+	overflow-y: scroll
 body
-  color: black !important
+	color: black !important
 
 
 ul
-  padding: 0
+	padding: 0
 
 li
-  list-style: none
+	list-style: none
 
 a:hover
-  text-decoration: none !important
+	text-decoration: none !important
 
 .page-footer
-  background-color: rgba(0, 0, 0, 0.15)
+	background-color: rgba(0, 0, 0, 0.15)
 
 .footer-copyright
-  background-color: rgba(0, 0, 0, 0.35)
+	background-color: rgba(0, 0, 0, 0.35)
 
 .page-footer .container
-  padding: 1rem
+	padding: 1rem
 
 .intro
-  background: url(../img/parallax3.jpg) 50% 0 no-repeat fixed
-  color: white
-  width: 100%
-  height: 500px
-  margin: 0 auto
-  padding: 0
+	background: url(/img/parallax3.jpg) 50% 0 no-repeat fixed
+	color: white
+	width: 100%
+	height: 300px
+	margin: 0 auto
+	padding: 0
+	position: relative
+	#search-tabs
+		position: absolute
+		bottom: 0
+		right: 0
+		left: 0
+		margin: 0 5%
 
 .second
-  background: url(../img/parallax2.jpg) 50% 0 no-repeat fixed
-  color: white
-  width: 100%
-  height: 400px
-  margin: 0 auto
-  padding: 0
+	background: url(/img/parallax2.jpg) 50% 0 no-repeat fixed
+	color: white
+	width: 100%
+	height: 300px
+	margin: 0 auto
+	padding: 0
 
 .input-group
-  padding: 15px
+	padding: 15px
 
 .form-control
-  padding: 5px
-  text-align: center !important
+	padding: 5px
+	text-align: center !important
 
 .navbar-default
-  background-color: rgba(248, 248, 248, 0)
-  border: none
-  margin-bottom: 0
+	background-color: rgba(248, 248, 248, 0)
+	border: none
+	margin-bottom: 0
 
 .navbar-nav
-  margin-top: 30px !important
-  margin-left: 30px
+	margin-top: 30px !important
+	margin-left: 30px
 
 .container-fluid
-  padding: 0 30px
+	padding: 0 30px
 
 .navbar-brand
-  height: 100px
-  padding: 0 15px
+	height: 100px
+	padding: 0 15px
 
 .navbar-default .navbar-nav li
-  margin: auto 1%
-  a:hover
-    color: #333
-    border-bottom: 3px solid rgb(68, 202, 243)
+	margin: auto 1%
+	a:hover
+		color: #333
+		border-bottom: 3px solid rgb(68, 202, 243)
 
 .carousel-inner .item img
-  width: 100%
+	width: 100%
 
 #member, .btn
-  border-radius: 0 !important
+	border-radius: 0 !important
 
 @media (min-width: 768px)
-  #login
-    .modal-dialog
-      width: 400px
-      margin: 3% auto
+	#login
+		.modal-dialog
+			width: 400px
+			margin: 3% auto
 
 #login, body.modal-open, #register
-  padding-right: 0 !important
+	padding-right: 0 !important
 #register
-  .modal-content
-    padding: 20px
+	.modal-content
+		padding: 20px
 #login
-  .modal-content
-    padding: 6%
-    box-shadow: 0 0 20px rgba(0, 8, 43, 0.59)
+	.modal-content
+		padding: 6%
+		box-shadow: 0 0 20px rgba(0, 8, 43, 0.59)
 
 .detail-tour
-  li
-    a
-      color: #747373
-      font-weight: 600
-.book-form
-  height: 100%
-  margin-bottom: 2%
-  box-shadow: 0px 5px 12px #888
-  background-color: rgba(5, 195, 219, 0.69)
-  .form-group
-    width: 70%
-    margin: auto
-    .btn-member
-      background-color: #e6e6e6
-      border-color: #cccccc
-      i
-        color: #333333
-.introduce .i-header, .offer .o-header
-  border-bottom: 1px solid gray
-  width: 50%
-  margin: 30px auto
-  padding-bottom: 10px
+	li
+		a
+			color: #747373
+			font-weight: 600
 
-.introduce .i-info, .offer .o-info
-  margin: 5% 0 0
+.introduce, .offer
+	.d-header
+		border-bottom: 1px solid gray
+		width: 70%
+		margin: 30px auto
+		padding-bottom: 10px
+	.d-info
+		margin: 5% 0 0
+	.i-btn
+		border: 1px solid black !important
+		color: black
+		-webkit-transition: all 1s
+		-moz-transition: all 1s
+		-ms-transition: all 1s
+		-o-transition: all 1s
+		transition: all 1s
+		margin: auto
+		&:hover
+			color: gray
+			background-color: black
+	.o-btn
+		border: 1px solid white !important
+		color: white
+		-webkit-transition: all 1s
+		-moz-transition: all 1s
+		-ms-transition: all 1s
+		-o-transition: all 1s
+		transition: all 1s
+		margin: auto
+		&:hover
+			color: gray
+			background-color: white
 
-.wrap-intro, .wrap-offer-content
-  margin-bottom: 2%
-  margin-top: 2%
-  width: 50%
-
-.wrap-offer
-  background: rgba(0, 0, 0, 0.35)
-
-
-
-.o-tn-img-box
-  position: relative
-  width: 250px
-  height: 350px
-  overflow: hidden
-  margin: auto
 
 .offer
-  box-shadow: -1px -3px 14px 4px grey
-  background: url("../img/mountains.jpg") no-repeat fixed
-  background-size: 100%
-  color: white
-  width: 100%
-  margin: 0 auto
-  padding: 0
+	box-shadow: -1px -3px 14px 4px grey
+	background: url(/img/mountains.jpg) no-repeat fixed
+	background-size: 100%
+	color: white
+	width: 100%
+	margin: 0 auto
+	padding: 0
+
+.wrap-intro, .wrap-offer-content
+	margin-bottom: 2%
+	margin-top: 2%
+	width: 50%
+
+.wrap-offer
+	background: rgba(0, 0, 0, 0.35)
+
+
+
+.panel-wrap
+	background-color: #ffffff
+	border: 1px solid #cccccc
+	box-shadow: 0 0 20px -5px
 
 .i-tn-img-box
-  position: relative
-  width: 350px
-  height: 350px
-  overflow: hidden
-  margin: auto
-  img
-    position: absolute
-    width: 100%
-    height: 100%
-    -webkit-transition: all .5s ease
-    -moz-transition: all .5s ease
-    -ms-transition: all .5s ease
-    -o-transition: all .5s ease
-    transition: all .5s ease
+	position: relative
+	width: 350px
+	height: 250px
+	overflow: hidden
+	margin: auto
 
-.o-tn-img-box img
-  position: absolute
-  width: 100%
-  height: 100%
-  -webkit-transition: all .5s ease
-  -moz-transition: all .5s ease
-  -ms-transition: all .5s ease
-  -o-transition: all .5s ease
-  transition: all .5s ease
+.o-tn-img-box
+	position: relative
+	width: 250px
+	height: 350px
+	overflow: hidden
+	margin: auto
 
-.i-tn-img-box:hover img, .o-tn-img-box:hover img
-  -moz-transform: scale(1.2)
-  -webkit-transform: scale(1.2)
-  transform: scale(1.2)
-
-.i-tn-img-box:hover .cap-header, .o-tn-img-box:hover .cap-header
-  opacity: 0
-
-.i-tn-img-box .cap-header h1, .o-tn-img-box .cap-header h1
-  text-align: center
-  display: inline-block
-
-.i-tn-img-box .cap-header
-  position: absolute
-  color: white
-  width: 100%
-  height: 100%
-  text-align: center
-  -webkit-transition: opacity 1s ease
-  -moz-transition: opacity 1s ease
-  -ms-transition: opacity 1s ease
-  -o-transition: opacity 1s ease
-  transition: opacity 1s ease
-
-
-.o-tn-img-box .cap-header
-  position: absolute
-  color: white
-  width: 100%
-  height: 100%
-  text-align: center
-  -webkit-transition: opacity 1s ease
-  -moz-transition: opacity 1s ease
-  -ms-transition: opacity 1s ease
-  -o-transition: opacity 1s ease
-  transition: opacity 1s ease
-
-  &:before
-    content: ""
-    height: 100%
-    display: inline-block
-    vertical-align: middle
-
-.i-tn-img-box
-  .cap-header:before, .block-caption:before
-    content: ""
-    height: 100%
-    display: inline-block
-    vertical-align: middle
-
-.o-tn-img-box .block-caption:before
-  content: ""
-  height: 100%
-  display: inline-block
-  vertical-align: middle
-
-.i-tn-img-box .block-caption, .o-tn-img-box .block-caption
-  position: absolute
-  opacity: 0
-  color: white
-  width: 100%
-  height: 100%
-  text-align: center
-  background-color: rgba(73, 117, 146, 0.46)
-  -webkit-transition: opacity 1s
-  -moz-transition: opacity 1s
-  -ms-transition: opacity 1s
-  -o-transition: opacity 1s
-  transition: opacity 1s
-
-.i-tn-img-box:hover .block-caption, .o-tn-img-box:hover .block-caption
-  opacity: 1
-
-.i-tn-img-box .block-caption .info, .o-tn-img-box .block-caption .info
-  display: inline-block
-  vertical-align: middle
-  width: 90%
-
-.i-tn-img-box .block-caption .info .btn, .o-tn-img-box .block-caption .info .btn
-  border: 1px solid white !important
-  color: white
-  -webkit-transition: all 1s
-  -moz-transition: all 1s
-  -ms-transition: all 1s
-  -o-transition: all 1s
-  transition: all 1s
-
-.i-tn-img-box .block-caption .info .btn:hover, .o-tn-img-box .block-caption .info .btn:hover
-  color: rgb(18, 81, 160)
-  background-color: white
-
-.block-caption h5
-  max-width: 500px
-  padding: 20px
-  position: absolute
-  top: 50%
-  left: 50%
-  width: 100%
-  -ms-transform: translate(-50%, -50%)
-  -webkit-transform: translate(-50%, -50%)
-  transform: translate(-50%, -150%)
+.i-tn-img-box, .o-tn-img-box
+	-webkit-transition: all .3s
+	-moz-transition: all .3s
+	-ms-transition: all .3s
+	-o-transition: all .3s
+	transition: all .3s
+	img
+		-webkit-transition: all .5s ease
+		-moz-transition: all .5s ease
+		-ms-transition: all .5s ease
+		-o-transition: all .5s ease
+		transition: all .5s ease
+		height: 100%
+		width: 100%
+		vertical-align: middle
+	&:hover
+		opacity: 1
+		box-shadow: -3px 4px 100px 1px
+		transform: scale(1.07, 1.07)
+		img
+			-moz-transform: scale(1.2)
+			-webkit-transform: scale(1.2)
+			transform: scale(1.2)
+		.cap-header
+			opacity: 0
+		.block-caption
+			opacity: 1
+	.cap-header
+		opacity: 1
+		position: absolute
+		top: 0
+		color: white
+		width: 100%
+		height: 100%
+		text-align: center
+		-webkit-transition: all 1s ease
+		-moz-transition: all 1s ease
+		-ms-transition: all 1s ease
+		-o-transition: all 1s ease
+		transition: all 1s ease
+		h1
+			vertical-align: middle
+			text-align: center
+			display: inline-block
+			padding: 2% 10%
+			background-color: rgba(51, 51, 51, 0.58)
+		&:before
+			content: ""
+			height: 100%
+			display: inline-block
+			vertical-align: middle
+	.block-caption
+		top: 0
+		position: absolute
+		opacity: 0
+		color: white
+		width: 100%
+		height: 100%
+		text-align: center
+		background-color: rgba(41, 46, 49, 0.46)
+		-webkit-transition: all 1s
+		-moz-transition: all 1s
+		-ms-transition: all 1s
+		-o-transition: all 1s
+		transition: all 1s
+		h5
+			max-width: 500px
+			padding: 20px
+			position: absolute
+			top: 50%
+			left: 50%
+			width: 100%
+			-ms-transform: translate(-50%, -50%)
+			-webkit-transform: translate(-50%, -50%)
+			transform: translate(-50%, -150%)
+		.info
+			display: inline-block
+			vertical-align: middle
+			width: 90%
+			.btn
+				border: 1px solid white !important
+				color: white
+				-webkit-transition: all 1s
+				-moz-transition: all 1s
+				-ms-transition: all 1s
+				-o-transition: all 1s
+				transition: all 1s
+				&:hover
+					color: gray
+					background-color: white
+		&:before
+			content: ""
+			height: 100%
+			display: inline-block
+			vertical-align: middle
 
 .thumbnail
-  display: block
-  padding-bottom: 20px
-  margin-bottom: 20px
-  line-height: 1.42857143
-  background: none
-  border: none
-  border-radius: none
-  -webkit-transition: border .2s ease-in-out
-  -o-transition: border .2s ease-in-out
-  transition: border .2s ease-in-out
-
-
+	display: block
+	padding-bottom: 20px
+	margin-bottom: 20px
+	line-height: 1.42857143
+	background: none
+	border: none
+	border-radius: none
+	-webkit-transition: all .2s ease-in-out
+	-o-transition: all .2s ease-in-out
+	transition: all .2s ease-in-out
 
 .form_padding_email
-  max-width: 500px
-  margin: auto
+	max-width: 500px
+	margin: auto
 
 .form_padding_login
-  max-width: 375px
-  margin: auto
+	max-width: 375px
+	margin: auto
 
 .form_padding_reg
-  max-width: 600px
-  margin: auto
+	max-width: 600px
+	margin: auto
 
 .sub-reg
-  padding-top: 10px
-  float: right
-  button
-    width: 100px
-    float: left
-    margin: 0 10px
+	padding-top: 10px
+	float: right
+	button
+		width: 100px
+		float: left
+		margin: 0 10px
 
 .group-sex
-  list-style: none
-  // margin: 7px 0 0 0 !important
-  padding: 10px 0
-  text-align: center
+	list-style: none
+	padding: 10px 0
+	text-align: center
 
 .side_left
-  background: rgba(30, 30, 35, 0.53) !important
-  li
-    a
-      color: rgba(255, 255, 255, 1) !important
-    &:hover
-      color: rgba(28, 55, 91, 1) !important
-    a:hover
-      color: rgba(3, 33, 73, 1) !important
+	background: rgba(30, 30, 35, 0.53) !important
+	li
+		a
+			color: rgba(255, 255, 255, 1) !important
+		&:hover
+			color: rgba(28, 55, 91, 1) !important
+		a:hover
+			color: rgba(3, 33, 73, 1) !important
 
 .detail-padding-top
-  padding-top: 80px
+	padding-top: 80px
 
 html, body
-  background-color: #fff !important
-  color: #636b6f
-  font-weight: 100
-  height: 100vh
-  margin: 0
+	background-color: #fff !important
+	color: #636b6f
+	font-weight: 100
+	height: 100vh
+	margin: 0
 
 .wel-padding-top
-  padding-top: 50px
+	padding-top: 50px
 
 .carousel-control
-  &.left, &.right
-    background-image: none !important
+	&.left, &.right
+		background-image: none !important
 
 .title-wel
-  margin: 5px auto 10px
-  width: 400px
+	margin: 5px auto 10px
+	width: 400px
 
 .view-more a
-  float: right
+	float: right
 
 .flex-center
-  align-items: center
-  flex-direction: column
-  justify-content: center
+	align-items: center
+	flex-direction: column
+	justify-content: center
 
 .position-ref
-  position: relative
+	position: relative
 
 .top-right
-  position: absolute
-  right: 10px
-  top: 18px
+	position: absolute
+	right: 10px
+	top: 18px
 
 .title
-  font-size: 84px
+	font-size: 84px
 
 .links > a
-  color: #636b6f
-  padding: 0 25px
-  font-size: 12px
-  font-weight: 600
-  letter-spacing: .1rem
-  text-decoration: none
-  text-transform: uppercase
+	color: #636b6f
+	padding: 0 25px
+	font-size: 12px
+	font-weight: 600
+	letter-spacing: .1rem
+	text-decoration: none
+	text-transform: uppercase
 
 .m-b-md
-  margin-bottom: 30px
+	margin-bottom: 30px
 
 .datepicker-dropdown
-  font-weight: 600;
+	font-weight: 600;
 
 .datepicker
-  div
-    table
-      tr
-        td.disabled, span.disabled
-          color: #DDDDDD !important
-          cursor: not-allowed !important
+	div
+		table
+			tr
+				td.disabled, span.disabled
+					color: #DDDDDD !important
+					cursor: not-allowed !important
 
 .carousel-det
-  height: 300px !important
-  margin-bottom: 20px !important
-  .item
-    height: 300px !important
+	height: 300px !important
+	margin-bottom: 20px !important
+	.item
+		height: 300px !important
 
 .tour-det
-  margin: 15px 0
-  h4
-    font-weight: bolder
+	margin: 15px 0
+	h4
+		font-weight: bolder
 
 .detail-lab, .detail-inf
-  padding: 0 !important
+	padding: 0 !important
 
 .detail-lab li, .detail-inf li
-  margin: 7px 0
+	margin: 7px 0
 
 .fixed
-  position: fixed !important
-  right: 58px
-  width: 38% !important
+	position: fixed !important
+	right: 58px
+	width: 38% !important
 
 .affix, .affix-top, .affix-bottom
-  width: 445px
-  position: fixed
+	width: 445px
+	position: fixed
 
 .sub-less-pri, .sum-tour
-  padding: 0
-  li
-    a
-      color: black
-      font-weight: bolder
-      &:focus
-        text-decoration: none
+	padding: 0
+	li
+		a
+			color: black
+			font-weight: bolder
+			&:focus
+				text-decoration: none
 hr
-  margin: 5px 0 15px 0
-  border-color: rgba(142, 142, 138, 0.18)
+	margin: 5px 0 15px 0
+	border-color: rgba(142, 142, 138, 0.18)
 
 .btn-group.bootstrap-select.input-group
-  padding: 15px
+	padding: 15px
 
 button.btn.dropdown-toggle.bs-placeholder.btn-default
-  background: #dddddd
-  transition: all .8s
-  &:hover
-    color: #f0f0f0
-    border-color: #8e8a8a
-    background: #8F8C8C
+	background: #dddddd
+	transition: all .8s
+	&:hover
+		color: #f0f0f0
+		border-color: #8e8a8a
+		background: #8F8C8C
 
 button.btn.dropdown-toggle.btn-default
-  transition: all .8s
-  &:hover
-    color: #f0f0f0
-    border-color: #8e8a8a
-    background: #8F8C8C
+	transition: all .8s
+	&:hover
+		color: #f0f0f0
+		border-color: #8e8a8a
+		background: #8F8C8C
 
 .open
-  .dropdown-toggle.btn-default
-    transition: all .8s
-    &:hover
-      color: #f0f0f0
-      background: #8F8C8C
-      border-color: #8e8a8a
+	.dropdown-toggle.btn-default
+		transition: all .8s
+		&:hover
+			color: #f0f0f0
+			background: #8F8C8C
+			border-color: #8e8a8a
 
 .dropdown-logout
-  // position: absolute
-  top: 145px !important
+	top: 145px !important
 
 button.btn.btn-default.btn-member
-  transition: all .8s
-  i
-    transition: all .8s
-  &:hover
-    background: #8F8C8C
-    border-color: #8e8a8a
-  &:hover i
-    color: #f0f0f0
+	transition: all .8s
+	i
+		transition: all .8s
+	&:hover
+		background: #8F8C8C
+		border-color: #8e8a8a
+	&:hover i
+		color: #f0f0f0
 
 .book-form .form-group .btn-member
-  background-color: #dddddd
-  border-color: #dddddd
+	background-color: #dddddd
+	border-color: #dddddd
 
 #sidebar
-  transition: all 1s
+	transition: all 1s
 
 .back-logout
-  width: auto
+	width: auto
 
 button.btn.dropdown-toggle.btn-default
-  background: #dddddd
-  border-color: #dddddd
-  color: black
+	background: #dddddd
+	border-color: #dddddd
+	color: black
 
 
 .sum-tour, .sub-less-pri
-   .headers
-    background: #1592db
-    color: #fff
-    border-radius: 5px 5px 0 0
-    margin-top: 0
-    padding: 15px 0 10px 15px
+	.headers
+		background: #1592db
+		color: #fff
+		padding: 20px 16px 10px
+		margin: 0 0 10px 0
+		border: 1px solid transparent
+		border-radius: 5px 5px 0 0
 
 .sum-tour li, .sub-less-pri li
-  list-style: none
-  padding-left: 20px
-  display: block
+	list-style: none
+	padding: 0 20px
+	display: block
 
 #tour-con
-  .tour-name
-    padding: 0 15px
-    font-weight: bolder
+	.tour-name
+		padding: 0 15px
+		font-weight: bolder
+
+#search-tabs
+	margin-bottom: 2%
+	ul.nav.nav-tabs
+		display: table-cell
+		box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.82)
+		li.active
+			a
+				background-color: #05c3db
+				&:focus, &:hover
+					color: #fff
+					border: 1px solid transparent
+		li
+			background: rgba(51, 51, 51, 0.35)
+			a
+				border: 1px solid transparent
+				padding: 10px 30px
+				font-size: 20px
+				font-weight: 400
+				margin: 0
+				color: #fff
+				transition: all .5s
+				&:hover
+					color: #000
+	.tab-content
+		box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.82)
+		margin-bottom: 2%
+		background-color: #05c3db
+		height: 100px
+		line-height: 100px
+		.tab-pane
+			.book-form
+				height: 100%
+				.form-group
+					width: 70%
+					margin: auto
+					.btn-group
+						padding-left: 0
+						.dropdown-menu.open
+							input.form-control
+								display: block !important
 
 
 
 #chuongtrinh
-  ul
-    li
-      h4
-        font-weight: bolder
+	div
+		h4
+			font-weight: bolder
+		p
+			img
+				width: 682px
 
 .p-b
-  text-align: center
-  .gia
-    color: red
+	text-align: center
+	.gia
+		color: red
 
 .sub-less-pri h3
-  color: red
-  margin: 0 0 10px 0
+	color: red
+	margin: 0 0 10px 0
 
 .banner
-  margin-bottom: 10px
+	margin-bottom: 10px
 
 .row
-  margin-bottom: 1.5rem
+	margin-bottom: 1.5rem
 
 #app
-  .row
-    margin-bottom: 0
-    
+	.row
+		margin-bottom: 0
 .no-margin
-  margin: auto
+	margin: auto
 .no-padding
-  padding: 0
+	padding: 0
 
 // READMORE
 
 #tour-overflow
-  height: 640px
-  display: block
-  overflow: hidden
-  word-break: break-word
-  word-wrap: break-word
+	min-height: 300px
+	display: block
+	overflow: hidden
+	word-break: break-word
+	word-wrap: break-word
 
 button.btn.btn-secondary.btn-lg.btn-overflow
-  margin: 0 auto 15px
+	margin: 0 auto 15px
+	display: none
 
 .page
-  display: none
-  text-align: center !important
+	display: none
+	text-align: center !important
 
 .carousel-inner
-  height: 100%
-  .item img
-    height: 400px !important
+	height: 100%
+	.item img
+		height: 400px !important
 
 .rows .col-xs-4
-  padding: 0
-  margin: 0
-  border: none
-  .thumbnail
-    padding: 0
-    margin: 0
-    border: none
+	padding: 0
+	margin: 0
+	border: none
+	.thumbnail
+		padding: 0
+		margin: 0
+		border: none
 
 .container
-  .bx-wrapper
-    margin-bottom: 50px
-    .bx-viewport
-      height: 450px !important
-      .bxslider
-        li
-          img
-            width: 100%
-            height: 450px
+	.bx-wrapper
+		margin-bottom: 50px
+		.bx-viewport
+			height: 250px !important
+			.bxslider
+				li
+					img
+						width: 100%
+						height: 450px
+						vertical-align: middle
+						position: absolute
 
 #tour-con
-  .bx-wrapper
-    margin-bottom: 40px
-    .bx-viewport
-      height: 300px !important
-      .bxslider
-        li
-          img
-            width: 100%
-            height: 300px
+	.bx-wrapper
+		margin-bottom: 40px
+		img
+			width: 100%
+		.bx-viewport
+			height: 300px !important
+			.bxslider
+				.slider
+					img
+						width: 100%
+						height: 300px
 
 // navbar
 .cd-logo img
-  margin: 0 !important
+	margin: 0 !important
 
 header
-  background-color: #fff !important
-  height: 80px
-  position: fixed
-  box-shadow: 0px 1px 20px 0px
+	background-color: #fff !important
+	height: 80px
+	position: fixed
+	box-shadow: 0px 1px 20px 0px
 .main-tour
-  padding-top: 75px !important
+	padding-top: 75px !important
 .main-user
-  padding-top: 100px
-  min-height: 87vh !important
+	padding-top: 100px
+	min-height: 87vh !important
+
+.main-profile
+	.container
+		padding: 0px 10%
+		.donhang
+			box-shadow: 7px 7px 20px 0px rgba(0, 0, 0, 0.25)
+			h4
+				padding-left: 15px
+			.panel-footer
+				span
+					padding-right: 30px
+					h3
+						color: red
+						display: inline-block
+						margin-top: 10px
+			.panel-body
+				.col-md-5
+					font-size: 20px
+					.badge
+						vertical-align: initial
+
+.main-checkout
+	min-height: 80vh !important
+	.container
+		.warp-check
+			width: 500px
+			margin: auto
+			padding: 30px
+			box-shadow: 0px 10px 24px -4px
+			border: 1px solid rgba(128, 128, 128, 0.29)
 
 .cd-nav-trigger
-  right: 20px !important
-  span
-    // background-color:rgb(0, 0, 0) !important
-    &:before, &:after
-      background-color: rgb(0,0,0) !important
+	right: 20px !important
+	span
+		&:before, &:after
+			background-color: rgb(0,0,0) !important
 
 .cd-main-nav
-  background: rgba(255,255,255,0) !important
-  li
-    a
-      color: #000
-      text-decoration:none !important
-      border-bottom: 2px solid rgba(17,151,211, 0) !important
-      text-align: center !important
-      -webkit-transition:  color 1s, border-color 1s, background-color 1s
-      transition:  color 1s, border-color 1s, background-color 1s
-      &:hover
-        -webkit-backface-visibility: hidden
-        backface-visibility: hidden
-        opacity: 1 !important
-        background-color: #1197d3
-        color:#fff
-    .cd-subnav-trigger
-      border-color: rgba(17,151,211, 0) !important
-      border-radius:none !important
+	background: rgba(255,255,255,0) !important
+	li
+		a
+			color: #000
+			text-decoration:none !important
+			border-bottom: 2px solid rgba(17,151,211, 0) !important
+			text-align: center !important
+			-webkit-transition:  color 1s, border-color 1s, background-color 1s
+			transition:  color 1s, border-color 1s, background-color 1s
+			&:hover
+				-webkit-backface-visibility: hidden
+				backface-visibility: hidden
+				opacity: 1 !important
+				background-color: #1197d3
+				color:#fff
+			span
+				margin: 0 5px
+			.badge
+				vertical-align: initial
+				margin: 0
+				font-size: 10px
+		.cd-subnav-trigger
+			border-color: rgba(17,151,211, 0) !important
+			border-radius:none !important
 
-      &:hover
-        &:before, &:after
-          background-color: #fff
-          -webkit-transition: all 1s
-          transition: all 1s
-    ul
-      background-color:rgb(255,255,255) !important
-      .go-back
-        a
-          -webkit-transition: all 1s
-          transition: all 1s
-          &:hover
-            &:before, &:after
-              background-color: #fff
-              -webkit-transition: all 1s
-              transition: all 1s
+			&:hover
+				&:before, &:after
+					background-color: #fff
+					-webkit-transition: all 1s
+					transition: all 1s
+		ul
+			background-color:rgb(255,255,255) !important
+			.go-back
+				a
+					-webkit-transition: all 1s
+					transition: all 1s
+					&:hover
+						&:before, &:after
+							background-color: #fff
+							-webkit-transition: all 1s
+							transition: all 1s
 
 
 #app
-  header
-    background:none !important
-    position: absolute
-    box-shadow: none
-  .cd-main-content
-    min-height: 100vh !important
-    padding-top: 90px !important
+	header
+		background:none !important
+		position: absolute
+		box-shadow: none
+	.cd-main-content
+		min-height: 100vh !important
+		padding-top: 90px !important
 
 @media only screen and (min-width: 1024px)
-  .cd-main-nav
-    li
-      a
-        color: #000
-        text-decoration:none !important
-        border-bottom: 2px solid rgba(17,151,211, 0) !important
-        text-align: center !important
-        -webkit-transition:  color 1s, border-color 1s, background-color 1s
-        transition:  color 1s, border-color 1s, background-color 1s
-        &:hover
-          -webkit-backface-visibility: hidden
-          backface-visibility: hidden
-          opacity: 1 !important
-          color: #337ab7 !important
-          border-bottom: 2px solid #1197d3 !important
-          background-color: transparent
-    .cd-subnav-trigger
-      border-color: #000 !important
-      border-radius:none !important
-      &:before, &:after
-        background-color: #000
-        -webkit-transition: all 1s
-        transition: all 1s
-      &:hover
-        &:before, &:after
-          background-color: #4384bc !important
+	.cd-main-nav
+		li
+			a
+				color: #000
+				text-decoration:none !important
+				border-bottom: 2px solid rgba(17,151,211, 0) !important
+				text-align: center !important
+				-webkit-transition:  color 1s, border-color 1s, background-color 1s
+				transition:  color 1s, border-color 1s, background-color 1s
+				&:hover
+					-webkit-backface-visibility: hidden
+					backface-visibility: hidden
+					opacity: 1 !important
+					color: #337ab7 !important
+					border-bottom: 2px solid #1197d3 !important
+					background-color: transparent
+		.cd-subnav-trigger
+			border-color: #000 !important
+			border-radius:none !important
+			&:before, &:after
+				background-color: #000
+				-webkit-transition: all 1s
+				transition: all 1s
+			&:hover
+				&:before, &:after
+					background-color: #4384bc !important
 
+.cart-act
+	button
+		margin: 0 2px
 
 .input-daterange .input-group-addon
-  width: 35px !important
+	width: 35px !important
 
 .open
-  .dropdown-menu
-    width: auto !important
-    padding: 0 !important
-    min-width: 0px !important
-    li
-      a
-        padding: 0.8em !important
+	.dropdown-menu
+		width: auto !important
+		padding: 0 !important
+		min-width: 0px !important
+		height: auto
+		li
+			width: 100%
+			a
+				padding: 0.8em !important
 
 
 .acc-group
-  a.btn.btn-link.btn-block
-    padding: 10px 0;
+	a.btn.btn-link.btn-block
+		padding: 10px 0;
 
 
 /* clear fix */
 .grid
-  &:after
-    content: ''
-    display: block
-    clear: both
+	&:after
+		content: ''
+		display: block
+		clear: both
 
 /* ---- .grid-item ---- */
 
 .grid-sizer,.grid-item
-  width: 33.333%
+	width: 33.333%
 
 .grid-item
-  float: left
-  padding: 5px
-
+	float: left
+	padding: 20px 5px
 
 .grid-item img
-  display: block
-  width: 100%
+	display: block
+	width: 100%
+	height: 100%
 
 .grid-intro
-  a
-    &:focus
-      text-decoration: none
-    h3
-      text-transform: capitalize
-  .col-md-5
-    i
-      margin-right: 10px
-    h5
-      display: inline-block
-  .col-md-7
-    text-align: center
-    h3
-      color: red
-      margin-top: 10px
+	a
+		&:focus
+			text-decoration: none
+		h3
+			text-transform: capitalize
+	.schedule
+		i
+			margin-right: 10px
+		h5
+			display: inline-block
+	.price
+		text-align: center
+		h3
+			color: red
+			margin-top: 10px
+		.action
+			a
+				margin: 0 2px
+				padding: 2px 24px
+				font-size: 17px
+				background-color: transparent !important
+				i
+					color: #2780e3 !important
+
+
+
+
 
 
 
 .RegisterBox form #pass-strength-result
-  border: 1px solid #DDD
-  text-align: center
-  margin: 1 px 0
-  width: 100%
-  font-size: 14px
-  background-color: #f7f7f7
-  display: block
-  &.bad
-    background-color: #ffb78c
-    font-weight: bold
-    border-color: #ff853c !important
-  &.good
-    background-color: #ffec8b
-    font-weight: bold
-    border-color: #ffcc00 !important
-  &.short
-    background-color: #ffa0a0
-    font-weight: bold
-    border-color: #f04040 !important
-  &.strong
-    background-color: #c3ff88
-    font-weight: bold
-    border-color: #8dff1c !important
+	border: 1px solid #DDD
+	text-align: center
+	margin: 1 px 0
+	width: 100%
+	font-size: 14px
+	background-color: #f7f7f7
+	display: block
+	&.bad
+		background-color: #ffb78c
+		font-weight: bold
+		border-color: #ff853c !important
+	&.good
+		background-color: #ffec8b
+		font-weight: bold
+		border-color: #ffcc00 !important
+	&.short
+		background-color: #ffa0a0
+		font-weight: bold
+		border-color: #f04040 !important
+	&.strong
+		background-color: #c3ff88
+		font-weight: bold
+		border-color: #8dff1c !important

@@ -1,33 +1,46 @@
 @extends('layouts.admain')
 
-@section('title', ' View Vehicle')
+@section('title', ' View Customer')
 
 @section('content')
     <div class="right_col" role="main">
         <div class="row">
+            <h1>Chi tiết đơn hàng</h1>
             <div class="col-md-8">
-                <h1>{{ $vehicle->name }}</h1>
-                <p class="lead">Introduce: {{ $vehicle->introduce }}</p>
+               <div class="panel panel-default">
+                    <div class="panel-body">
+                        <ul class="list-group">
+                        @foreach($customers->cart->items as $item)
+                        <li class="list-group-item"><span class="badge">Giá: {{ number_format($item['price']) }} VNĐ</span>
+                        {{ $item['item']['name'] }} | {{ $item['qty'] }} Vé
+                        </li>
+                        @endforeach
+                        </ul>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <strong>Tổng giá: {{ number_format($customers->cart->totalPrice) }} VNĐ</strong>
+                    </div>
+                </div>
             </div>
 
             <div class="col-md-4">
                 <div class="well">
                     <div class="row">
-                        <div class="col-sm-6">
-                            {!! Html::linkRoute('vehicle.edit', 'Edit', array($vehicle->id), array('class' => 'btn btn-primary btn-block')) !!}
-                        </div>
-                        <div class="col-sm-6">
-                            {!! Form::open(['route' => ['vehicle.destroy', $vehicle->id], 'method' => 'DELETE']) !!}
-                            
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-block']) !!}
-
-                            {!! Form::close() !!}
-                        </div>
-                    </div>
-
-                    <div class="row">
+                        <div class="col-sm-12">
+							<span class="lead">Tình trạng: </span>
+							<span class="lead">{{$customers->status}}</span>
+						</div>
+                        <div class="clearfix"></div>
+						<hr>
+						<div class="col-sm-12">
+							<a href="{{ route('customer.edit', $customers->id) }}" class="btn btn-primary btn-block">
+								Sửa
+							</a>
+						</div>
                         <div class="col-md-12">
-                            {{ Html::linkRoute('vehicle.index', '<< See All Vehicle', array(), ['class' => 'btn btn-default btn-block btn-h1-spacing']) }}
+                            <a href="{{ route('customer.index') }}" class="btn btn-info btn-block btn-h1-spacing">
+								<h4><i class="fa fa-angle-double-left"></i> Xem tất cả</h4>
+							</a>
                         </div>
                     </div>
 

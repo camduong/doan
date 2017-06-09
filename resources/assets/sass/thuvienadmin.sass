@@ -14,18 +14,24 @@ body
 	min-height: auto
 
 .wizard-container
-	padding-top: 70px
-	padding-bottom: 55px
+	padding-top: 0px
+	padding-bottom: 0px
 
 .right_col.right-hei
 	min-height: 675px !important
 
-.btn-create-tour
+button.btn.btn-lg.btn-primary.btn-h1-spacing
 	display: block
 	margin: 6px 0 0
 
 .datepicker-dropdown
   font-weight: 600;
+
+.nav-sm footer
+  margin-left: 0px
+
+.moving-tab
+    width: 33.3333% !important
 
 .datepicker
   div
@@ -38,7 +44,16 @@ body
         	color: rgba(120, 120, 120, 0.73) !important
 
 .nav-md .container.body .right_col
-	padding: 10px 20px
+	padding: 60px 20px 50px
+
+.right_col
+	min-height: 100vh !important
+
+#myModal
+	padding: 0px !important
+
+button.btn.btn-lg.btn-primary.btn-h1-spacing
+    width: 100%
 
 footer.footer_fixed
 	position: fixed
@@ -49,6 +64,7 @@ footer.footer_fixed
 	background-color: #172d44
 	color: #2ca8ff
 
+
 @media (min-width: 992px)
 	footer
 		margin-left: 0px
@@ -56,3 +72,29 @@ footer.footer_fixed
 .site_title
 	padding: 10px 5px
 	text-align: center
+
+.sidebar-footer a
+	width: 50% !important
+	height: 35px
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover
+	background-color: inherit
+
+.nav-pills>li+li
+	margin-left: 0px !important
+
+.tab-pane.fade
+	overflow-y: scroll
+	height: 480px
+
+table.dataTable
+	tbody
+		th, td
+			vertical-align: middle
+
+@media (min-width: 768px)
+	.dl-horizontal
+		dt
+			width: auto
+		dd
+	    margin-left: 128px

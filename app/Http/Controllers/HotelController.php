@@ -7,12 +7,8 @@ use App\Location;
 use Illuminate\Http\Request;
 use Session;
 
-class HotelCOntroller extends Controller
+class HotelController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -29,22 +25,6 @@ class HotelCOntroller extends Controller
         }
         return view('hotel.index')->withHotels($hotels)
                                   ->withLocations($loca);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $locations = Location::all();
-        $loca = [];
-        foreach($locations as $location)
-        {
-            $loca[$location->id] = $location->name;
-        }
-        return view('hotel.create')->withLocations($loca);
     }
 
     /**
@@ -70,18 +50,6 @@ class HotelCOntroller extends Controller
 
         Session::flash('success', 'The new hotel was sucessfully save!');
         return redirect()->route('hotel.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $hotel = Hotel::find($id);
-        return view('hotel.show')->withHotel($hotel);
     }
 
     /**

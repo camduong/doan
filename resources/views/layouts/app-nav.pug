@@ -1,27 +1,34 @@
 header
 	.cd-logo
 		a(href='/')
-			img(src='../img/logo.png', alt='Logo')
+			img(src='../img/logo_nui.png', alt='Logo')
 	nav.cd-main-nav-wrapper
 		ul.cd-main-nav
 			li
-				a(href='/') Trang chủ
+				a(href='/')
+					i.fa.fa-home(aria-hidden='true')
+					span Trang chủ Tao
 			li
-				a(href='/tour') Chuyến đi
-			li
-				a(href='/detail') Chi tiết chuyến đi
+				a(href='/tour')
+					i.fa.fa-paper-plane(aria-hidden='true')
+					span Chuyến đi
 			li
 				a.cd-subnav-trigger(href='#0')
-					span Menu
+					i.fa.fa-user(aria-hidden='true')
+					span Tài khoản
 				ul
 					li.go-back
 						a(href='#0') Menu
 
 					if (Auth::guest())
 						li.nav-item
-							a.nav-link(href='', data-toggle='modal', data-target='#login') Đăng nhập
+							a.nav-link(href='', data-toggle='modal', data-target='#login')
+								i.fa.fa-sign-in(aria-hidden="true")
+								span Đăng nhập
 						li.nav-item
-							a.nav-link(href='', data-toggle='modal', data-target='#register') Đăng ký
+							a.nav-link(href='', data-toggle='modal', data-target='#register')
+								i.fa.fa-user-plus(aria-hidden="true")
+								span Đăng ký
 					else
 						li.dropdown
 							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')=Auth::user()->name
@@ -29,6 +36,7 @@ header
 								span.caret
 							ul.dropdown-menu.dropdown-logout(role='menu')
 								li
+									i.fa.fa-sign-out(aria-hidden="true")
 									a(href= route('user.logout.submit'), onclick="event.preventDefault();document.getElementById('logout-form').submit();") Logout
 									form#logout-form(action=route('user.logout.submit'), method='POST', style='display: none;')
 										div!=csrf_field()
@@ -73,7 +81,6 @@ div
 									| Don't have an account?
 									br
 									| Register now!
-
 
 div
 	#register.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')

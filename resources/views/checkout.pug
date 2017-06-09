@@ -1,0 +1,30 @@
+extends layouts/app-wels
+block content
+
+	main.cd-main-content.main-user.main-checkout
+		.container
+			.row.warp-check
+				h1 Thanh toán
+				span Tổng tiền:&nbsp;&nbsp;
+					h3(style="color: red; display: inline-block")=number_format($price)
+						| &nbsp;VNĐ
+				form#checkout-form(action=route('checkout'), method="post")
+					#charge-error.alert.alert-danger(class=(!Session::has('error') ? 'hidden' : ''))=(Session::get ('error'))
+
+					div
+						.form-group
+							label(for="name") Tên
+							input#name.form-control(type="text", required, name="name", value=(Auth::user()->f_name.' '.Auth::user()->l_name))
+
+						.form-group
+							label(for="address") Địa chỉ
+							input#address.form-control(type="text",required, name="address",value=(Auth::user()->address)))
+
+						.form-group
+							label(for="phone") Điện thoại
+							input#phone.form-control(type="text",required, name="phone",value=(Auth::user()->phone)))
+					div!=csrf_field()
+					div.text-right
+						button.btn.btn-success(type="submit") Mua ngay
+
+	include layouts/app-wels-footer
