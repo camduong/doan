@@ -11,9 +11,13 @@ script(type='text/javascript', src='//s7.addthis.com/js/300/addthis_widget.js#pu
 script(type='text/javascript', src='../js/cartcontroller.js')
 script(type='text/javascript', src='../js/jquery.dotdotdot.min.js')
 script(type='text/javascript').
-	$(document).ready(function(){
+
+	$('#shopping').on('shown.bs.modal', function(){
 		$('.h-c').dotdotdot({
 			height: 30,
 			width: 30,
 		});
+	})
+	$('.h-g-intro').dotdotdot({
+		height: 30,
 	});
