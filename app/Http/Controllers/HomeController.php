@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Regions;
 use App\Tour;
 use App\Cart;
@@ -207,7 +208,7 @@ class HomeController extends Controller
         return response()->json(true);
     }
 
-	public function getProfile()
+	public function getHistory()
     {
         $orders = Auth::user()->orders;
         $orders->transform(function($order, $key) {
@@ -215,6 +216,30 @@ class HomeController extends Controller
             return $order;
         });
 		$cart = $this->Cart();
-        return view('profile')->withOrders($orders)->withCarts($cart->items)->withPrice($cart->totalPrice);
+        return view('history')->withOrders($orders)->withCarts($cart->items)->withPrice($cart->totalPrice);
+    }
+
+		public function getProfile()
+		{
+			$user = Auth::user();
+			$user->phone = trim($user->phone,'+84');
+			return view('profile', ['user' => $user]);
+		}
+
+		public function updateProfile(Request $request, $id)
+    {
+        $users = User::find($id);
+
+				$users->f_name = $request->input("f_name");
+				$users->l_name = $request->input("l_name");
+				$users->email = $request->input("email");
+				$users->phone = '+84'.$request->input("phone");
+				$users->p_code = $request->input("p_code");
+				$users->gender = $request->input("gender");
+				$users->birthday = date('Y/m/d', strtotime($request->input('birthday')));
+        $users->address = $request->input("address");
+        $users->save();
+				
+        return redirect()->route('home');
     }
 }

@@ -49,6 +49,10 @@ header
 								li
 									a(href=route('user.profile'))
 										i.fa.fa-list-ul(aria-hidden="true")
+										span &nbsp;Trang quản lí thông tin
+								li
+									a(href=route('user.history'))
+										i.fa.fa-list-ul(aria-hidden="true")
 										span &nbsp;Lịch sử giao dịch
 								li
 									a(href= route('user.logout.submit'), onclick="event.preventDefault();document.getElementById('logout-form').submit();")
