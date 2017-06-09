@@ -11,6 +11,8 @@ use App\Order;
 use App\Location;
 use Auth;
 use Session;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class HomeController extends Controller
 {
@@ -224,7 +226,7 @@ class HomeController extends Controller
 			$user = Auth::user();
 			$user->phone = trim($user->phone,'+84');
 			$cart = $this->Cart();
-			return view('profile')->withUser($user)->withCarts($cart->items)->withPrice($cart->totalPrice);
+			return view('profile_2')->withUser($user)->withCarts($cart->items)->withPrice($cart->totalPrice);
 		}
 
 		public function updateProfile(Request $request, $id)
@@ -243,4 +245,23 @@ class HomeController extends Controller
 				
         return redirect()->route('home');
     }
+
+		public function changePassword(Request $request, $id)
+		{
+			$user = User::find($id);
+      if(bcrypt($request->input('oldpassword')) == $user->password) {
+				$errors = ['oldpassword' => 'Sai password cũ'];
+				return redirect()->back()->withErrors($errors);
+			}
+			else
+			{
+				$this->validate($request, array(
+					'password'  => 'required|min:6|confirmed',
+					'password_confirmation' => 'required|min:6'
+				));
+			}			
+			$user->password = bcrypt($request->password);
+			$user->save();
+			return redirect()->route('home');
+		}
 }

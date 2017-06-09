@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/checkout', 'HomeController@postCheckout')->name('checkout');
     Route::get('/profile', 'HomeController@getProfile')->name('user.profile');
     Route::post('/profile/{id}', 'HomeController@updateProfile')->name('updateProfile');
+    Route::post('/changepass/{id}', 'HomeController@changePassword')->name('changePassword');
 });
 Route::group(['middleware' => 'adminrole'], function(){
     Route::prefix('admin')->group(function(){
