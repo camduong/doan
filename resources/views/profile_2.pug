@@ -93,20 +93,20 @@ block content
 									#detailtour.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab')
 										form.reg(role='form', method='POST', action=route('changePassword',$user->id))
 											div!=csrf_field()
-											.col-md-6.col-sm-6.col-xs.reg_form_margin
+											.col-md-12.col-sm-12.col-xs.reg_form_margin
 													.form-group(class= $errors->has('oldpassword') ? ' has-error' : '')
 														input(class=('oldpassword')).form-control(type='password', placeholder=('Mật khẩu cũ'), name=('oldpassword'), required='required', autofocus='autofocus')
 														if ($errors->has('oldpassword'))
 															span.help-block
 																strong=$errors->first('oldpassword')
-											.col-md-6.col-sm-6.col-xs.reg_form_margin
-													.form-group(class= )
+											.col-md-12.col-sm-12.col-xs.reg_form_margin
+													.form-group(class= $errors->has('password') ? ' has-error' : '')
 														input(class=('password')).form-control(type='password', placeholder=('Mật khẩu mới'), name=('password'), required='required', autofocus='autofocus')
 														if ($errors->has('password'))
 															span.help-block
 																strong=$errors->first('password')
-											.col-md-6.col-sm-6.col-xs.reg_form_margin
-													.form-group(class= )
+											.col-md-12.col-sm-12.col-xs.reg_form_margin
+													.form-group(class= $errors->has('password_confirmation') ? ' has-error' : '')
 														input(class=('password_confirmation')).form-control(type='password', placeholder=('Xác nhận mật khẩu mới'), name=('password_confirmation'), required='required', autofocus='autofocus')
 														if ($errors->has('password_confirmation'))
 															span.help-block

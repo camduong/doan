@@ -13,6 +13,7 @@ use Auth;
 use Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -249,17 +250,17 @@ class HomeController extends Controller
 		public function changePassword(Request $request, $id)
 		{
 			$user = User::find($id);
-      if(bcrypt($request->input('oldpassword')) == $user->password) {
+			// var_dump($user->password);
+			// var_dump(Hash::make($request->oldpassword));
+			// die;
+      if(!Auth::guard()->attempt(['password' => $request->oldpassword])) {
 				$errors = ['oldpassword' => 'Sai password cũ'];
 				return redirect()->back()->withErrors($errors);
 			}
-			else
-			{
-				$this->validate($request, array(
-					'password'  => 'required|min:6|confirmed',
-					'password_confirmation' => 'required|min:6'
-				));
-			}			
+			$this->validate($request, array(
+				'password'  => 'required|min:6|confirmed',
+				'password_confirmation' => 'required|min:6'
+			));	
 			$user->password = bcrypt($request->password);
 			$user->save();
 			return redirect()->route('home');
