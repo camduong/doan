@@ -227,7 +227,7 @@ class HomeController extends Controller
 			$user = Auth::user();
 			$user->phone = trim($user->phone,'+84');
 			$cart = $this->Cart();
-			return view('profile_2')->withUser($user)->withCarts($cart->items)->withPrice($cart->totalPrice);
+			return view('profile')->withUser($user)->withCarts($cart->items)->withPrice($cart->totalPrice);
 		}
 
 		public function updateProfile(Request $request, $id)
@@ -243,7 +243,7 @@ class HomeController extends Controller
 				$users->birthday = date('Y/m/d', strtotime($request->input('birthday')));
         $users->address = $request->input("address");
         $users->save();
-				
+
         return redirect()->route('home');
     }
 
