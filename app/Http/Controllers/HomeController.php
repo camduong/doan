@@ -166,20 +166,6 @@ class HomeController extends Controller
 		return redirect()->route('home')->with('success', 'Successfully purchased products!');
 	}
 
-	public function getReduceByOne($id)
-    {
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        $cart->reduceByOne($id);
-
-        if(count($cart->items) > 0) {
-            Session::put('cart', $cart);
-        } else {
-            Session::forget('cart');
-        }
-        return redirect()->back();
-    }
-
     public function getUpdate(Request $request)
     {
 		if($request->ajax())

@@ -9,6 +9,7 @@ use App\Hotel;
 use App\Location;
 use App\Vehicle;
 use Session;
+use Image;
 use Purifier;
 
 class TourController extends Controller
@@ -56,7 +57,7 @@ class TourController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, UploadRequest $uprequest)
+    public function store(Request $request)
     {
         //store in the database
         $tour = new Tour;
@@ -74,6 +75,16 @@ class TourController extends Controller
         $tour->day = (strtotime($tour->return_date) - strtotime($tour->depart_date)) / (60 * 60 * 24) + 1;
         $tour->price = $request->price;
         $tour->schedule = Purifier::clean($request->schedule);
+        if($request->hasFile('tour_image'))
+        {
+            $image = $request->file('tour_image');
+            if($image->getClientOriginalExtension() == 'jpg' or $image->getClientOriginalExtension() == 'png')
+                $filename = $tour->slug . '.' . $image->getClientOriginalExtension();
+            else
+                $filename = $tour->slug . '.' . $image->encode('png');
+            $location = public_path("img/". $filename);
+            Image::make($image)->resize(400,250)->save($location);
+        }
         $tour->save();
         
         Session::flash('success', 'The tour was sucessfully save!');
@@ -153,6 +164,16 @@ class TourController extends Controller
         $tour->day = (strtotime($tour->return_date) - strtotime($tour->depart_date)) / (60 * 60 * 24) + 1;
         $tour->price = $request->input('price');
         $tour->schedule = Purifier::clean($request->input('schedule'));
+        if($request->hasFile('tour_image'))
+        {
+            $image = $request->file('tour_image');
+            if($image->getClientOriginalExtension() == 'jpg' or $image->getClientOriginalExtension() == 'png')
+                $filename = $tour->slug . '.' . $image->getClientOriginalExtension();
+            else
+                $filename = $tour->slug . '.' . $image->encode('png');
+            $location = public_path("img/". $filename);
+            Image::make($image)->resize(400,250)->save($location);
+        }
         $tour->save();
         //set flash data with success message
         Session::flash('success', 'This tour was successfully saved.');
