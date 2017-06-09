@@ -52,7 +52,7 @@ header
 									span &nbsp;Trang chủ Admin
 						li.nav-item
 							a.nav-link(href=route('user.profile'))
-								i.fa.fa-list-ul(aria-hidden="true")
+								i.fa.fa-address-card(aria-hidden="true")
 								span &nbsp;Trang thông tin cá nhân
 						li.nav-item
 							a.nav-link(href=route('user.history'))
@@ -101,7 +101,7 @@ div
 								button.btn.btn-success.btn-block(type='submit') Login
 								a.btn.btn-link.btn-block(href=route('password.request')) Forgot Your Password?
 								p.text-center(style='margin:0;') - or -
-								a.btn.btn-link.btn-block(href=route('register'))
+								a.btn.btn-link.btn-block(type='button', data-dismiss="modal",data-toggle='modal', data-target='#register')
 									| Don't have an account?
 									br
 									| Register now!
@@ -168,7 +168,7 @@ div
 											strong=$errors->first('phone')
 						.sub-reg
 							.col-md-12
-								a.back-logout.col-md-4.col-sm-3.col-xs.btn.btn-warning(href=route('home'), type='submit') Quay lại
+								a.back-logout.col-md-4.col-sm-3.col-xs.btn.btn-warning(type='submit', data-dismiss="modal") Quay lại
 								button#reg_btn.col-md-4.col-sm-3.col-xs.btn.btn-success(type='submit')  Đăng ký
 
 div

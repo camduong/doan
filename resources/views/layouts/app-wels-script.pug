@@ -20,3 +20,6 @@ script(type='text/javascript').
 	$('.h-g-intro').dotdotdot({
 		height: 30,
 	});
+	$('.modal').on('hidden.bs.modal', function(){
+		$('body').removeAttr('style');
+	})
