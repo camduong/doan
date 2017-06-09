@@ -53,6 +53,10 @@ header
 						li.nav-item
 							a.nav-link(href=route('user.profile'))
 								i.fa.fa-list-ul(aria-hidden="true")
+								span &nbsp;Trang thông tin cá nhân
+						li.nav-item
+							a.nav-link(href=route('user.history'))
+								i.fa.fa-list-ul(aria-hidden="true")
 								span &nbsp;Lịch sử giao dịch
 						li.nav-item
 							a.nav-link(href= route('user.logout.submit'), onclick="event.preventDefault();document.getElementById('logout-form').submit();")
