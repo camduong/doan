@@ -223,7 +223,8 @@ class HomeController extends Controller
 		{
 			$user = Auth::user();
 			$user->phone = trim($user->phone,'+84');
-			return view('profile', ['user' => $user]);
+			$cart = $this->Cart();
+			return view('profile')->withUser($user)->withCarts($cart->items)->withPrice($cart->totalPrice);
 		}
 
 		public function updateProfile(Request $request, $id)
