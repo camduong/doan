@@ -14,7 +14,7 @@
 	<div class="right_col" role="main">
 		<div class="wizard-container">
 			<div class="card wizard-card" data-color="red" id="wizardProfile">
-				{!! Form::model($tour, ['route' => ['tour.update', $tour->id], 'method' => 'PUT']) !!}
+				{!! Form::model($tour, ['route' => ['tour.update', $tour->id], 'method' => 'PUT', 'files' => true]) !!}
 					<div class="wizard-header">
 						<h3>Chỉnh sửa chuyến đi</h3>
 					</div>
@@ -54,6 +54,9 @@
 											<span class="input-to input-group-addon">đến</span>
 										{{ Form:: text('return_date', date('d/m/Y',strtotime($tour->return_date)), ['class' => 'col-md-4 form-control', 'required' => '', 'placeholder' => 'Ngày về']) }}
 									</div>
+									<br>
+									{{ Form::label('tour_image', 'Ảnh đại diện:') }}
+									{{ Form::file('tour_image') }}
 								</div>
 							</div>
 						</div>

@@ -20,7 +20,7 @@ Route::get('tour/{name}={slug}', ['as' => 'tour.location', 'uses' => 'HomeContro
 Route::get('/login','Auth\UserLoginController@showLoginForm')->name('user.login');
 Route::post('login','Auth\UserLoginController@login')->name('user.login.submit');
 Route::post('logout','Auth\UserLoginController@logout')->name('user.logout.submit');
-Route::get('/profile','HomeController@getProfile')->name('user.profile');
+Route::get('/history','HomeController@getHistory')->name('user.history');
 Route::get('/shopping/{id}', 'HomeController@addShoppingCart')->name('addShoppingCart');
 Route::get('/shopping-cart', 'HomeController@getCart')->name('shoppingCart');
 Route::post('/update', 'HomeController@getUpdate')->name('update');
@@ -29,6 +29,8 @@ Route::post('/deleteall', 'HomeController@getRemoveAll')->name('removeAll');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/checkout', 'HomeController@getCheckout')->name('checkout');
     Route::post('/checkout', 'HomeController@postCheckout')->name('checkout');
+    Route::get('/profile', 'HomeController@getProfile')->name('user.profile');
+    Route::post('/profile/{id}', 'HomeController@updateProfile')->name('updateProfile');
 });
 Route::group(['middleware' => 'adminrole'], function(){
     Route::prefix('admin')->group(function(){

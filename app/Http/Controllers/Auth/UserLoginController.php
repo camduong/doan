@@ -32,14 +32,19 @@ class UserLoginController extends Controller
         if(Auth::guard()->attempt(['email' => $request->email, 'password' => $request->password], $request->remember))
         {
              //If successful, then redirect to their intended location
-            if(!Session::has('cart')) {
-                return redirect()->back();
-            } else
+            if(Auth::user()->role == 'admin')
+                return redirect()->route('admin.dashboard');
+            else
             {
-                $oldCart = Session::get('cart');
-                $cart = new Cart($oldCart);
-                $total = $cart->totalPrice;
-                return redirect('/checkout')->withCarts($cart->items)->withPrice($total);
+                if(!Session::has('cart')) {
+                    return redirect()->back();
+                } else
+                {
+                    $oldCart = Session::get('cart');
+                    $cart = new Cart($oldCart);
+                    $total = $cart->totalPrice;
+                    return redirect('/checkout')->withCarts($cart->items)->withPrice($total);
+                }
             }
         }
 

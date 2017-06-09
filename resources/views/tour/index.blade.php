@@ -71,6 +71,8 @@
 												{{ Form:: text('return_date', \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y'), ['class' => 'col-md-4 form-control', 'placeholder' => 'Ngày về']) }}
 											</div>
 											<br>
+											{{ Form::label('tour_image', 'Ảnh đại diện:') }}
+											{{ Form::file('tour_image') }}
 										</div>
 									</div>
 								</div>
